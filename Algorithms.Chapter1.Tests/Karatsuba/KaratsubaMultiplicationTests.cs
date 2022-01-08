@@ -1,6 +1,7 @@
 using Xunit;
+using Algorithms.Chapter1.Multiplication;
 
-namespace Algorithms.Chapter1.Tests
+namespace Algorithms.Chapter1.Tests.Karatsuba
 {
     public class KaratsubaMultiplicationTests
     {
