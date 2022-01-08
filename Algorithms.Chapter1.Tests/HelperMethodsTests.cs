@@ -1,5 +1,4 @@
 ﻿using Xunit;
-using Algorithms.Chapter1;
 
 namespace Algorithms.Chapter1.Tests
 {
@@ -9,7 +8,7 @@ namespace Algorithms.Chapter1.Tests
         public void GetNumOfDigits_FiveDigitNumber_ReturnsFive()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long num = 12345;
             long expectedResult = 5;
@@ -22,7 +21,7 @@ namespace Algorithms.Chapter1.Tests
         public void GetNumOfDigits_FiveDigitNegativeNumber_ReturnsFive()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long num = -12345;
             long expectedResult = 5;
@@ -37,7 +36,7 @@ namespace Algorithms.Chapter1.Tests
         public void GetNumOfDigits_OneDigitNumber_ReturnsOne()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long num = 9;
             long expectedResult = 1;
@@ -51,7 +50,7 @@ namespace Algorithms.Chapter1.Tests
         public void GetNumOfDigits_NumberZero_ReturnsOne()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long num = 0;
             long expectedResult = 1;
@@ -65,7 +64,7 @@ namespace Algorithms.Chapter1.Tests
         public void FirstPartOfNumber_NumberWith2DigitsLastPartLength1_ReturnsFirstPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 12;
             long expectedResult = 1;
@@ -79,7 +78,7 @@ namespace Algorithms.Chapter1.Tests
         public void FirstPartOfNumber_NumberWith2DigitsLastPartLength2_ReturnsFirstPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 12;
             long expectedResult = 0;
@@ -93,7 +92,7 @@ namespace Algorithms.Chapter1.Tests
         public void FirstPartOfNumber_NumberWith3DigitsLastPartLength1_ReturnsFirstPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 123;
             long expectedResult = 12;
@@ -109,7 +108,7 @@ namespace Algorithms.Chapter1.Tests
         public void FirstPartOfNumber_NumberWith3DigitsLastPartLength2_ReturnsFirstPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 123;
             long expectedResult = 1;
@@ -124,7 +123,7 @@ namespace Algorithms.Chapter1.Tests
         public void FirstPartOfNum_NumberWith1DigitLastPartLength1_ReturnsFirstPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 1;
             long expectedResult = 0;
@@ -139,7 +138,7 @@ namespace Algorithms.Chapter1.Tests
         public void LastPartOfNum_NumberWith1DigitLastPartLength1_ReturnsLastPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 1;
             long expectedResult = 1;
@@ -155,7 +154,7 @@ namespace Algorithms.Chapter1.Tests
         public void LastPartOfNum_NumberWith2DigitsLastPartLength1_ReturnsLastPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 12;
             long expectedResult = 2;
@@ -170,7 +169,7 @@ namespace Algorithms.Chapter1.Tests
         public void LastPartOfNum_NumberWith3DigitsLastParthLength2_ReturnsLastPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 123;
             long expectedResult = 23;
@@ -184,7 +183,7 @@ namespace Algorithms.Chapter1.Tests
         public void LastPartOfNum_NumberWith3DigitsLastParthLength1_ReturnsLastPart()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 123;
             long expectedResult = 3;
@@ -199,7 +198,7 @@ namespace Algorithms.Chapter1.Tests
         public void AddZeros_AddTwoZeros_AddsZeros()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 1;
             int numberOfZerosToAdd = 2;
@@ -214,7 +213,7 @@ namespace Algorithms.Chapter1.Tests
         public void AddZeros_AddZeroZeros_AddsZeros()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 1;
             int numberOfZerosToAdd = 0;
@@ -229,7 +228,7 @@ namespace Algorithms.Chapter1.Tests
         public void AddZeros_AddZerosToZero_AddsZeros()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            HelperMethods helperMethods = new();
 
             long number = 0;
             int numberOfZerosToAdd = 2;

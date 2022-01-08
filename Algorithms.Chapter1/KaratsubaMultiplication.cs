@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithms.Chapter1
+﻿namespace Algorithms.Chapter1
 {
     public class KaratsubaMultiplication
     {
-        HelperMethods helperMethods = new HelperMethods();
+        HelperMethods helperMethods = new();
 
         // THIS METHOD COMPUTES MULTIPLICATION OF TWO NUMBERS USING THE ALGORITHM GIVEN BELOW
 

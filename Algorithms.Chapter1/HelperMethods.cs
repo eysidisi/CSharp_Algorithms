@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Algorithms.Chapter1
 {
@@ -14,7 +10,7 @@ namespace Algorithms.Chapter1
 
             string numberInStr = num.ToString();
 
-            StringBuilder strFirstPartOfNum = new StringBuilder();
+            StringBuilder strFirstPartOfNum = new();
 
             for (int strIndex = 0; strIndex < length - lastPartLength; strIndex++)
             {
@@ -37,7 +33,7 @@ namespace Algorithms.Chapter1
 
             string numberInStr = num.ToString();
 
-            StringBuilder strFirstPartOfNum = new StringBuilder();
+            StringBuilder strFirstPartOfNum = new();
 
             for (int strIndex = length - lastPartLength; strIndex < length; strIndex++)
             {
@@ -64,7 +60,7 @@ namespace Algorithms.Chapter1
 
         public long AddZeros(int numberOfZerosToAdd, long inputNumber)
         {
-            string zeros = new string(Enumerable.Repeat('0', numberOfZerosToAdd).ToArray());
+            string zeros = new(Enumerable.Repeat('0', numberOfZerosToAdd).ToArray());
 
             string numberWithZeros = inputNumber.ToString() + zeros;
 

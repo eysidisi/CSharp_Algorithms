@@ -1,5 +1,4 @@
 using Xunit;
-using Algorithms.Chapter1;
 
 namespace Algorithms.Chapter1.Tests
 {
@@ -9,7 +8,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_OneDigitNumbers_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 3;
             long num2 = 2;
@@ -23,7 +22,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_WithOne_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 3345;
             long num2 = 1;
@@ -37,7 +36,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_WithZero_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 3345;
             long num2 = 0;
@@ -51,11 +50,11 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_OneDigitWithTwoDigitNumbers_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 3;
             long num2 = 11;
-            long expectedResult =33;
+            long expectedResult = 33;
 
             // Act
             long actualResult = karatsubaMultiplication.Multiply(num1, num2);
@@ -65,7 +64,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_TwoDigitNumbers_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 23;
             long num2 = 56;
@@ -79,7 +78,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_TwoDigitNumberWithThreeDigitNumber_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 12;
             long num2 = 345;
@@ -93,7 +92,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_TwoDigitNumberWithFiveDigitNumber_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 12;
             long num2 = 34567;
@@ -107,7 +106,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_ThreeDigitNumbers_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 123;
             long num2 = 456;
@@ -121,7 +120,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_FourDigitNumbers_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = 1234;
             long num2 = 5678;
@@ -135,7 +134,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_NegativeNumberWithPositiveNumber_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = -1234;
             long num2 = 5678;
@@ -149,7 +148,7 @@ namespace Algorithms.Chapter1.Tests
         public void Multiply_TwoNegativeNumbers_ReturnsResult()
         {
             // Arrange
-            KaratsubaMultiplication karatsubaMultiplication = new KaratsubaMultiplication();
+            KaratsubaMultiplication karatsubaMultiplication = new();
 
             long num1 = -1234;
             long num2 = -5678;
