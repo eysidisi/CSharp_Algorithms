@@ -25,7 +25,7 @@ namespace Algorithms.Chapter1.Sort
         {
             HelperMethods helperMethods = new HelperMethods();
 
-            if (unsortedArr.Length == 1)
+            if (unsortedArr.Length <= 1)
             {
                 return unsortedArr;
             }
