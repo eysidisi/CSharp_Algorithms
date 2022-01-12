@@ -1,7 +1,7 @@
 ﻿using Xunit;
-using Algorithms.Chapter1.Multiplication;
+using Algorithms.Chapter1.Multiplication.Karatsuba;
 
-namespace Algorithms.Chapter1.Tests.Karatsuba
+namespace Algorithms.Chapter1.Tests.Multiplication.Karatsuba
 {
     public class HelperMethodsTests
     {
@@ -18,7 +18,7 @@ namespace Algorithms.Chapter1.Tests.Karatsuba
             long actualResult = helperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         [Fact]
         public void GetNumOfDigits_FiveDigitNegativeNumber_ReturnsFive()
         {
@@ -32,7 +32,7 @@ namespace Algorithms.Chapter1.Tests.Karatsuba
             long actualResult = helperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         [Fact]
         public void GetNumOfDigits_OneDigitNumber_ReturnsOne()
         {
@@ -46,7 +46,7 @@ namespace Algorithms.Chapter1.Tests.Karatsuba
             long actualResult = helperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         [Fact]
         public void GetNumOfDigits_NumberZero_ReturnsOne()
         {
@@ -60,7 +60,7 @@ namespace Algorithms.Chapter1.Tests.Karatsuba
             long actualResult = helperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         [Fact]
         public void FirstPartOfNumber_NumberWith2DigitsLastPartLength1_ReturnsFirstPart()
         {
@@ -75,7 +75,7 @@ namespace Algorithms.Chapter1.Tests.Karatsuba
             long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         [Fact]
         public void FirstPartOfNumber_NumberWith2DigitsLastPartLength2_ReturnsFirstPart()
         {
@@ -90,7 +90,7 @@ namespace Algorithms.Chapter1.Tests.Karatsuba
             long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         [Fact]
         public void FirstPartOfNumber_NumberWith3DigitsLastPartLength1_ReturnsFirstPart()
         {

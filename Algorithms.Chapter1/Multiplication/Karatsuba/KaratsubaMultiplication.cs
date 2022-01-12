@@ -1,4 +1,5 @@
-﻿namespace Algorithms.Chapter1.Multiplication
+﻿
+namespace Algorithms.Chapter1.Multiplication.Karatsuba
 {
     public class KaratsubaMultiplication
     {
