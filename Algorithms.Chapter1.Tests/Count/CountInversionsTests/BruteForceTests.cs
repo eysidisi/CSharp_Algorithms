@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Chapter1.Count;
 
-namespace Algorithms.Chapter1.Tests.Count
+namespace Algorithms.Chapter1.Tests.Count.CountInversionsTests
 {
-    public class CountInversionsTests
+    public class BruteForceTests
     {
         [Fact]
-        public void NativeApproach_ArrayWithNoElement_ReturnsZero()
+        public void helperMethodsArrayWithNoElement_ReturnsZero()
         {
             // Arrange
             CountInversions countInversions = new CountInversions();
@@ -19,14 +19,14 @@ namespace Algorithms.Chapter1.Tests.Count
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.NativeApproach(input);
+            int actualOutput = countInversions.BruteForceApproach(input);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
 
         [Fact]
-        public void NativeApproach_ArrayWithOneElement_ReturnsZero()
+        public void helperMethodsArrayWithOneElement_ReturnsZero()
         {
             // Arrange
             CountInversions countInversions = new CountInversions();
@@ -34,14 +34,14 @@ namespace Algorithms.Chapter1.Tests.Count
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.NativeApproach(input);
+            int actualOutput = countInversions.BruteForceApproach(input);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
 
         [Fact]
-        public void NativeApproach_ArrayWithIncreasingElements_ReturnsZero()
+        public void helperMethodsArrayWithIncreasingElements_ReturnsZero()
         {
             // Arrange
             CountInversions countInversions = new CountInversions();
@@ -49,14 +49,14 @@ namespace Algorithms.Chapter1.Tests.Count
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.NativeApproach(input);
+            int actualOutput = countInversions.BruteForceApproach(input);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
 
         [Fact]
-        public void NativeApproach_ArrayWithDecreasingElements_ReturnsInversions()
+        public void helperMethodsArrayWithDecreasingElements_ReturnsInversions()
         {
             // Arrange
             CountInversions countInversions = new CountInversions();
@@ -64,14 +64,14 @@ namespace Algorithms.Chapter1.Tests.Count
             int expectedOutput = 6;
 
             // Act
-            int actualOutput = countInversions.NativeApproach(input);
+            int actualOutput = countInversions.BruteForceApproach(input);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
 
         [Fact]
-        public void NativeApproach_ArrayWithIncreasingAndDecreasingElements_ReturnsInversions()
+        public void helperMethodsArrayWithIncreasingAndDecreasingElements_ReturnsInversions()
         {
             // Arrange
             CountInversions countInversions = new CountInversions();
@@ -79,7 +79,7 @@ namespace Algorithms.Chapter1.Tests.Count
             int expectedOutput = 4;
 
             // Act
-            int actualOutput = countInversions.NativeApproach(input);
+            int actualOutput = countInversions.BruteForceApproach(input);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
