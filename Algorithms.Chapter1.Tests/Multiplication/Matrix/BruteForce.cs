@@ -8,7 +8,7 @@ using Algorithms.Chapter1.Multiplication.Matrix;
 
 namespace Algorithms.Chapter1.Tests.Multiplication.Matrix
 {
-    public class MatrixMultiplicationTests
+    public class BruteForce
     {
         [Fact]
         public void SquareMatrices()
