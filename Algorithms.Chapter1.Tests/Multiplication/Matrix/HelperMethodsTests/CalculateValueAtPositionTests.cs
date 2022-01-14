@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Chapter1.Multiplication.Matrix;
 
-namespace Algorithms.Chapter1.Tests.Multiplication.Matrix
+namespace Algorithms.Chapter1.Tests.Multiplication.Matrix.HelperMethodTests
 {
-    public class BruteForce
+    public class CalculateValueAtPositionTests
     {
         [Fact]
         public void SquareMatrices()
         {
             // Arrange
-            MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
+            HelperMethods helperMethods = new HelperMethods();
 
             var mat1 = new int[,]
             {
@@ -30,24 +30,27 @@ namespace Algorithms.Chapter1.Tests.Multiplication.Matrix
                 { 7, 8, 9 }
             };
 
-            var expectedOutput = new int[,]
-            {
-                { 30 ,36 ,42 },
-                { 66 ,81 ,96 },
-                { 102,126,150 }
-            };
+            //  Multiplication Result
+            //  30  36  42
+            //  66  81  96
+            //  102 126 150
+
+            int rowIndex = 1;
+            int colIndex = 2;
+            int expectedOutput = 96;
 
             // Act
-            var actualOutput = matrixMultiplication.BruteForce(mat1, mat2);
+            int actualOutput = helperMethods.CalculateValueAtPosition(rowIndex, colIndex, mat1, mat2);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
+
         [Fact]
         public void MatricesWithDifferentDimension()
         {
             // Arrange
-            MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
+            HelperMethods helperMethods = new HelperMethods();
 
             var mat1 = new int[,]
             {
@@ -62,14 +65,16 @@ namespace Algorithms.Chapter1.Tests.Multiplication.Matrix
                 { 5, 6 }
             };
 
-            var expectedOutput = new int[,]
-            {
-                { 22 , 28 },
-                { 49 , 64 }
-            };
+            //  Multiplication Result
+            //  22  28
+            //  49  64
+
+            int rowIndex = 0;
+            int colIndex = 1;
+            int expectedOutput = 28;
 
             // Act
-            var actualOutput = matrixMultiplication.BruteForce(mat1, mat2);
+            int actualOutput = helperMethods.CalculateValueAtPosition(rowIndex, colIndex, mat1, mat2);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
