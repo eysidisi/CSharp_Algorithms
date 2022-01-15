@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Chapter1.Sort;
-namespace Algorithms.Chapter1.Count
+using Algorithms.Part1.Sort;
+namespace Algorithms.Part1.Count
 {
     public class CountInversions
     {

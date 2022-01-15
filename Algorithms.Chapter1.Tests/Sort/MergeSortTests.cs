@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Algorithms.Chapter1.Sort;
+using Algorithms.Part1.Sort;
 
-namespace Algorithms.Chapter1.Tests.Sort
+namespace Algorithms.Part1.Tests.Sort
 {
     public class MergeSortTests
     {

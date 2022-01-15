@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Algorithms.Chapter1.Multiplication.Matrix;
+using Algorithms.Part1.Multiplication.Matrix;
 
-namespace Algorithms.Chapter1.Tests.Multiplication.Matrix
+namespace Algorithms.Part1.Tests.Multiplication.Matrix
 {
     public class StrassenAlgorithmTests
     {

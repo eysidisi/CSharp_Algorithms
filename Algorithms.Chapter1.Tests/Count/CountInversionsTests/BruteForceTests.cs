@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Algorithms.Chapter1.Count;
+using Algorithms.Part1.Count;
 
-namespace Algorithms.Chapter1.Tests.Count.CountInversionsTests
+namespace Algorithms.Part1.Tests.Count.CountInversionsTests
 {
     public class BruteForceTests
     {

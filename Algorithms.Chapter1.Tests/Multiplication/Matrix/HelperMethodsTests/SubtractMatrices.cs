@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Chapter1.Multiplication.Matrix;
+using Algorithms.Part1.Multiplication.Matrix;
 using Xunit;
 
-namespace Algorithms.Chapter1.Tests.Multiplication.Matrix.HelperMethodsTests
+namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
 {
     public class SubtractMatrices
     {

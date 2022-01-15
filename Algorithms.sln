@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Chapter1", "Algorithms.Chapter1\Algorithms.Chapter1.csproj", "{DFAD0925-2108-46DE-B5E2-B6DF3C8EB7F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Part1", "Algorithms.Chapter1\Algorithms.Part1.csproj", "{DFAD0925-2108-46DE-B5E2-B6DF3C8EB7F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Chapter1.Tests", "Algorithms.Chapter1.Tests\Algorithms.Chapter1.Tests.csproj", "{F4F35280-33F1-4316-B011-3FB12359A7DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Part1.Tests", "Algorithms.Chapter1.Tests\Algorithms.Part1.Tests.csproj", "{F4F35280-33F1-4316-B011-3FB12359A7DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

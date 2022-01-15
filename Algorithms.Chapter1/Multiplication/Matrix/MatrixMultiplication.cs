@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Chapter1.Multiplication.Matrix
+namespace Algorithms.Part1.Multiplication.Matrix
 {
     public class MatrixMultiplication
     {

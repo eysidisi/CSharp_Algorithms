@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Chapter1.Count;
+using Algorithms.Part1.Count;
 using Xunit;
 
-namespace Algorithms.Chapter1.Tests.Count.CountInversionsTests
+namespace Algorithms.Part1.Tests.Count.CountInversionsTests
 {
     public class DivideAndConquerApproachTests
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Chapter1.Count
+namespace Algorithms.Part1.Count
 {
     public class HelperMethods
     {

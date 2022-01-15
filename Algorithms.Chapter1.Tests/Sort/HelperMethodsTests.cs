@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Chapter1.Sort;
+using Algorithms.Part1.Sort;
 using Xunit;
 
-namespace Algorithms.Chapter1.Tests.Sort
+namespace Algorithms.Part1.Tests.Sort
 {
     public class HelperMethodsTests
     {
