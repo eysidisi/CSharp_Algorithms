@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -34,7 +35,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -50,7 +51,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -66,7 +67,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 1;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -81,7 +82,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -96,7 +97,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 10;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -111,7 +112,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 4;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -126,7 +127,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 0;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -141,7 +142,7 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 6;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -156,7 +157,36 @@ namespace Algorithms.Part1.Tests.Count.CountInversionsTests
             int expectedOutput = 3;
 
             // Act
-            int actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+            var actualOutput = countInversions.DivideAndConquerApproach(ref arr);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Fact]
+        public void ReadFromFile_SomeNumOfInversions()
+        {
+            // Arrange
+            CountInversions countInversions = new CountInversions();
+            string filePath = Directory.GetCurrentDirectory() + @"\Count\CountInversionsTests\TextFiles\FourElements.txt";
+            int expectedOutput = 3;
+
+            // Act
+            var actualOutput = countInversions.DivideAndConquerApproach(filePath);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+        [Fact]
+        public void ReadFromFile_CourseraAssignment()
+        {
+            // Arrange
+            CountInversions countInversions = new CountInversions();
+            string filePath = Directory.GetCurrentDirectory() + @"\Count\CountInversionsTests\TextFiles\CourseraAssignment.txt";
+            var expectedOutput = 2407905288;
+
+            // Act
+            var actualOutput = countInversions.DivideAndConquerApproach(filePath);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);

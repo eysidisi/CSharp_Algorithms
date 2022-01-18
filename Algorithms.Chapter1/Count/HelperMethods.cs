@@ -49,5 +49,19 @@ namespace Algorithms.Part1.Count
 
             return numOfInversions;
         }
+        public int[] ReadInput(string inputFilePath)
+        {
+            var readString = File.ReadAllLines(inputFilePath);
+
+            var output = new int[readString.Length];
+
+            for (int i = 0; i < readString.Length; i++)
+            {
+                output[i] = Convert.ToInt32(readString[i]);
+            }
+
+            return output;
+        }
+
     }
 }

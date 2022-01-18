@@ -24,4 +24,19 @@
     <ProjectReference Include="..\Algorithms.Chapter1\Algorithms.Part1.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Count\CountInversionsTests\TextFiles\CourseraAssignment.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Count\CountInversionsTests\TextFiles\FourElements.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Count\HelperMethodsTests\TextFiles\ThreeElements.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Count\HelperMethodsTests\TextFiles\OneElement.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

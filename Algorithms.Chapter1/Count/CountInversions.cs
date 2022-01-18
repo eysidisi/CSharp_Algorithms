@@ -26,7 +26,7 @@ namespace Algorithms.Part1.Count
             return numOfInversions;
         }
 
-        public int DivideAndConquerApproach(ref int[] arr)
+        public long DivideAndConquerApproach(ref int[] arr)
         {
             Sort.HelperMethods sortHelperMethods = new Sort.HelperMethods();
             HelperMethods helperMethods = new HelperMethods();
@@ -39,14 +39,24 @@ namespace Algorithms.Part1.Count
             }
 
             int[] firstPartOfTheArr = sortHelperMethods.FirstPart(arr);
-            int numberOfFirstPartInversions = DivideAndConquerApproach(ref firstPartOfTheArr);
+            long numberOfFirstPartInversions = DivideAndConquerApproach(ref firstPartOfTheArr);
 
             int[] secondPartOfTheArr = sortHelperMethods.SecondPart(arr);
-            int secondPartNumberOfInversions = DivideAndConquerApproach(ref secondPartOfTheArr);
+            long secondPartNumberOfInversions = DivideAndConquerApproach(ref secondPartOfTheArr);
 
             int numberOfSplittedInversions = helperMethods.MergeAndCountNumberOfInversions(firstPartOfTheArr, secondPartOfTheArr, ref arr);
 
             return numberOfFirstPartInversions + secondPartNumberOfInversions + numberOfSplittedInversions;
         }
+
+        public long DivideAndConquerApproach(string inputFilePath)
+        {
+            HelperMethods helperMethods = new HelperMethods();
+            
+            int[] input = helperMethods.ReadInput(inputFilePath);
+
+            return DivideAndConquerApproach(ref input);
+        }
+
     }
 }

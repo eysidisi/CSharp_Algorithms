@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Part1.Count;
 
-namespace Algorithms.Part1.Tests.Count
+namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
 {
-    public class HelperMethodsTests
+    public class MergeAndCountNumberOfInversionsTests
     {
         [Fact]
         public void ArrayWithOneElement_FirstPartHasZeroElements()
