@@ -24,12 +24,13 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
 
             int followingIndex = leftIndex + 1;
 
-            for (int leadingIndex = followingIndex + 1; leadingIndex <= rightIndex; leadingIndex++)
+            for (int leadingIndex = followingIndex + 1; leadingIndex <= rightIndex && leadingIndex >= followingIndex; leadingIndex++)
             {
                 if (pivotVal > arr[leadingIndex])
                 {
                     Swap(ref arr, followingIndex, leadingIndex);
                     followingIndex++;
+                    leadingIndex--;
                 }
             }
 

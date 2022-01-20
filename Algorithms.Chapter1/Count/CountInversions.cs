@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Algorithms.Part1.FileIO;
 using Algorithms.Part1.Sort;
 namespace Algorithms.Part1.Count
 {
@@ -26,7 +27,12 @@ namespace Algorithms.Part1.Count
             return numOfInversions;
         }
 
-        public long DivideAndConquerApproach(ref int[] arr)
+        public long DivideAndConquerApproach(int[] arr)
+        {
+            return DivideAndConquerApproach(ref arr);
+        }
+
+        private long DivideAndConquerApproach(ref int[] arr)
         {
             var sortHelperMethods = new Sort.MergeSortAlgorithm.HelperMethods();
             HelperMethods helperMethods = new HelperMethods();
@@ -47,15 +53,6 @@ namespace Algorithms.Part1.Count
             int numberOfSplittedInversions = helperMethods.MergeAndCountNumberOfInversions(firstPartOfTheArr, secondPartOfTheArr, ref arr);
 
             return numberOfFirstPartInversions + secondPartNumberOfInversions + numberOfSplittedInversions;
-        }
-
-        public long DivideAndConquerApproach(string inputFilePath)
-        {
-            HelperMethods helperMethods = new HelperMethods();
-            
-            int[] input = helperMethods.ReadInput(inputFilePath);
-
-            return DivideAndConquerApproach(ref input);
         }
 
     }

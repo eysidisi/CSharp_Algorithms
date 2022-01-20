@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Part1.Count;
+using Algorithms.Part1.FileIO;
 
-namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
+namespace Algorithms.Part1.Tests.FileIO
 {
     public class ReadInputTests
     {
@@ -15,12 +16,12 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
         public void ReadOneElement()
         {
             // Arrange 
-            HelperMethods helperMethods = new HelperMethods();
+            var fileManager = new FileManager();
             string filePath = Directory.GetCurrentDirectory() + @"\Count\HelperMethodsTests\TextFiles\OneElement.txt";
             var expectedOutput = new int[] { 123 };
 
             // Act
-            var actualOutput = helperMethods.ReadInput(filePath);
+            var actualOutput = fileManager.ReadFileIntoIntArray(filePath);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -30,12 +31,13 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
         public void ReadThreeElements()
         {
             // Arrange 
+            var fileManager = new FileManager();
             HelperMethods helperMethods = new HelperMethods();
             string filePath = Directory.GetCurrentDirectory() + @"\Count\HelperMethodsTests\TextFiles\ThreeElements.txt";
             var expectedOutput = new int[] { 123, 456, 789 };
 
             // Act
-            var actualOutput = helperMethods.ReadInput(filePath);
+            var actualOutput = fileManager.ReadFileIntoIntArray(filePath);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);

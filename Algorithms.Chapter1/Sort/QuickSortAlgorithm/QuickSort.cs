@@ -26,9 +26,9 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
 
             int afterSortPivotIndex = HelperMethods.PartitionArr(ref arr, leftIndex, rightIndex, beforeSortPivotIndex);
 
-            Sort(ref arr, leftIndex, afterSortPivotIndex);
+            Sort(ref arr, leftIndex, afterSortPivotIndex - 1);
 
-            Sort(ref arr, afterSortPivotIndex, rightIndex);
+            Sort(ref arr, afterSortPivotIndex + 1, rightIndex);
         }
 
     }
