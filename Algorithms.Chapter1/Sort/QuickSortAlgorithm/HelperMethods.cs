@@ -16,7 +16,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
         /// <param name="rightIndex"></param>
         /// <param name="pivotIndex"></param>
         /// <returns></returns>
-        public int SortArrUsingPivotIndex(ref int[] arr, int leftIndex, int rightIndex, int pivotIndex)
+        public int PartitionArr(ref int[] arr, int leftIndex, int rightIndex, int pivotIndex)
         {
             Swap(ref arr, pivotIndex, leftIndex);
 
@@ -33,9 +33,19 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
                 }
             }
 
-            Swap(ref arr, followingIndex, leftIndex);
+            if (arr[followingIndex] > pivotVal)
+            {
+                Swap(ref arr, followingIndex - 1, leftIndex);
 
-            return followingIndex;
+                return followingIndex - 1;
+            }
+
+            else
+            {
+                Swap(ref arr, followingIndex, leftIndex);
+
+                return followingIndex;
+            }
         }
 
         public void Swap(ref int[] arr, int index1, int index2)

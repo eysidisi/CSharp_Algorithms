@@ -24,7 +24,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
 
             int beforeSortPivotIndex = FindPilotIndexAlgorithm.FindPivotIndex(leftIndex, rightIndex);
 
-            int afterSortPivotIndex = HelperMethods.SortArrUsingPivotIndex(ref arr, leftIndex, rightIndex, beforeSortPivotIndex);
+            int afterSortPivotIndex = HelperMethods.PartitionArr(ref arr, leftIndex, rightIndex, beforeSortPivotIndex);
 
             Sort(ref arr, leftIndex, afterSortPivotIndex);
 
