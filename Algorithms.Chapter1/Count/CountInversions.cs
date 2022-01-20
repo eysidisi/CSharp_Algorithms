@@ -28,7 +28,7 @@ namespace Algorithms.Part1.Count
 
         public long DivideAndConquerApproach(ref int[] arr)
         {
-            Sort.HelperMethods sortHelperMethods = new Sort.HelperMethods();
+            var sortHelperMethods = new Sort.MergeSortAlgorithm.HelperMethods();
             HelperMethods helperMethods = new HelperMethods();
 
             int arrLength = arr.Count();

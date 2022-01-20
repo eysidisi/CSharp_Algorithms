@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Part1.Sort
+namespace Algorithms.Part1.Sort.MergeSortAlgorithm
 {
     public class MergeSort
     {

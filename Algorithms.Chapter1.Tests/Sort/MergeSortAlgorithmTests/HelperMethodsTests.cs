@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithms.Part1.Sort;
+using Algorithms.Part1.Sort.MergeSortAlgorithm;
 using Xunit;
 
-namespace Algorithms.Part1.Tests.Sort
+namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
 {
     public class HelperMethodsTests
     {
@@ -173,6 +173,7 @@ namespace Algorithms.Part1.Tests.Sort
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
+
         [Fact]
         public void Merge_ArrsWithEvenNumberOfElements_ReturnsMergedArr()
         {
@@ -190,6 +191,5 @@ namespace Algorithms.Part1.Tests.Sort
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
-
     }
 }
