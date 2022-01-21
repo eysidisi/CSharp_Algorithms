@@ -24,29 +24,27 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
 
             int followingIndex = leftIndex + 1;
 
-            for (int leadingIndex = followingIndex + 1; leadingIndex <= rightIndex && leadingIndex >= followingIndex; leadingIndex++)
+            // Find first element larger than pivot val
+            while (followingIndex <= rightIndex)
+            {
+                if (arr[followingIndex] > pivotVal)
+                {
+                    break;
+                }
+                followingIndex++;
+            }
+
+            for (int leadingIndex = followingIndex + 1; leadingIndex <= rightIndex; leadingIndex++)
             {
                 if (pivotVal > arr[leadingIndex])
                 {
                     Swap(ref arr, followingIndex, leadingIndex);
                     followingIndex++;
-                    leadingIndex--;
                 }
             }
 
-            if (arr[followingIndex] > pivotVal)
-            {
-                Swap(ref arr, followingIndex - 1, leftIndex);
-
-                return followingIndex - 1;
-            }
-
-            else
-            {
-                Swap(ref arr, followingIndex, leftIndex);
-
-                return followingIndex;
-            }
+            Swap(ref arr, followingIndex - 1, leftIndex);
+            return followingIndex - 1;
         }
 
         public void Swap(ref int[] arr, int index1, int index2)

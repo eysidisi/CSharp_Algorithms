@@ -5,17 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Part1.Sort.QuickSortAlgorithm;
+using Algorithms.Part1.FileIO;
+using System.IO;
+using Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms;
 
 namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
 {
     public class SortTests
     {
-        #region Pivot is the first element
         [Fact]
         public void OneElemetArray_Sorted()
         {
             // Arrange
-            QuickSort quickSort = new QuickSort(new DumbPivotAlgorithm());
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
             var inputArr = new int[] { 1 };
             var expectedOutput = new int[] { 1 };
 
@@ -25,11 +27,12 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
             // Assert
             Assert.Equal(inputArr, expectedOutput);
         }
+       
         [Fact]
         public void TwoElemetArray_Sorted()
         {
             // Arrange
-            QuickSort quickSort = new QuickSort(new DumbPivotAlgorithm());
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
             var inputArr = new int[] { 1, 2 };
             var expectedOutput = new int[] { 1, 2 };
 
@@ -44,7 +47,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
         public void TwoElemetArray_Unsorted()
         {
             // Arrange
-            QuickSort quickSort = new QuickSort(new DumbPivotAlgorithm());
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
             var inputArr = new int[] { 2, 1 };
             var expectedOutput = new int[] { 1, 2 };
 
@@ -59,7 +62,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
         public void ThreeElement_Sorted()
         {
             // Arrange
-            QuickSort quickSort = new QuickSort(new DumbPivotAlgorithm());
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
             var inputArr = new int[] { 1, 2, 3 };
             var expectedOutput = new int[] { 1, 2, 3 };
 
@@ -74,7 +77,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
         public void ThreeElement_Unsorted()
         {
             // Arrange
-            QuickSort quickSort = new QuickSort(new DumbPivotAlgorithm());
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
             var inputArr = new int[] { 2, 1, 3 };
             var expectedOutput = new int[] { 1, 2, 3 };
 
@@ -86,20 +89,21 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
         }
 
         [Fact]
-        public void RandomArray_Unsorted()
+        public void RandomArray_Unsorted_FirstIndexPivot()
         {
             // Arrange
-            QuickSort quickSort = new QuickSort(new DumbPivotAlgorithm());
-            var numberOfLength = 10;
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
+            var numberOfElements = 10000;
             var seedVal = 10;
-            var inputArr = new int[numberOfLength];
+            var inputArr = new int[numberOfElements];
             Random random = new Random(seedVal);
 
-            for (int i = 0; i < numberOfLength; i++)
+            for (int i = 0; i < numberOfElements; i++)
             {
-                inputArr[i] = numberOfLength - i;
+                inputArr[i] = numberOfElements - i;
             }
 
+            // Randomize array
             inputArr = inputArr.OrderBy(x => random.Next()).ToArray();
 
             int[] expectedOutput = inputArr.OrderBy(x => x).ToArray();
@@ -108,9 +112,64 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests
             quickSort.Sort(ref inputArr, 0, inputArr.Count() - 1);
 
             // Assert
-            Assert.Equal(expectedOutput,inputArr );
+            Assert.Equal(expectedOutput, inputArr);
         }
 
-        #endregion
+        [Fact]
+        public void CourseraAssignment_PivotElementIsTheFirstElement()
+        {
+            // Arrange
+            QuickSort quickSort = new QuickSort(new FirstElementPivotAlgorithm());
+            string inputFilePath = Directory.GetCurrentDirectory() + @"\Sort\QuickSortAlgorithmTests\InputFiles\QuickSort.txt";
+            FileManager fileManager = new FileManager();
+
+            var inputArr = fileManager.ReadFileIntoIntArray(inputFilePath);
+
+            int[] expectedOutput = inputArr.OrderBy(x => x).ToArray();
+
+            // Act
+            quickSort.Sort(ref inputArr, 0, inputArr.Count() - 1);
+
+            // Assert
+            Assert.Equal(expectedOutput, inputArr);
+        }
+
+        [Fact]
+        public void CourseraAssignment_PivotElementIsTheLastElement()
+        {
+            // Arrange
+            QuickSort quickSort = new QuickSort(new LastElementPivotAlgorithm());
+            string inputFilePath = Directory.GetCurrentDirectory() + @"\Sort\QuickSortAlgorithmTests\InputFiles\QuickSort.txt";
+            FileManager fileManager = new FileManager();
+
+            var inputArr = fileManager.ReadFileIntoIntArray(inputFilePath);
+
+            int[] expectedOutput = inputArr.OrderBy(x => x).ToArray();
+
+            // Act
+            quickSort.Sort(ref inputArr, 0, inputArr.Count() - 1);
+
+            // Assert
+            Assert.Equal(expectedOutput, inputArr);
+        }
+        
+        [Fact]
+        public void CourseraAssignment_PivotElementIsTheMedian()
+        {
+            // Arrange
+            QuickSort quickSort = new QuickSort(new MedianOfThreePivotAlgorithm());
+            string inputFilePath = Directory.GetCurrentDirectory() + @"\Sort\QuickSortAlgorithmTests\InputFiles\QuickSort.txt";
+            FileManager fileManager = new FileManager();
+
+            var inputArr = fileManager.ReadFileIntoIntArray(inputFilePath);
+
+            int[] expectedOutput = inputArr.OrderBy(x => x).ToArray();
+
+            // Act
+            quickSort.Sort(ref inputArr, 0, inputArr.Count() - 1);
+
+            // Assert
+            Assert.Equal(expectedOutput, inputArr);
+        }
     }
 }

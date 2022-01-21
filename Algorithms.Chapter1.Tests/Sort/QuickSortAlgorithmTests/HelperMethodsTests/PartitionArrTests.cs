@@ -63,7 +63,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.HelperMethodsTests
             int rightIndex = 2;
             int pivotIndex = 1;
 
-            var expectedSortedArr = new int[] { 1, 0, 2 };
+            var expectedSortedArr = new int[] { 0,1, 2 };
             var expectedPivotIndex = 2;
 
             // Act
@@ -169,7 +169,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.HelperMethodsTests
             int rightIndex = 2;
             int pivotIndex = 2;
 
-            var expectedSortedArr = new int[] { 1, 0, 2 };
+            var expectedSortedArr = new int[] { 0, 1, 2 };
             var expectedPivotIndex = 2;
 
             // Act
@@ -211,7 +211,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.HelperMethodsTests
             int rightIndex = 4;
             int pivotIndex = 3;
 
-            var expectedSortedArr = new int[] { -3, 2, -5, -7, 13, 0 };
+            var expectedSortedArr = new int[] { -3, -7, 2, -5, 13, 0 };
             var expectedPivotIndex = 4;
 
             // Act

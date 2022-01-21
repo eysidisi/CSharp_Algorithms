@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,9 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
             this.FindPilotIndexAlgorithm = findPilotAlgorithm;
         }
 
+        // This variable is just used for coursera assignments
+        public int NumOfComparisons { get;private set; }
+
         public void Sort(ref int[] arr, int leftIndex, int rightIndex)
         {
             if (leftIndex >= rightIndex)
@@ -22,7 +26,9 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
                 return;
             }
 
-            int beforeSortPivotIndex = FindPilotIndexAlgorithm.FindPivotIndex(leftIndex, rightIndex);
+            NumOfComparisons += rightIndex - leftIndex;
+
+            int beforeSortPivotIndex = FindPilotIndexAlgorithm.FindPivotIndex(leftIndex, rightIndex,ref arr);
 
             int afterSortPivotIndex = HelperMethods.PartitionArr(ref arr, leftIndex, rightIndex, beforeSortPivotIndex);
 

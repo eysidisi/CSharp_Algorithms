@@ -37,6 +37,9 @@
     <None Update="Count\HelperMethodsTests\TextFiles\OneElement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Sort\QuickSortAlgorithmTests\InputFiles\QuickSort.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
