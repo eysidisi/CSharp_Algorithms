@@ -20,7 +20,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.PivotElementAlgori
             var expectedIndex = 0;
 
             // Act
-            var actualOutput = algorithm.FindPivotIndex(0, 2, ref input);
+            var actualOutput = algorithm.ChoosePivotIndex(0, 2, ref input);
 
             // Assert
             Assert.Equal(expectedIndex, actualOutput);
@@ -36,7 +36,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.PivotElementAlgori
             var expectedIndex = 1;
 
             // Act
-            var actualOutput = algorithm.FindPivotIndex(0, 2, ref input);
+            var actualOutput = algorithm.ChoosePivotIndex(0, 2, ref input);
 
             // Assert
             Assert.Equal(expectedIndex, actualOutput);
@@ -52,7 +52,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.PivotElementAlgori
             var expectedIndex = 2;
 
             // Act
-            var actualOutput = algorithm.FindPivotIndex(0, 2, ref input);
+            var actualOutput = algorithm.ChoosePivotIndex(0, 2, ref input);
 
             // Assert
             Assert.Equal(expectedIndex, actualOutput);
@@ -67,7 +67,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.PivotElementAlgori
             var expectedIndex = 1;
 
             // Act
-            var actualIndex = algorithm.FindPivotIndex(0, 3, ref input);
+            var actualIndex = algorithm.ChoosePivotIndex(0, 3, ref input);
 
             // Assert
             Assert.Equal(expectedIndex, actualIndex);
@@ -84,7 +84,7 @@ namespace Algorithms.Part1.Tests.Sort.QuickSortAlgorithmTests.PivotElementAlgori
             // Act
 
             // Assert
-            Assert.Throws<ArgumentException>(() => algorithm.FindPivotIndex(0, 2, ref input));
+            Assert.Throws<ArgumentException>(() => algorithm.ChoosePivotIndex(0, 2, ref input));
         }
 
     }

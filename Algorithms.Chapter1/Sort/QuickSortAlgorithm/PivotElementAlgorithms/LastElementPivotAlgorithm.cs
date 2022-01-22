@@ -8,7 +8,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms
 {
     public class LastElementPivotAlgorithm : IFindPilotAlgorithm
     {
-        public int FindPivotIndex(int leftIndex, int rightIndex,ref int[] arr)
+        public int ChoosePivotIndex(int leftIndex, int rightIndex,ref int[] arr)
         {
             return rightIndex;
         }

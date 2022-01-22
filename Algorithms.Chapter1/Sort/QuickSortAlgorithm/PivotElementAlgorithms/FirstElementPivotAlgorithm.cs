@@ -11,7 +11,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms
     /// </summary>
     public class FirstElementPivotAlgorithm : IFindPilotAlgorithm
     {
-        public int FindPivotIndex(int leftIndex, int rightIndex,ref int[] arr)
+        public int ChoosePivotIndex(int leftIndex, int rightIndex,ref int[] arr)
         {
             return leftIndex;
         }

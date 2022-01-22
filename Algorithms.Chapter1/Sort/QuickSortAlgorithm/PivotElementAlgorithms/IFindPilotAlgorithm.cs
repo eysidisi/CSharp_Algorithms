@@ -2,6 +2,6 @@
 {
     public interface IFindPilotAlgorithm
     {
-        public int FindPivotIndex(int leftIndex, int rightIndex, ref int[] arr);
+        public int ChoosePivotIndex(int leftIndex, int rightIndex, ref int[] arr);
     }
 }

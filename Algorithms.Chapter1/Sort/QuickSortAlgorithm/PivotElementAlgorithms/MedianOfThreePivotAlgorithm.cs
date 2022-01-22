@@ -8,7 +8,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms
 {
     public class MedianOfThreePivotAlgorithm : IFindPilotAlgorithm
     {
-        public int FindPivotIndex(int leftIndex, int rightIndex, ref int[] arr)
+        public int ChoosePivotIndex(int leftIndex, int rightIndex, ref int[] arr)
         {
             return FindMedianIndex(leftIndex, rightIndex, ref arr);
         }
@@ -17,7 +17,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms
         {
             int firstElement = arr[firstElementIndex];
 
-            int middleElementIndex = (lastElementIndex - firstElementIndex) / 2;
+            int middleElementIndex = (lastElementIndex - firstElementIndex) / 2+firstElementIndex;
             int middleElement = arr[middleElementIndex];
 
             int lastElement = arr[lastElementIndex];

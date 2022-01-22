@@ -28,7 +28,7 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
 
             NumOfComparisons += rightIndex - leftIndex;
 
-            int beforeSortPivotIndex = FindPilotIndexAlgorithm.FindPivotIndex(leftIndex, rightIndex,ref arr);
+            int beforeSortPivotIndex = FindPilotIndexAlgorithm.ChoosePivotIndex(leftIndex, rightIndex,ref arr);
 
             int afterSortPivotIndex = HelperMethods.PartitionArr(ref arr, leftIndex, rightIndex, beforeSortPivotIndex);
 
