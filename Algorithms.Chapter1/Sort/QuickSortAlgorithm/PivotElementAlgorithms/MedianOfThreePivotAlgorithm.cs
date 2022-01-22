@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms
 {
-    public class MedianOfThreePivotAlgorithm : IFindPilotAlgorithm
+    public class MedianOfThreePivotAlgorithm : IFindPivotAlgorithm
     {
         public int ChoosePivotIndex(int leftIndex, int rightIndex, ref int[] arr)
         {

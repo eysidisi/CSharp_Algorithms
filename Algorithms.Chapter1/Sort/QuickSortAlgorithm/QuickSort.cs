@@ -9,9 +9,9 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm
 {
     public class QuickSort
     {
-        IFindPilotAlgorithm FindPilotIndexAlgorithm;
+        IFindPivotAlgorithm FindPilotIndexAlgorithm;
         HelperMethods HelperMethods = new HelperMethods();
-        public QuickSort(IFindPilotAlgorithm findPilotAlgorithm)
+        public QuickSort(IFindPivotAlgorithm findPilotAlgorithm)
         {
             this.FindPilotIndexAlgorithm = findPilotAlgorithm;
         }
