@@ -6,36 +6,27 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Part1.Graph
 {
-    public class Vertex
+    public partial class GraphRepresentation
     {
-        public List<Edge> edges = new List<Edge>();
-    }
 
-    public class Edge
-    {
-        public Vertex headVertex;
-        public Vertex tailVertex;
-    }
-    public class GraphRepresentation
-    {
         List<Vertex> vertices;
         List<Edge> edges = new List<Edge>();
 
-        int numberOfVertices;
+        public IReadOnlyList<Vertex> Vertices { get { return vertices; } }
+        public IReadOnlyList<Edge> Edges { get { return edges; } }
 
-        public GraphRepresentation(int numberOfVertices)
+        public GraphRepresentation(int numberOfvertices)
         {
-            this.numberOfVertices = numberOfVertices;
-            InitializeVertices();
+            Initializevertices(numberOfvertices);
         }
 
-        private void InitializeVertices()
+        private void Initializevertices(int numberOfvertices)
         {
-            vertices = new List<Vertex>(numberOfVertices);
+            vertices = new List<Vertex>();
 
-            for (int i = 0; i < vertices.Count(); i++)
+            for (int i = 0; i < numberOfvertices; i++)
             {
-                vertices[i] = new Vertex();
+                vertices.Add(new Vertex());
             }
         }
 
@@ -46,8 +37,8 @@ namespace Algorithms.Part1.Graph
 
             Edge edge = new Edge()
             {
-                headVertex = vertex1,
-                tailVertex = vertex2
+                firstVertex = vertex1,
+                secondVertex = vertex2
             };
 
             edges.Add(edge);
@@ -56,30 +47,45 @@ namespace Algorithms.Part1.Graph
             vertex2.edges.Add(edge);
         }
 
-        public void DeleteEdge(int edgeId)
+        public void DeleteEdge(int edgeIdToDelete)
         {
-            var edgeToDelete = edges[edgeId];
+            var edgeToDelete = edges.Find(e => e.Id == edgeIdToDelete);
 
-            var vertex1 = edgeToDelete.headVertex;
-            var vertex2 = edgeToDelete.tailVertex;
+            // Delete one vertex and contract with the other
+            var deletedVertex = edgeToDelete.firstVertex;
+            var contractedVertex = edgeToDelete.secondVertex;
 
-            // Find all edges going to vertex2
-            var edgesGoingInVertex2 = edges.Where(e => e.headVertex == vertex2 || e.tailVertex == vertex2).ToArray();
+            // Find all edges related to deleted vertex to assign them to contracted vertex
+            var edgesConnectedToHeadVertex = edges.Where(e => e.firstVertex == deletedVertex || e.secondVertex == deletedVertex).ToArray();
 
-            foreach (var edge in edgesGoingInVertex2)
+            for (int edgeIndex = 0; edgeIndex < edgesConnectedToHeadVertex.Length; edgeIndex++)
             {
+                var currentEdge = edgesConnectedToHeadVertex[edgeIndex];
+
                 // Self loop
-                if (edge.headVertex == vertex1 || edge.tailVertex == vertex1)
+                if (currentEdge.firstVertex == contractedVertex || currentEdge.secondVertex == contractedVertex)
                 {
-                    edges.Remove(edge);
+                    currentEdge.firstVertex.edges.Remove(currentEdge);
+                    currentEdge.secondVertex.edges.Remove(currentEdge);
+                    edges.Remove(currentEdge);
+                }
+
+                else if (currentEdge.firstVertex == deletedVertex)
+                {
+                    currentEdge.firstVertex = contractedVertex;
+                    contractedVertex.edges.Add(currentEdge);
                 }
 
                 else
                 {
-
+                    currentEdge.secondVertex = contractedVertex;
+                    contractedVertex.edges.Add(currentEdge);
                 }
             }
 
+            deletedVertex.edges.Clear();
+            edges.Remove(edgeToDelete);
+            vertices.Remove(deletedVertex);
         }
 
     }
