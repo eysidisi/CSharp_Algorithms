@@ -8,9 +8,10 @@ namespace Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms
 {
     public class RandomPivotIndexAlgorithm : IFindPivotAlgorithm
     {
+        Random random = new Random();
+
         public int ChoosePivotIndex(int leftIndex, int rightIndex, ref int[] arr)
         {
-            Random random = new Random();
             return random.Next(leftIndex, rightIndex + 1);
         }
     }
