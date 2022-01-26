@@ -24,8 +24,8 @@ namespace Algorithms.Part1.Tests.Graph.GraphRepresentation
             var V1 = graph.Vertices[1];
 
             // Assert
-            Assert.Equal(V0, graph.Edges[0].firstVertex);
-            Assert.Equal(V1, graph.Edges[0].secondVertex);
+            Assert.Contains(V0, graph.Edges[0].Vertices);
+            Assert.Contains(V1, graph.Edges[0].Vertices);
         }
 
         //    V2
@@ -41,6 +41,7 @@ namespace Algorithms.Part1.Tests.Graph.GraphRepresentation
             var graph = new Part1.Graph.GraphRepresentation(NumberOfVertices);
 
             // Act
+            #region Add Edges
             graph.AddEdge(0, 1);
             graph.AddEdge(0, 2);
 
@@ -58,37 +59,38 @@ namespace Algorithms.Part1.Tests.Graph.GraphRepresentation
             var V2 = graph.Vertices[2];
             var V3 = graph.Vertices[3];
             var V4 = graph.Vertices[4];
+            #endregion
 
             // Assert
-            Assert.Equal(3, V0.edges.Count);
-            Assert.Equal(4, V1.edges.Count);
-            Assert.Equal(3, V2.edges.Count);
-            Assert.Equal(3, V3.edges.Count);
-            Assert.Equal(3, V4.edges.Count);
+            Assert.Equal(3, V0.Edges.Count);
+            Assert.Equal(4, V1.Edges.Count);
+            Assert.Equal(3, V2.Edges.Count);
+            Assert.Equal(3, V3.Edges.Count);
+            Assert.Equal(3, V4.Edges.Count);
 
-            Assert.Equal(V0, graph.Edges[0].firstVertex);
-            Assert.Equal(V1, graph.Edges[0].secondVertex);
+            Assert.Contains(V0, graph.Edges[0].Vertices);
+            Assert.Contains(V1, graph.Edges[0].Vertices);
 
-            Assert.Equal(V0, graph.Edges[1].firstVertex);
-            Assert.Equal(V2, graph.Edges[1].secondVertex);
+            Assert.Contains(V0, graph.Edges[1].Vertices);
+            Assert.Contains(V2, graph.Edges[1].Vertices);
 
-            Assert.Equal(V0, graph.Edges[2].firstVertex);
-            Assert.Equal(V3, graph.Edges[2].secondVertex);
+            Assert.Contains(V0, graph.Edges[2].Vertices);
+            Assert.Contains(V3, graph.Edges[2].Vertices);
 
-            Assert.Equal(V1, graph.Edges[3].firstVertex);
-            Assert.Equal(V2, graph.Edges[3].secondVertex);
+            Assert.Contains(V1, graph.Edges[3].Vertices);
+            Assert.Contains(V2, graph.Edges[3].Vertices);
 
-            Assert.Equal(V1, graph.Edges[4].firstVertex);
-            Assert.Equal(V3, graph.Edges[4].secondVertex);
+            Assert.Contains(V1, graph.Edges[4].Vertices);
+            Assert.Contains(V3, graph.Edges[4].Vertices);
 
-            Assert.Equal(V1, graph.Edges[5].firstVertex);
-            Assert.Equal(V4, graph.Edges[5].secondVertex);
+            Assert.Contains(V1, graph.Edges[5].Vertices);
+            Assert.Contains(V4, graph.Edges[5].Vertices);
 
-            Assert.Equal(V2, graph.Edges[6].firstVertex);
-            Assert.Equal(V4, graph.Edges[6].secondVertex);
+            Assert.Contains(V2, graph.Edges[6].Vertices);
+            Assert.Contains(V4, graph.Edges[6].Vertices);
 
-            Assert.Equal(V3, graph.Edges[7].firstVertex);
-            Assert.Equal(V4, graph.Edges[7].secondVertex);
+            Assert.Contains(V3, graph.Edges[7].Vertices);
+            Assert.Contains(V4, graph.Edges[7].Vertices);
         }
     }
 }

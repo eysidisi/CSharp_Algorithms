@@ -2,20 +2,37 @@
 {
     public class Edge
     {
-        static int lastEdgeId = 0;
-        static private object SyncObj = new object();
-
+        List<Vertex> vertices = new List<Vertex>();
+        public IReadOnlyList<Vertex> Vertices { get { return vertices; } }
         public int Id { get; private set; }
-        public Edge()
+        public Edge(int id, Vertex vertex1, Vertex vertex2)
         {
-            lock (SyncObj)
+            Id = id;
+            vertices.Add(vertex1);
+            vertices.Add(vertex2);
+        }
+
+        public void AddVertex(Vertex vertex)
+        {
+            if (vertices.Count() == 2)
             {
-                Id = lastEdgeId++;
+                throw new InvalidOperationException("Can't add new vertex!");
+            }
+
+            vertices.Add(vertex);
+        }
+
+        public void RemoveVertex(Vertex vertex)
+        {
+            if (vertices.Remove(vertex) == false)
+            {
+                throw new InvalidOperationException("Edge is not connected to the given vertex!");
             }
         }
 
-        public Vertex firstVertex;
-        public Vertex secondVertex;
+        public void RemoveEdgeFromVertices()
+        {
+            vertices.ForEach(v => v.RemoveEdge(this));
+        }
     }
-
 }
