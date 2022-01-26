@@ -37,6 +37,12 @@
     <None Update="Count\HelperMethodsTests\TextFiles\OneElement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Graph\File\AssignmentMatrix.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Graph\File\TwoVerticesMatrix.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Sort\QuickSortAlgorithmTests\InputFiles\QuickSort.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

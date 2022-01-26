@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithms.Part1.Graph;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,41 @@ namespace Algorithms.Part1.FileIO
             }
 
             return output;
+        }
+
+        public GraphRepresentation ReadGraph(string path)
+        {
+            string[] readString = File.ReadAllLines(path);
+
+            GraphRepresentation graph = new GraphRepresentation(readString.Length);
+
+            for (int rowIndex = 0; rowIndex < readString.Length; rowIndex++)
+            {
+                int[] adjacentVertices = GetAdjacentVertices(readString[rowIndex]);
+
+                int vertexIndex = rowIndex;
+
+                graph.ConnectVertices(vertexIndex, adjacentVertices);
+            }
+
+            return graph;
+        }
+
+        private int[] GetAdjacentVertices(string vertexInfo)
+        {
+            string[] parsedInfo = vertexInfo.Split(' ');
+
+            int[] adjacentVertices = new int[parsedInfo.Length-1];
+
+            int adjacentVertexIndex = 0;
+
+            for (int index = 1; index < parsedInfo.Length; index++)
+            {
+                adjacentVertices[adjacentVertexIndex] = int.Parse(parsedInfo[index])-1;
+                adjacentVertexIndex++;
+            }
+
+            return adjacentVertices;
         }
     }
 }

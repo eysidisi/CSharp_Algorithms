@@ -23,6 +23,40 @@ namespace Algorithms.Part1.Graph
             Initializevertices(numberOfvertices);
         }
 
+        public int SelectRandomEdgeId()
+        {
+            var random = new Random();
+            int index = random.Next(edges.Count);
+            return edges[index].Id;
+        }
+
+        public GraphRepresentation(GraphRepresentation graph)
+        {
+            Initializevertices(graph.Vertices.Count);
+
+            foreach (var edge in graph.edges)
+            {
+                AddEdge(edge.Vertices[0].Id, edge.Vertices[1].Id);
+            }
+        }
+
+        public void ConnectVertices(int rootVertexIndex, int[] adjacentVertices)
+        {
+            var rootVertex = vertices[rootVertexIndex];
+
+            foreach (var adjacentVertexIndex in adjacentVertices)
+            {
+                var adjacentVertex = vertices[adjacentVertexIndex];
+
+                // Checking if two vertices are already connected
+                if (edges.Any(edge =>
+                edge.Vertices.Contains(rootVertex) && edge.Vertices.Contains(adjacentVertex)) == false)
+                {
+                    AddEdge(rootVertexIndex, adjacentVertexIndex);
+                }
+            }
+        }
+
         private void Initializevertices(int numberOfvertices)
         {
             vertices = new List<Vertex>();

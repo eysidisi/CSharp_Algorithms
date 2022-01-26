@@ -10,7 +10,7 @@ using Algorithms.Part1.FileIO;
 
 namespace Algorithms.Part1.Tests.FileIO
 {
-    public class ReadInputTests
+    public class ReadFileIntoIntArray
     {
         [Fact]
         public void ReadOneElement()
