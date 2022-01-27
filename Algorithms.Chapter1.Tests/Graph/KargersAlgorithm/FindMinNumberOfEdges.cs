@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Part1.Graph;
+using Algorithms.Part1.FileIO;
+using System.IO;
+using System.Diagnostics;
 
 namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
 {
     public class FindMinNumberOfEdges
     {
-
-
         // V1-V2
         [Fact]
         public void OneEdgeGraph()
@@ -43,7 +44,7 @@ namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
             var kargers = new Part1.Graph.KargersAlgorithm();
             int expectedNumOfMinEdges = 3;
             const int NumOfRuningTimes = 30;
-            
+
             // Act
             #region Add Edges
             graph.AddEdge(0, 1);
@@ -63,6 +64,24 @@ namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
             // Assert
             Assert.Equal(expectedNumOfMinEdges, actualNumOfMinEdges);
         }
+
+        [Fact(Skip = "Takes more than 20 minutes to run. Used just for Coursera Assignment")]
+        public void CourseraAssignmentGraph()
+        {
+            // Arrange
+            var fileManager = new FileManager();
+            string graphPath = Directory.GetCurrentDirectory() + @"\Graph\TestFiles\AssignmentMatrix.txt";
+            var graph = fileManager.ReadGraph(graphPath);
+            var kargers = new Part1.Graph.KargersAlgorithm();
+            var expectedNumOfMinEdges = 17;
+
+            // Act
+            var actualNumOfMinEdges = kargers.FindMinNumberOfEdges(graph);
+
+            // Assert
+            Assert.Equal(expectedNumOfMinEdges, actualNumOfMinEdges);
+        }
+
 
     }
 }

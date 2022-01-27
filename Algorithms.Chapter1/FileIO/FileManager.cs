@@ -43,15 +43,15 @@ namespace Algorithms.Part1.FileIO
 
         private int[] GetAdjacentVertices(string vertexInfo)
         {
-            string[] parsedInfo = vertexInfo.Split(' ');
+            string[] parsedInfo = vertexInfo.Split(new char[] { ' ', '\t' },StringSplitOptions.RemoveEmptyEntries);
 
-            int[] adjacentVertices = new int[parsedInfo.Length-1];
+            int[] adjacentVertices = new int[parsedInfo.Length - 1];
 
             int adjacentVertexIndex = 0;
 
             for (int index = 1; index < parsedInfo.Length; index++)
             {
-                adjacentVertices[adjacentVertexIndex] = int.Parse(parsedInfo[index])-1;
+                adjacentVertices[adjacentVertexIndex] = int.Parse(parsedInfo[index]) - 1;
                 adjacentVertexIndex++;
             }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Part1.Graph
 {
-    public partial class GraphRepresentation
+    public partial class GraphRepresentation : IEquatable<GraphRepresentation>
     {
         List<Vertex> vertices;
         List<Edge> edges = new List<Edge>();
@@ -118,6 +118,40 @@ namespace Algorithms.Part1.Graph
         {
             currentEdge.RemoveEdgeFromVertices();
             edges.Remove(currentEdge);
+        }
+
+        public bool Equals(GraphRepresentation? other)
+        {
+            if (other.Vertices.Count != vertices.Count ||
+                other.Edges.Count != edges.Count)
+            {
+                return false;
+            }
+
+            try
+            {
+                for (int i = 0; i < other.edges.Count; i++)
+                {
+                    var otherEdge = other.edges[i];
+                    var currentEdge = edges[i];
+
+                    var vertex1Index = otherEdge.Vertices[0].Id;
+                    var vertex2Index = otherEdge.Vertices[1].Id;
+
+                    if (currentEdge.Vertices.Any(v => v.Id == vertex1Index) == false ||
+                        currentEdge.Vertices.Any(v => v.Id == vertex2Index) == false)
+                    {
+                        return false;
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
