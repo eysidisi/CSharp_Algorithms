@@ -10,21 +10,20 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
 
             string numberInStr = num.ToString();
 
-            StringBuilder strFirstPartOfNum = new();
+            StringBuilder firstPartOfNum = new();
 
             for (int strIndex = 0; strIndex < length - lastPartLength; strIndex++)
             {
-                strFirstPartOfNum.Append(numberInStr[strIndex]);
+                firstPartOfNum.Append(numberInStr[strIndex]);
             }
 
-            // If number has  just one digit
-            if (strFirstPartOfNum.Length == 0)
+            // Number has just one digit so has no first part
+            if (firstPartOfNum.Length == 0)
             {
                 return 0;
             }
 
-            var firstPart = long.Parse(strFirstPartOfNum.ToString());
-            return firstPart;
+            return long.Parse(firstPartOfNum.ToString());
         }
 
         public long LastPartOfNum(long num, int lastPartLength)
@@ -33,21 +32,21 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
 
             string numberInStr = num.ToString();
 
-            StringBuilder strFirstPartOfNum = new();
+            StringBuilder lastPartOfNum = new();
 
             for (int strIndex = length - lastPartLength; strIndex < length; strIndex++)
             {
-                strFirstPartOfNum.Append(numberInStr[strIndex]);
+                lastPartOfNum.Append(numberInStr[strIndex]);
             }
 
-            var firstPart = long.Parse(strFirstPartOfNum.ToString());
-            return firstPart;
+            return long.Parse(lastPartOfNum.ToString());
         }
 
         public int GetNumOfDigits(long num1)
         {
-            int numOfDigits = 1;
             num1 = Math.Abs(num1);
+
+            int numOfDigits = 1;
 
             while (num1 >= 10)
             {

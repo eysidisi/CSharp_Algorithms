@@ -6,7 +6,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
     public class KaratsubaMultiplicationTests
     {
         [Fact]
-        public void Multiply_OneDigitNumbers_ReturnsResult()
+        public void Multiply_OneDigitNumbers()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -20,7 +20,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_WithOne_ReturnsResult()
+        public void Multiply_WithOne()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -34,7 +34,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_WithZero_ReturnsResult()
+        public void Multiply_WithZero()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -48,7 +48,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_OneDigitWithTwoDigitNumbers_ReturnsResult()
+        public void Multiply_OneDigitWithTwoDigitNumbers()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -62,7 +62,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_TwoDigitNumbers_ReturnsResult()
+        public void Multiply_TwoDigitNumbers()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -76,7 +76,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_TwoDigitNumberWithThreeDigitNumber_ReturnsResult()
+        public void Multiply_TwoDigitNumberWithThreeDigitNumber()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -90,7 +90,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_TwoDigitNumberWithFiveDigitNumber_ReturnsResult()
+        public void Multiply_TwoDigitNumberWithFiveDigitNumber()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -104,7 +104,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_ThreeDigitNumbers_ReturnsResult()
+        public void Multiply_ThreeDigitNumbers()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -118,7 +118,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_FourDigitNumbers_ReturnsResult()
+        public void Multiply_FourDigitNumbers()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -132,7 +132,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_NegativeNumberWithPositiveNumber_ReturnsResult()
+        public void Multiply_NegativeNumberWithPositiveNumber()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -146,7 +146,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void Multiply_TwoNegativeNumbers_ReturnsResult()
+        public void Multiply_TwoNegativeNumbers()
         {
             // Arrange
             KaratsubaMultiplication karatsubaMultiplication = new();
@@ -159,6 +159,5 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             long actualResult = karatsubaMultiplication.Multiply(num1, num2);
             Assert.Equal(expectedResult, actualResult);
         }
-
     }
 }

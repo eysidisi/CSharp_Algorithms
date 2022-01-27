@@ -6,7 +6,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
     public class HelperMethodsTests
     {
         [Fact]
-        public void GetNumOfDigits_FiveDigitNumber_ReturnsFive()
+        public void GetNumOfDigits_FiveDigitNumber()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -20,7 +20,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void GetNumOfDigits_FiveDigitNegativeNumber_ReturnsFive()
+        public void GetNumOfDigits_FiveDigitNegativeNumber()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -34,7 +34,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void GetNumOfDigits_OneDigitNumber_ReturnsOne()
+        public void GetNumOfDigits_OneDigitNumber()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -48,7 +48,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void GetNumOfDigits_NumberZero_ReturnsOne()
+        public void GetNumOfDigits_NumberZero()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -62,7 +62,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void FirstPartOfNumber_NumberWith2DigitsLastPartLength1_ReturnsFirstPart()
+        public void FirstPartOfNumber_NumberWith2DigitsLastPartLength1()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -77,7 +77,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void FirstPartOfNumber_NumberWith2DigitsLastPartLength2_ReturnsFirstPart()
+        public void FirstPartOfNumber_NumberWith2DigitsLastPartLength2()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -92,7 +92,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void FirstPartOfNumber_NumberWith3DigitsLastPartLength1_ReturnsFirstPart()
+        public void FirstPartOfNumber_NumberWith3DigitsLastPartLength1()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -107,7 +107,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void FirstPartOfNumber_NumberWith3DigitsLastPartLength2_ReturnsFirstPart()
+        public void FirstPartOfNumber_NumberWith3DigitsLastPartLength2()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -122,7 +122,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void FirstPartOfNum_NumberWith1DigitLastPartLength1_ReturnsFirstPart()
+        public void FirstPartOfNum_NumberWith1DigitLastPartLength1()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -137,7 +137,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void LastPartOfNum_NumberWith1DigitLastPartLength1_ReturnsLastPart()
+        public void LastPartOfNum_NumberWith1DigitLastPartLength1()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -152,7 +152,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void LastPartOfNum_NumberWith2DigitsLastPartLength1_ReturnsLastPart()
+        public void LastPartOfNum_NumberWith2DigitsLastPartLength1()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -167,7 +167,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void LastPartOfNum_NumberWith3DigitsLastParthLength2_ReturnsLastPart()
+        public void LastPartOfNum_NumberWith3DigitsLastParthLength2()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -181,7 +181,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
-        public void LastPartOfNum_NumberWith3DigitsLastParthLength1_ReturnsLastPart()
+        public void LastPartOfNum_NumberWith3DigitsLastParthLength1()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -196,7 +196,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void AddZeros_AddTwoZeros_AddsZeros()
+        public void AddZeros_AddTwoZeros()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -211,7 +211,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void AddZeros_AddZeroZeros_AddsZeros()
+        public void AddZeros_AddZeroZeros()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -226,7 +226,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         }
 
         [Fact]
-        public void AddZeros_AddZerosToZero_AddsZeros()
+        public void AddZeros_AddZerosToZero()
         {
             // Arrange
             HelperMethods helperMethods = new();
