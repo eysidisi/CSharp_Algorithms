@@ -44,10 +44,10 @@ namespace Algorithms.Part1.Count
                 return 0;
             }
 
-            int[] firstPartOfTheArr = sortHelperMethods.FirstPart(arr);
+            int[] firstPartOfTheArr = sortHelperMethods.GetArrFirstPart(arr);
             long numberOfFirstPartInversions = DivideAndConquerApproach(ref firstPartOfTheArr);
 
-            int[] secondPartOfTheArr = sortHelperMethods.SecondPart(arr);
+            int[] secondPartOfTheArr = sortHelperMethods.GetSecondPart(arr);
             long secondPartNumberOfInversions = DivideAndConquerApproach(ref secondPartOfTheArr);
 
             int numberOfSplittedInversions = helperMethods.MergeAndCountNumberOfInversions(firstPartOfTheArr, secondPartOfTheArr, ref arr);

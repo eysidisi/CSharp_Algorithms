@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Part1.Sort.MergeSortAlgorithm;
 
-namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
+namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
 {
     public class MergeSortTests
     {
         [Fact]
-        public void Sort_EmptyArray_ReturnsEmptyArr()
+        public void Sort_EmptyArray()
         {
             // Arrange
             int[] input = new int[0];
@@ -26,7 +26,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Sort_OneElementArray_ReturnsOneElement()
+        public void Sort_OneElementArray()
         {
             // Arrange
             int[] input = new int[1] { 1 };
@@ -41,7 +41,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Sort_TwoElementUnsortedArray_ReturnsSortedArr()
+        public void Sort_TwoElementUnsortedArray()
         {
             // Arrange
             int[] input = new int[2] { 5, 1 };
@@ -56,7 +56,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Sort_OddNumberOfElementsUnsortedArray_ReturnsSortedArr()
+        public void Sort_OddNumberOfElementsUnsortedArray()
         {
             // Arrange
             int[] input = new int[5] { -5, -7, 0, 38, 2 };
@@ -71,7 +71,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Sort_EvenNumberOfElementsUnsortedArray_ReturnsSortedArr()
+        public void Sort_EvenNumberOfElementsUnsortedArray()
         {
             // Arrange
             int[] input = new int[6] { -5, -7, 0, 38, 2, 3 };
@@ -86,11 +86,11 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Sort_ArrayWithRepeatingValues_ReturnsSortedArr()
+        public void Sort_ArrayWithRepeatingValues()
         {
             // Arrange
             int[] input = new int[6] { 0, -5, 0, 3, 2, 3 };
-            int[] expectedOutput = new int[6] { -5,0,0,2,3,3};
+            int[] expectedOutput = new int[6] { -5, 0, 0, 2, 3, 3 };
             MergeSort mergeSort = new MergeSort();
 
             // Act
@@ -99,6 +99,5 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
-
     }
 }

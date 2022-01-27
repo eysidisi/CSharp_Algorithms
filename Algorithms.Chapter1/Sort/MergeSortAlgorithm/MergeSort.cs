@@ -30,10 +30,10 @@ namespace Algorithms.Part1.Sort.MergeSortAlgorithm
                 return unsortedArr;
             }
 
-            int[] firstPartOfArr = helperMethods.FirstPart(unsortedArr);
+            int[] firstPartOfArr = helperMethods.GetArrFirstPart(unsortedArr);
             firstPartOfArr = Sort(firstPartOfArr);
 
-            int[] secondPartOfArr = helperMethods.SecondPart(unsortedArr);
+            int[] secondPartOfArr = helperMethods.GetSecondPart(unsortedArr);
             secondPartOfArr = Sort(secondPartOfArr);
 
             int[] mergedArr = helperMethods.MergeSortedArrays(firstPartOfArr, secondPartOfArr);

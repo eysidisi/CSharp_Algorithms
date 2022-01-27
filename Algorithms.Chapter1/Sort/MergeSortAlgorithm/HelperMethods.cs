@@ -8,7 +8,7 @@ namespace Algorithms.Part1.Sort.MergeSortAlgorithm
 {
     public class HelperMethods
     {
-        public int[] FirstPart(int[] unsortedArr)
+        public int[] GetArrFirstPart(int[] unsortedArr)
         {
             int halfLength = unsortedArr.Length / 2;
 
@@ -21,7 +21,7 @@ namespace Algorithms.Part1.Sort.MergeSortAlgorithm
 
             return firstPart.ToArray();
         }
-        public int[] SecondPart(int[] unsortedArr)
+        public int[] GetSecondPart(int[] unsortedArr)
         {
             int halfLength = unsortedArr.Length / 2;
 

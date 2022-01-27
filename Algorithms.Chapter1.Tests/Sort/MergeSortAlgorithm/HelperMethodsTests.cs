@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Algorithms.Part1.Sort.MergeSortAlgorithm;
 using Xunit;
 
-namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
+namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
 {
     public class HelperMethodsTests
     {
         [Fact]
-        public void FirstPartOfArr_ArrWithEvenNumberOfElements_ReturnsFirstPart()
+        public void GetArrFirstPart_ArrWithEvenNumberOfElements()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -20,14 +20,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { 1, 2 };
 
             // Act
-            int[] actualResult = helperMethods.FirstPart(arr);
+            int[] actualResult = helperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void FirstPartOfArr_ArrWithOddNumberOfElements_ReturnsFirstPart()
+        public void GetArrFirstPart_ArrWithOddNumberOfElements()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -36,14 +36,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { 1 };
 
             // Act
-            int[] actualResult = helperMethods.FirstPart(arr);
+            int[] actualResult = helperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void FirstPartOfArr_ArrWithOneElement_ReturnsFirstPart()
+        public void GetArrFirstPart_ArrWithOneElement()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -52,14 +52,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { };
 
             // Act
-            int[] actualResult = helperMethods.FirstPart(arr);
+            int[] actualResult = helperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void FirstPartOfArr_ArrWithNoElement_ReturnsFirstPart()
+        public void GetArrFirstPart_ArrWithNoElement()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -68,14 +68,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { };
 
             // Act
-            int[] actualResult = helperMethods.FirstPart(arr);
+            int[] actualResult = helperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void SecondPartOfArr_ArrWithEvenNumberOfElements_ReturnsSecondPart()
+        public void GetArrSecondPart_ArrWithEvenNumberOfElements()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -84,14 +84,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { 3, 4 };
 
             // Act
-            int[] actualResult = helperMethods.SecondPart(arr);
+            int[] actualResult = helperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void SecondPartOfArr_ArrWithOddNumberOfElements_ReturnsSecondPart()
+        public void GetArrSecondPart_ArrWithOddNumberOfElements()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -100,14 +100,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { 2, 3 };
 
             // Act
-            int[] actualResult = helperMethods.SecondPart(arr);
+            int[] actualResult = helperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void SecondPartOfArr_ArrWithOneElement_ReturnsSecondPart()
+        public void GetArrSecondPart_ArrWithOneElement()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -116,14 +116,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { 1 };
 
             // Act
-            int[] actualResult = helperMethods.SecondPart(arr);
+            int[] actualResult = helperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void SecondPartOfArr_ArrWithNoElement_ReturnsSecondPart()
+        public void GetArrSecondPart_ArrWithNoElement()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -132,14 +132,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
             int[] expectedResult = new int[] { };
 
             // Act
-            int[] actualResult = helperMethods.SecondPart(arr);
+            int[] actualResult = helperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
         }
 
         [Fact]
-        public void Merge_ArrsWithNoElement_ReturnsMergedArr()
+        public void MergeSortedArrays_ArrsWithNoElement()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -157,7 +157,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Merge_ArrWithNoElementArrWithTwoElements_ReturnsMergedArr()
+        public void MergeSortedArrays_ArrWithNoElementArrWithTwoElements()
         {
             // Arrange
             HelperMethods helperMethods = new();
@@ -175,7 +175,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithmTests
         }
 
         [Fact]
-        public void Merge_ArrsWithEvenNumberOfElements_ReturnsMergedArr()
+        public void MergeSortedArrays_ArrsWithEvenNumberOfElements()
         {
             // Arrange
             HelperMethods helperMethods = new();
