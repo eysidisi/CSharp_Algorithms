@@ -9,10 +9,10 @@ using Xunit;
 
 namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
 {
-    public class FindOrderStatistic
+    public class RSelectAlgorithmTests
     {
         [Fact]
-        public void OneElementArr()
+        public void FindOrderStatistic_OneElementArr()
         {
             // Arrange
             RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
@@ -28,7 +28,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         }
 
         [Fact]
-        public void TwoElementSortedArr()
+        public void FindOrderStatistic_TwoElementSortedArr()
         {
             // Arrange
             RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
@@ -44,7 +44,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         }
 
         [Fact]
-        public void TwoElementUnsortedArr()
+        public void FindOrderStatistic_TwoElementUnsortedArr()
         {
             // Arrange
             RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
@@ -60,7 +60,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         }
 
         [Fact]
-        public void ThreeElementSortedArr()
+        public void FindOrderStatistic_ThreeElementSortedArr()
         {
             // Arrange
             RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
@@ -74,7 +74,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
-        public class LongUnsortedArrData
+        public class PivotFindingAlgorithms
         {
             static IFindPivotAlgorithm lastElementAlgorithm = new LastElementPivotAlgorithm();
             static IFindPivotAlgorithm randomElementAlgorithm = new RandomPivotIndexAlgorithm();
@@ -87,10 +87,9 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
                 };
         }
 
-
         [Theory]
-        [MemberData(nameof(LongUnsortedArrData.algorithms), MemberType = typeof(LongUnsortedArrData))]
-        public void LongUnsortedArr(IFindPivotAlgorithm pivotAlgorithm)
+        [MemberData(nameof(PivotFindingAlgorithms.algorithms), MemberType = typeof(PivotFindingAlgorithms))]
+        public void FindOrderStatistic_LongUnsortedArr(IFindPivotAlgorithm pivotAlgorithm)
         {
             // Arrange
             RSelect rSelect = new RSelect(pivotAlgorithm);
