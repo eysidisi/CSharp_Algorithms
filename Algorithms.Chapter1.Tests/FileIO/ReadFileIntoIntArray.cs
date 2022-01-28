@@ -17,7 +17,7 @@ namespace Algorithms.Part1.Tests.FileIO
         {
             // Arrange 
             var fileManager = new FileManager();
-            string filePath = Directory.GetCurrentDirectory() + @"\Count\HelperMethodsTests\TextFiles\OneElement.txt";
+            string filePath = Directory.GetCurrentDirectory() + @"\FileIO\TestFiles\OneElement.txt";
             var expectedOutput = new int[] { 123 };
 
             // Act
@@ -32,8 +32,7 @@ namespace Algorithms.Part1.Tests.FileIO
         {
             // Arrange 
             var fileManager = new FileManager();
-            HelperMethods helperMethods = new HelperMethods();
-            string filePath = Directory.GetCurrentDirectory() + @"\Count\HelperMethodsTests\TextFiles\ThreeElements.txt";
+            string filePath = Directory.GetCurrentDirectory() + @"\FileIO\TestFiles\ThreeElements.txt";
             var expectedOutput = new int[] { 123, 456, 789 };
 
             // Act

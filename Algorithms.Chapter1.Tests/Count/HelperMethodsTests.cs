@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Xunit;
 using Algorithms.Part1.Count;
 
-namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
+namespace Algorithms.Part1.Tests.Count
 {
-    public class MergeAndCountNumberOfInversionsTests
+    public class HelperMethodsTests
     {
         [Fact]
-        public void ArrayWithOneElement_FirstPartHasZeroElements()
+        public void MergeAndCountNumberOfInversions_ArrayWithOneElement_FirstPartHasZeroElements()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -29,8 +29,9 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
             Assert.Equal(expectedOutput, actualOutput);
             Assert.Equal(expectedArr, arr);
         }
+        
         [Fact]
-        public void ArrayWithOneElement_SecondPartHasZeroElements()
+        public void MergeAndCountNumberOfInversions_ArrayWithOneElement_SecondPartHasZeroElements()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -48,8 +49,9 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
             Assert.Equal(expectedOutput, actualOutput);
             Assert.Equal(expectedArr, arr);
         }
+        
         [Fact]
-        public void ArrayWithTwoElement_InOrderArray()
+        public void MergeAndCountNumberOfInversions_ArrayWithTwoElement_InOrderArray()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -69,7 +71,7 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
         }
 
         [Fact]
-        public void ArraysWithTwoElement_OutOfOrderArray()
+        public void MergeAndCountNumberOfInversions_ArraysWithTwoElement_OutOfOrderArray()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -89,7 +91,7 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
         }
 
         [Fact]
-        public void ArrayWithNoInversion()
+        public void MergeAndCountNumberOfInversions_ArrayWithNoInversion()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -109,7 +111,7 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
         }
 
         [Fact]
-        public void ArrayWithMaxNumberOfInversions()
+        public void MergeAndCountNumberOfInversions_ArrayWithMaxNumberOfInversions()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -129,7 +131,7 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
         }
 
         [Fact]
-        public void ArrayWithSomeNumberOfInversions()
+        public void MergeAndCountNumberOfInversions_ArrayWithSomeNumberOfInversions()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
@@ -147,6 +149,5 @@ namespace Algorithms.Part1.Tests.Count.HelperMethodsTests
             Assert.Equal(expectedOutput, actualOutput);
             Assert.Equal(expectedArr, arr);
         }
-
     }
 }

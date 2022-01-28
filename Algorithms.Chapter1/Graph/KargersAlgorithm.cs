@@ -45,7 +45,6 @@ namespace Algorithms.Part1.Graph
                 }
             });
 
-
             return minNumberOfEdges;
         }
 

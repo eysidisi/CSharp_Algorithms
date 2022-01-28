@@ -25,16 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Count\CountInversionsTests\TextFiles\CourseraAssignment.txt">
+    <None Update="Count\CountInversions\TestFiles\CourseraAssignment.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Count\CountInversionsTests\TextFiles\FourElements.txt">
+    <None Update="Count\CountInversions\TestFiles\FourElements.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Count\HelperMethodsTests\TextFiles\ThreeElements.txt">
+    <None Update="FileIO\TestFiles\ThreeElements.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Count\HelperMethodsTests\TextFiles\OneElement.txt">
+    <None Update="FileIO\TestFiles\OneElement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Graph\TestFiles\AssignmentMatrix.txt">
