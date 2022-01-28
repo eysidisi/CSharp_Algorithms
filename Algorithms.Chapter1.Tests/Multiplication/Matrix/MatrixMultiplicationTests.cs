@@ -8,10 +8,76 @@ using Algorithms.Part1.Multiplication.Matrix;
 
 namespace Algorithms.Part1.Tests.Multiplication.Matrix
 {
-    public class StrassenAlgorithmTests
+    public class MatrixMultiplicationTests
     {
         [Fact]
-        public void MultiplyOneByOneMatrices()
+        public void BruteForce_SquareMatrices()
+        {
+            // Arrange
+            MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
+
+            var mat1 = new int[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+            };
+
+            var mat2 = new int[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }
+            };
+
+            var expectedOutput = new int[,]
+            {
+                { 30 ,36 ,42 },
+                { 66 ,81 ,96 },
+                { 102,126,150 }
+            };
+
+            // Act
+            var actualOutput = matrixMultiplication.BruteForce(mat1, mat2);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Fact]
+        public void BruteForce_MatricesWithDifferentDimension()
+        {
+            // Arrange
+            MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
+
+            var mat1 = new int[,]
+            {
+                { 1, 2, 3},
+                { 4, 5, 6 }
+            };
+
+            var mat2 = new int[,]
+            {
+                { 1, 2},
+                { 3, 4},
+                { 5, 6 }
+            };
+
+            var expectedOutput = new int[,]
+            {
+                { 22 , 28 },
+                { 49 , 64 }
+            };
+
+            // Act
+            var actualOutput = matrixMultiplication.BruteForce(mat1, mat2);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Fact]
+        public void StrassenAlgorithm_MultiplyOneByOneMatrices()
         {
             // Arrange
             MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
@@ -39,7 +105,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix
         }
 
         [Fact]
-        public void MultiplyTwoByTwoMatrices()
+        public void StrassenAlgorithm_MultiplyTwoByTwoMatrices()
         {
             // Arrange
             MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
@@ -70,7 +136,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix
         }
 
         [Fact]
-        public void MultiplyFourByFourMatrices()
+        public void StrassenAlgorithm_MultiplyFourByFourMatrices()
         {
             // Arrange
             MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
@@ -106,50 +172,5 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
-
-        [Fact]
-        public void MultiplyNonPowerTwoMatrices()
-        {
-            Assert.True(false);
-            // Arrange
-            MatrixMultiplication matrixMultiplication = new MatrixMultiplication();
-
-            var mat1 = new int[,]
-            {
-                { 1,2,3,4,5,6},
-                { 5,6,7,8,9,0},
-                { 1,2,3,4,5,6},
-                { 5,6,7,8,9,0},
-                { 1,2,3,4,5,6},
-                { 5,6,7,8,9,0}
-            };
-
-            var mat2 = new int[,]
-            {
-                { 5,6,7,8,9,0},
-                { 1,2,3,4,5,6},
-                { 5,6,7,8,9,0},
-                { 1,2,3,4,5,6},
-                { 5,6,7,8,9,0},
-                { 1,2,3,4,5,6}
-            };
-
-            var expectedOutput = new int[,]
-            {
-                {57,  78,  99,  120, 141, 72,},
-                {119, 154, 189, 224, 259, 84,},
-                {57,  78,  99,  120, 141, 72,},
-                {119, 154, 189, 224, 259, 84,},
-                {57,  78,  99,  120, 141, 72,},
-                {119, 154, 189, 224, 259, 84}
-            };
-
-            // Act
-            var actualOutput = matrixMultiplication.StrassenAlgorithm(mat1, mat2);
-
-            // Assert
-            Assert.Equal(expectedOutput, actualOutput);
-        }
-
     }
 }
