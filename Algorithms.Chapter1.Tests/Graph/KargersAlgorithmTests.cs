@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Algorithms.Part1.FileIO;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Algorithms.Part1.Graph;
-using Algorithms.Part1.FileIO;
-using System.IO;
-using System.Diagnostics;
 
-namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
+namespace Algorithms.Part1.Tests.Graph
 {
-    public class FindMinNumberOfEdges
+    public class KargersAlgorithmTests
     {
         // V1-V2
         [Fact]
-        public void OneEdgeGraph()
+        public void FindMinNumberOfEdges_OneEdgeGraph()
         {
             // Arrange
             var graph = new Part1.Graph.GraphRepresentation(2);
@@ -36,7 +34,7 @@ namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
         //   \ | /
         //    V3
         [Fact]
-        public void EightEdgeGraph()
+        public void FindMinNumberOfEdges_EightEdgeGraph()
         {
             // Arrange
             const int NumberOfVertices = 5;
@@ -66,7 +64,7 @@ namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
         }
 
         [Fact(Skip = "Takes more than 20 minutes to run. Used just for Coursera Assignment")]
-        public void CourseraAssignmentGraph()
+        public void FindMinNumberOfEdges_CourseraAssignmentGraph()
         {
             // Arrange
             var fileManager = new FileManager();
@@ -81,7 +79,5 @@ namespace Algorithms.Part1.Tests.GraphRepresentation.KargersAlgorithm
             // Assert
             Assert.Equal(expectedNumOfMinEdges, actualNumOfMinEdges);
         }
-
-
     }
 }

@@ -9,10 +9,39 @@ using Xunit;
 
 namespace Algorithms.Part1.Tests.FileIO
 {
-    public class ReadGraph
+    public class FileManagerTests
     {
         [Fact]
-        public void TwoVerticesMatrix()
+        public void ReadFileIntoIntArray_ReadOneElement()
+        {
+            // Arrange 
+            var fileManager = new FileManager();
+            string filePath = Directory.GetCurrentDirectory() + @"\FileIO\TestFiles\OneElement.txt";
+            var expectedOutput = new int[] { 123 };
+
+            // Act
+            var actualOutput = fileManager.ReadFileIntoIntArray(filePath);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Fact]
+        public void ReadFileIntoIntArray_ReadThreeElements()
+        {
+            // Arrange 
+            var fileManager = new FileManager();
+            string filePath = Directory.GetCurrentDirectory() + @"\FileIO\TestFiles\ThreeElements.txt";
+            var expectedOutput = new int[] { 123, 456, 789 };
+
+            // Act
+            var actualOutput = fileManager.ReadFileIntoIntArray(filePath);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+        [Fact]
+        public void ReadGraph_TwoVerticesMatrix()
         {
             // Arrange
             string path = Directory.GetCurrentDirectory() + @"\Graph\TestFiles\TwoVerticesMatrix.txt";
@@ -22,14 +51,14 @@ namespace Algorithms.Part1.Tests.FileIO
             expectedGraph.AddEdge(0, 1);
 
             // Act
-            var actualGraph=fileManager.ReadGraph(path);
+            var actualGraph = fileManager.ReadGraph(path);
 
             // Assert
-            Assert.Equal(expectedGraph, actualGraph);   
+            Assert.Equal(expectedGraph, actualGraph);
         }
 
         [Fact]
-        public void FiveMatrix()
+        public void ReadGraph_FiveMatrix()
         {
             // Arrange
             string path = Directory.GetCurrentDirectory() + @"\Graph\TestFiles\FiveVerticesMatrix.txt";
@@ -50,6 +79,5 @@ namespace Algorithms.Part1.Tests.FileIO
             // Assert
             Assert.Equal(expectedGraph, actualGraph);
         }
-
     }
 }
