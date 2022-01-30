@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Part1.Search.RSelectAlgorithm
+namespace Algorithms.Part1.Search.RSelectionAlgorithm
 {
-    public class RSelect
+    public class RSelection
     {
 
         IFindPivotAlgorithm pivotAlgorithm;
         HelperMethods helperMethods;
 
-        public RSelect(IFindPivotAlgorithm pivotAlgorithm)
+        public RSelection(IFindPivotAlgorithm pivotAlgorithm)
         {
             this.pivotAlgorithm = pivotAlgorithm;
             helperMethods = new HelperMethods();

@@ -1,4 +1,4 @@
-﻿using Algorithms.Part1.Search.RSelectAlgorithm;
+﻿using Algorithms.Part1.Search.RSelectionAlgorithm;
 using Algorithms.Part1.Sort.QuickSortAlgorithm.PivotElementAlgorithms;
 using System;
 using System.Collections.Generic;
@@ -7,15 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
+namespace Algorithms.Part1.Tests.Search.RSelectionAlgorithm
 {
-    public class RSelectAlgorithmTests
+    public class RSelectionAlgorithmTests
     {
         [Fact]
         public void FindOrderStatistic_OneElementArr()
         {
             // Arrange
-            RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
+            RSelection rSelect = new RSelection(new FirstElementPivotAlgorithm());
             var arr = new int[] { 1 };
             int elementIndex = 1;
             int expectedOutput = 1;
@@ -31,7 +31,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         public void FindOrderStatistic_TwoElementSortedArr()
         {
             // Arrange
-            RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
+            RSelection rSelect = new RSelection(new FirstElementPivotAlgorithm());
             var arr = new int[] { 1, 2 };
             int elementIndex = 2;
             int expectedOutput = 2;
@@ -47,7 +47,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         public void FindOrderStatistic_TwoElementUnsortedArr()
         {
             // Arrange
-            RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
+            RSelection rSelect = new RSelection(new FirstElementPivotAlgorithm());
             var arr = new int[] { 2, 1 };
             int elementIndex = 1;
             int expectedOutput = 1;
@@ -63,7 +63,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         public void FindOrderStatistic_ThreeElementSortedArr()
         {
             // Arrange
-            RSelect rSelect = new RSelect(new FirstElementPivotAlgorithm());
+            RSelection rSelect = new RSelection(new FirstElementPivotAlgorithm());
             var arr = new int[] { 1, 2, 3 };
             int elementIndex = 2;
             int expectedOutput = 2;
@@ -92,7 +92,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
         public void FindOrderStatistic_LongUnsortedArr(IFindPivotAlgorithm pivotAlgorithm)
         {
             // Arrange
-            RSelect rSelect = new RSelect(pivotAlgorithm);
+            RSelection rSelect = new RSelection(pivotAlgorithm);
             int numOfElements = 1000;
             var arr = new int[numOfElements];
 
@@ -104,7 +104,7 @@ namespace Algorithms.Part1.Tests.Search.RSelectAlgorithm
             int elementIndex = 500;
             int expectedOutput = 500;
 
-            Random rnd = new Random();
+            Random rnd = new Random(10);
             arr = arr.OrderBy(x => rnd.Next()).ToArray();
 
             // Act
