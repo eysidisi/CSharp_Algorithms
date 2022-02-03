@@ -9,7 +9,7 @@ namespace Algorithms.Part2.GraphAlgorithms
     public class Graph
     {
         public List<int> VerticesId { get; private set; } = new List<int>();
-        public Dictionary<int, List<int>> VertexIdToConnectedVertexIds { get; private set; } =
+        private Dictionary<int, List<int>> VertexIdToConnectedVertexIds { get; set; } =
             new Dictionary<int, List<int>>();
 
         int nextVertexIndex = 0;
@@ -40,12 +40,43 @@ namespace Algorithms.Part2.GraphAlgorithms
             }
 
             VertexIdToConnectedVertexIds[sourceVertex].Add(targetVertex);
+
+            // To make sure that in search algorithms vertices with smaller indices
+            // come before the ones with larger indices
+            VertexIdToConnectedVertexIds[sourceVertex].Sort();
         }
 
         public List<int> GetConnectedVertices(int vertexId)
         {
             VertexIdToConnectedVertexIds.TryGetValue(vertexId, out List<int> connectedVertices);
             return connectedVertices;
+        }
+
+        public List<int> BreadthFirstTravel(int startingVertexIndex)
+        {
+            List<int> visitedVertices = new List<int>();
+
+            Queue<int> verticesToVisit = new Queue<int>();
+
+            verticesToVisit.Enqueue(startingVertexIndex);
+
+            while (verticesToVisit.Count != 0)
+            {
+                int currentVertexId = verticesToVisit.Dequeue();
+
+                visitedVertices.Add(currentVertexId);
+
+                foreach (var adjacentVertexId in VertexIdToConnectedVertexIds[currentVertexId])
+                {
+                    if (visitedVertices.Contains(adjacentVertexId) == false &&
+                        verticesToVisit.Contains(adjacentVertexId) == false)
+                    {
+                        verticesToVisit.Enqueue(adjacentVertexId);
+                    }
+                }
+            }
+
+            return visitedVertices;
         }
     }
 }
