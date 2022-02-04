@@ -160,6 +160,50 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
 
         // 0-1
         [Fact]
+        public void DepthFirstTravel_OneEdgeGraph()
+        {
+            // Arrange
+            Graph graph = new Graph();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddEdge(0, 1);
+
+            List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 1 };
+            List<int> expectedVisitedIndicesStartingFrom1 = new List<int> { 1, 0 };
+
+            // Act
+            List<int> actualVisitedIndicesStartingFrom0 = graph.DepthFirstTravel(0);
+            List<int> actualVisitedIndicesStartingFrom1 = graph.DepthFirstTravel(1);
+
+            // Assert
+            Assert.Equal(expectedVisitedIndicesStartingFrom0, actualVisitedIndicesStartingFrom0);
+            Assert.Equal(expectedVisitedIndicesStartingFrom1, actualVisitedIndicesStartingFrom1);
+        }
+
+        // 0-1-2-5
+        //  \  |\
+        //   \-3-4
+        [Fact]
+        public void DepthFirstTravel_EightEdgesGraph()
+        {
+            // Arrange
+            Graph graph = Create8EdgesGraph();
+
+            List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 3, 4, 2, 5, 1 };
+            List<int> expectedVisitedIndicesStartingFrom4 = new List<int> { 4, 3, 2, 5, 1, 0 };
+
+            // Act
+            List<int> actualVisitedIndicesStartingFrom0 = graph.DepthFirstTravel(0);
+            List<int> actualVisitedIndicesStartingFrom4 = graph.DepthFirstTravel(4);
+
+            // Assert
+            Assert.Equal(expectedVisitedIndicesStartingFrom0, actualVisitedIndicesStartingFrom0);
+            Assert.Equal(expectedVisitedIndicesStartingFrom4, actualVisitedIndicesStartingFrom4);
+        }
+
+
+        // 0-1
+        [Fact]
         public void CalculateMinDistance_OneEdgeGraph()
         {
             // Arrange

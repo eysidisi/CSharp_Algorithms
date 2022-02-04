@@ -118,13 +118,13 @@ namespace Algorithms.Part2.GraphAlgorithms
         {
             List<List<int>> allConnectedComponents = new List<List<int>>();
             List<int> notVisitedVertexIds = new List<int>(VertexIds);
-            
+
             while (notVisitedVertexIds.Count != 0)
             {
-                int currentVertexId=notVisitedVertexIds[0];
+                int currentVertexId = notVisitedVertexIds[0];
 
                 List<int> connectedIndices = BreadthFirstTravel(currentVertexId);
-                
+
                 connectedIndices.Sort();
 
                 allConnectedComponents.Add(connectedIndices);
@@ -133,6 +133,32 @@ namespace Algorithms.Part2.GraphAlgorithms
             }
 
             return allConnectedComponents;
+        }
+
+        public List<int> DepthFirstTravel(int startingIndex)
+        {
+            List<int> visitedVertexIndices = new List<int>();
+
+            Stack<int> vertexIdStack = new Stack<int>();
+
+            vertexIdStack.Push(startingIndex);
+
+            while (vertexIdStack.Count != 0)
+            {
+                int vertexIdBeingVisited = vertexIdStack.Pop();
+
+                if (visitedVertexIndices.Contains(vertexIdBeingVisited) == false)
+                {
+                    visitedVertexIndices.Add(vertexIdBeingVisited);
+
+                    foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIdBeingVisited])
+                    {
+                        vertexIdStack.Push(neighbourVertexId);
+                    }
+                }
+            }
+
+            return visitedVertexIndices;
         }
     }
 }
