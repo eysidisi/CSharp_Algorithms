@@ -66,7 +66,7 @@ namespace Algorithms.Part2.GraphAlgorithms
 
                 visitedVertices.Add(currentVertexId);
 
-                foreach (var adjacentVertexId in VertexIdToConnectedVertexIds[currentVertexId])
+                foreach (int adjacentVertexId in VertexIdToConnectedVertexIds[currentVertexId])
                 {
                     if (visitedVertices.Contains(adjacentVertexId) == false &&
                         verticesToVisit.Contains(adjacentVertexId) == false)
@@ -77,6 +77,40 @@ namespace Algorithms.Part2.GraphAlgorithms
             }
 
             return visitedVertices;
+        }
+
+        public Dictionary<int, int> FindMinDistancesToVertex(int rootVertexIndex)
+        {
+            List<int> visitedVertices = new List<int>();
+
+            Queue<int> verticesToVisit = new Queue<int>();
+
+            verticesToVisit.Enqueue(rootVertexIndex);
+
+            Dictionary<int, int> vertexIdToDistance = new Dictionary<int, int>();
+
+            // Distance from the source vertex to itself is 0
+            vertexIdToDistance.Add(rootVertexIndex, 0);
+
+            while (verticesToVisit.Count != 0)
+            {
+                int currentVertexId = verticesToVisit.Dequeue();
+
+                visitedVertices.Add(currentVertexId);
+
+                foreach (var adjacentVertexId in VertexIdToConnectedVertexIds[currentVertexId])
+                {
+                    if (visitedVertices.Contains(adjacentVertexId) == false &&
+                        verticesToVisit.Contains(adjacentVertexId) == false)
+                    {
+                        verticesToVisit.Enqueue(adjacentVertexId);
+
+                        vertexIdToDistance.Add(adjacentVertexId, vertexIdToDistance[currentVertexId] + 1);
+                    }
+                }
+            }
+
+            return vertexIdToDistance;
         }
     }
 }

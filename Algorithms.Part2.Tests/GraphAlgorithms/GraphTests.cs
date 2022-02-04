@@ -114,7 +114,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
 
         // 0-1
         [Fact]
-        public void BreadthFirstTravel_OneEdgesGraph()
+        public void BreadthFirstTravel_OneEdgeGraph()
         {
             // Arrange
             Graph graph = new Graph();
@@ -134,7 +134,9 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             Assert.Equal(expectedVisitedIndicesStartingFrom1, actualVisitedIndicesStartingFrom1);
         }
 
-        // 0-1
+        // 0-1-2-5
+        //  \  |\
+        //   \-3-4
         [Fact]
         public void BreadthFirstTravel_EightEdgesGraph()
         {
@@ -156,6 +158,54 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             Assert.Equal(expectedVisitedIndicesStartingFrom4, actualVisitedIndicesStartingFrom4);
         }
 
+        // 0-1
+        [Fact]
+        public void CalculateMinDistance_OneEdgeGraph()
+        {
+            // Arrange
+            Graph graph = new Graph();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddEdge(0, 1);
+
+            Dictionary<int, int> expectedVertexIndexToDistanceIndex0 = new Dictionary<int, int>();
+            expectedVertexIndexToDistanceIndex0.Add(0, 0);
+            expectedVertexIndexToDistanceIndex0.Add(1, 1);
+
+            // Act
+            Dictionary<int, int> actualVertexIndexToDistance = graph.FindMinDistancesToVertex(0);
+
+            // Assert
+            Assert.Equal(expectedVertexIndexToDistanceIndex0, actualVertexIndexToDistance);
+        }
+
+        // 0-1-2-5
+        //  \  |\
+        //   \-3-4
+        [Fact]
+        public void CalculateMinDistance_EightEdgesGraph()
+        {
+            // Arrange
+            Graph graph = Create8EdgesGraph();
+
+            var expectedVertexIndexToDistanceIndex0 = new Dictionary<int, int>();
+            expectedVertexIndexToDistanceIndex0.Add(0, 0);
+            expectedVertexIndexToDistanceIndex0.Add(1, 1);
+            expectedVertexIndexToDistanceIndex0.Add(2, 2);
+            expectedVertexIndexToDistanceIndex0.Add(3, 1);
+            expectedVertexIndexToDistanceIndex0.Add(4, 2);
+            expectedVertexIndexToDistanceIndex0.Add(5, 3);
+
+            // Act
+            var actualVertexIndexToDistanceIndex0 = graph.FindMinDistancesToVertex(0);
+
+
+            // Assert
+            foreach (var vertexIndex in expectedVertexIndexToDistanceIndex0.Keys)
+            {
+                Assert.Equal(expectedVertexIndexToDistanceIndex0[vertexIndex], actualVertexIndexToDistanceIndex0[vertexIndex]);
+            }
+        }
 
         // 0-1-2-5
         //  \  |\
