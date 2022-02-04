@@ -160,5 +160,26 @@ namespace Algorithms.Part2.GraphAlgorithms
 
             return visitedVertexIndices;
         }
+
+        public List<int> DepthFirstRecursiveTravel(int vertexIndex)
+        {
+            List<int> visitedVertices = new List<int>();
+            DepthFirstRecursiveTravel(visitedVertices, vertexIndex);
+            return visitedVertices;
+        }
+
+        public void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
+        {
+            visitedVertices.Add(vertexIndex);
+
+            foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIndex])
+            {
+                if (visitedVertices.Contains(neighbourVertexId) == false)
+                {
+                    DepthFirstRecursiveTravel(visitedVertices, neighbourVertexId);
+                }
+            }
+
+        }
     }
 }

@@ -201,6 +201,45 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             Assert.Equal(expectedVisitedIndicesStartingFrom4, actualVisitedIndicesStartingFrom4);
         }
 
+        // 0-1
+        [Fact]
+        public void DepthFirstRecursiveTravel_OneEdgeGraph()
+        {
+            // Arrange
+            Graph graph = new Graph();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddEdge(0, 1);
+
+            List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 1 };
+
+            // Act
+            List<int> actualVisitedIndicesStartingFrom0 = graph.DepthFirstRecursiveTravel(0);
+
+            // Assert
+            Assert.Equal(expectedVisitedIndicesStartingFrom0, actualVisitedIndicesStartingFrom0);
+        }
+
+        // 0-1-2-5
+        //  \  |\
+        //   \-3-4
+        [Fact]
+        public void DepthFirstRecursiveTravel_EightEdgesGraph()
+        {
+            // Arrange
+            Graph graph = Create8EdgesGraph();
+
+            List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 1, 2, 3, 4, 5 };
+            List<int> expectedVisitedIndicesStartingFrom3 = new List<int> { 3, 0, 1, 2, 4, 5 };
+
+            // Act
+            List<int> actualVisitedIndicesStartingFrom0 = graph.DepthFirstRecursiveTravel(0);
+            List<int> actualVisitedIndicesStartingFrom3 = graph.DepthFirstRecursiveTravel(3);
+
+            // Assert
+            Assert.Equal(expectedVisitedIndicesStartingFrom0, actualVisitedIndicesStartingFrom0);
+            Assert.Equal(expectedVisitedIndicesStartingFrom3, actualVisitedIndicesStartingFrom3);
+        }
 
         // 0-1
         [Fact]
