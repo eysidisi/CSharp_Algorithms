@@ -8,7 +8,7 @@ namespace Algorithms.Part2.GraphAlgorithms
 {
     public class Graph
     {
-        public List<int> VerticesId { get; private set; } = new List<int>();
+        public List<int> VertexIds { get; private set; } = new List<int>();
         private Dictionary<int, List<int>> VertexIdToConnectedVertexIds { get; set; } =
             new Dictionary<int, List<int>>();
 
@@ -16,13 +16,14 @@ namespace Algorithms.Part2.GraphAlgorithms
 
         public void AddVertex()
         {
-            VerticesId.Add(nextVertexIndex++);
+            VertexIdToConnectedVertexIds.Add(nextVertexIndex, new List<int>());
+            VertexIds.Add(nextVertexIndex++);
         }
 
         public void AddEdge(int vertex1Id, int vertex2Id)
         {
-            if (VerticesId.Contains(vertex1Id) == false ||
-                VerticesId.Contains(vertex2Id) == false)
+            if (VertexIds.Contains(vertex1Id) == false ||
+                VertexIds.Contains(vertex2Id) == false)
             {
                 throw new ArgumentException("Invalid vertex Id");
             }
@@ -111,6 +112,27 @@ namespace Algorithms.Part2.GraphAlgorithms
             }
 
             return vertexIdToDistance;
+        }
+
+        public List<List<int>> FindConnectedComponents()
+        {
+            List<List<int>> allConnectedComponents = new List<List<int>>();
+            List<int> notVisitedVertexIds = new List<int>(VertexIds);
+            
+            while (notVisitedVertexIds.Count != 0)
+            {
+                int currentVertexId=notVisitedVertexIds[0];
+
+                List<int> connectedIndices = BreadthFirstTravel(currentVertexId);
+                
+                connectedIndices.Sort();
+
+                allConnectedComponents.Add(connectedIndices);
+
+                notVisitedVertexIds.RemoveAll(vertexId => connectedIndices.Contains(vertexId));
+            }
+
+            return allConnectedComponents;
         }
     }
 }

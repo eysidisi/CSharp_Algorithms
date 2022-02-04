@@ -21,7 +21,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             graph.AddVertex();
 
             // Assert
-            Assert.Equal(expectedVertexIndex, graph.VerticesId[0]);
+            Assert.Equal(expectedVertexIndex, graph.VertexIds[0]);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             graph.AddVertex();
 
             // Assert
-            Assert.Equal(expectedSecondVertexIndex, graph.VerticesId[1]);
+            Assert.Equal(expectedSecondVertexIndex, graph.VertexIds[1]);
         }
 
         // 0-1
@@ -206,6 +206,75 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
                 Assert.Equal(expectedVertexIndexToDistanceIndex0[vertexIndex], actualVertexIndexToDistanceIndex0[vertexIndex]);
             }
         }
+
+        // 0-1-2-3 
+        [Fact]
+        public void FindConnectedComponents_OneConnectedComponents()
+        {
+            // Arrange
+            Graph graph = new Graph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 3);
+
+            List<List<int>> expectedConnectedComponents = new List<List<int>>()
+            {
+                new List<int> { 0,1,2,3 }
+            };
+
+            // Act
+            List<List<int>> actualConnectedComponents = graph.FindConnectedComponents();
+
+            // Assert
+            Assert.Equal(expectedConnectedComponents.Count, actualConnectedComponents.Count);
+
+            foreach (List<int>? connectedIndices in expectedConnectedComponents)
+            {
+                Assert.Contains(connectedIndices, actualConnectedComponents);
+            }
+        }
+
+        // 0-1  2-3 4
+        [Fact]
+        public void FindConnectedComponents_ThreeConnectedComponents()
+        {
+            // Arrange
+            Graph graph = new Graph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(2, 3);
+
+            List<List<int>> expectedConnectedComponents = new List<List<int>>()
+            {
+                new List<int> { 2, 3 },
+                new List<int> { 0, 1 },
+                new List<int> { 4 }
+            };
+
+            // Act
+            List<List<int>> actualConnectedComponents = graph.FindConnectedComponents();
+
+            // Assert
+            Assert.Equal(expectedConnectedComponents.Count, actualConnectedComponents.Count);
+
+            foreach (List<int>? connectedIndices in expectedConnectedComponents)
+            {
+                Assert.Contains(connectedIndices, actualConnectedComponents);
+            }
+        }
+
 
         // 0-1-2-5
         //  \  |\
