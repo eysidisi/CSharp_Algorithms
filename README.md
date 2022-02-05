@@ -1,6 +1,6 @@
 # Algorithms
 This project is for implementing the algorithms that are taught in this [Algorithms Illuminated: Part 1](https://www.amazon.com/dp/0999282905) book and [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer) course.
-## Chapter 1
+## Part 1
 Here is a list of the algorithms that are implemented in this chapter:
 - Karatsuba Multiplication
 - Merge Sort
