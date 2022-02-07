@@ -25,32 +25,47 @@ namespace Algorithms.Part2.GraphAlgorithms
 
             List<int> topologicalOrder = new List<int>();
 
-            List<int> depthFirstVisitedNodes = new List<int>();
+            Stack<int> nodesToVisitStack = new Stack<int>();
 
-            Stack<>
+            int firstIndexToVisit = GetRandomVertexId(notVisitedVertices);
+
+            nodesToVisitStack.Push(firstIndexToVisit);
 
             while (notVisitedVertices.Count() != 0)
             {
-                int nodeIndexToVisit;
+                int vertexIdToStart;
 
-                if (depthFirstVisitedNodes.Count != 0)
+                if (nodesToVisitStack.Count != 0)
                 {
-                    nodeIndexToVisit = depthFirstVisitedNodes.Last();
+                    vertexIdToStart = nodesToVisitStack.Pop();
                 }
 
                 else
                 {
-                    Random random = new Random();
-                    var index = random.Next(notVisitedVertices.Count);
-                    nodeIndexToVisit = notVisitedVertices[index];
+                    vertexIdToStart = GetRandomVertexId(notVisitedVertices);
                 }
 
-                depthFirstVisitedNodes = new List<int>(topologicalOrder);
+                List<int> depthFirstVisitedVertices = new List<int>(topologicalOrder);
 
-                DepthFirstRecursiveTravel(depthFirstVisitedNodes, nodeIndexToVisit);
+                DepthFirstRecursiveTravel(depthFirstVisitedVertices, vertexIdToStart);
 
+                int visitedVertexIndex = depthFirstVisitedVertices.Last();
 
+                topologicalOrder.Add(visitedVertexIndex);
+
+                notVisitedVertices.Remove(visitedVertexIndex);
             }
+
+            return topologicalOrder;
+        }
+
+        private int GetRandomVertexId(List<int> notVisitedVertices)
+        {
+            int nodeIndexToVisit;
+            Random random = new Random();
+            var index = random.Next(notVisitedVertices.Count);
+            nodeIndexToVisit = notVisitedVertices[index];
+            return nodeIndexToVisit;
         }
     }
 }
