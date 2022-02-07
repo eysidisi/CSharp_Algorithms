@@ -1,56 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithms.Part2.GraphAlgorithms
+﻿namespace Algorithms.Part2.GraphAlgorithms
 {
-    public class Graph
+    public abstract class Graph
     {
         public List<int> VertexIds { get; private set; } = new List<int>();
-        private Dictionary<int, List<int>> VertexIdToConnectedVertexIds { get; set; } =
+
+        protected int nextVertexIndex = 0;
+        protected Dictionary<int, List<int>> VertexIdToConnectedVertexIds { get; set; } =
             new Dictionary<int, List<int>>();
 
-        int nextVertexIndex = 0;
+        public abstract void AddEdge(int vertex1Id, int vertex2Id);
 
         public void AddVertex()
         {
             VertexIdToConnectedVertexIds.Add(nextVertexIndex, new List<int>());
             VertexIds.Add(nextVertexIndex++);
-        }
-
-        public void AddEdge(int vertex1Id, int vertex2Id)
-        {
-            if (VertexIds.Contains(vertex1Id) == false ||
-                VertexIds.Contains(vertex2Id) == false)
-            {
-                throw new ArgumentException("Invalid vertex Id");
-            }
-
-            ConnectSourceVertexToTarget(vertex1Id, vertex2Id);
-            ConnectSourceVertexToTarget(vertex2Id, vertex1Id);
-        }
-
-        private void ConnectSourceVertexToTarget(int sourceVertex, int targetVertex)
-        {
-            if (VertexIdToConnectedVertexIds.TryGetValue(sourceVertex, out _) == false)
-            {
-                VertexIdToConnectedVertexIds.Add(sourceVertex, new List<int>());
-
-            }
-
-            VertexIdToConnectedVertexIds[sourceVertex].Add(targetVertex);
-
-            // To make sure that in search algorithms vertices with smaller indices
-            // come before the ones with larger indices
-            VertexIdToConnectedVertexIds[sourceVertex].Sort();
-        }
-
-        public List<int> GetConnectedVertices(int vertexId)
-        {
-            VertexIdToConnectedVertexIds.TryGetValue(vertexId, out List<int> connectedVertices);
-            return connectedVertices;
         }
 
         public List<int> BreadthFirstTravel(int startingVertexIndex)
@@ -78,6 +41,74 @@ namespace Algorithms.Part2.GraphAlgorithms
             }
 
             return visitedVertices;
+        }
+
+        public List<int> DepthFirstRecursiveTravel(int vertexIndex)
+        {
+            List<int> visitedVertices = new List<int>();
+            DepthFirstRecursiveTravel(visitedVertices, vertexIndex);
+            return visitedVertices;
+        }
+
+        public void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
+        {
+            visitedVertices.Add(vertexIndex);
+
+            foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIndex])
+            {
+                if (visitedVertices.Contains(neighbourVertexId) == false)
+                {
+                    DepthFirstRecursiveTravel(visitedVertices, neighbourVertexId);
+                }
+            }
+
+        }
+
+        public List<int> DepthFirstTravel(int startingIndex)
+        {
+            List<int> visitedVertexIndices = new List<int>();
+
+            Stack<int> vertexIdStack = new Stack<int>();
+
+            vertexIdStack.Push(startingIndex);
+
+            while (vertexIdStack.Count != 0)
+            {
+                int vertexIdBeingVisited = vertexIdStack.Pop();
+
+                if (visitedVertexIndices.Contains(vertexIdBeingVisited) == false)
+                {
+                    visitedVertexIndices.Add(vertexIdBeingVisited);
+
+                    foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIdBeingVisited])
+                    {
+                        vertexIdStack.Push(neighbourVertexId);
+                    }
+                }
+            }
+
+            return visitedVertexIndices;
+        }
+
+        public List<List<int>> FindConnectedComponents()
+        {
+            List<List<int>> allConnectedComponents = new List<List<int>>();
+            List<int> notVisitedVertexIds = new List<int>(VertexIds);
+
+            while (notVisitedVertexIds.Count != 0)
+            {
+                int currentVertexId = notVisitedVertexIds[0];
+
+                List<int> connectedIndices = BreadthFirstTravel(currentVertexId);
+
+                connectedIndices.Sort();
+
+                allConnectedComponents.Add(connectedIndices);
+
+                notVisitedVertexIds.RemoveAll(vertexId => connectedIndices.Contains(vertexId));
+            }
+
+            return allConnectedComponents;
         }
 
         public Dictionary<int, int> FindMinDistancesToVertex(int rootVertexIndex)
@@ -114,72 +145,24 @@ namespace Algorithms.Part2.GraphAlgorithms
             return vertexIdToDistance;
         }
 
-        public List<List<int>> FindConnectedComponents()
+        public List<int> GetConnectedVertices(int vertexId)
         {
-            List<List<int>> allConnectedComponents = new List<List<int>>();
-            List<int> notVisitedVertexIds = new List<int>(VertexIds);
-
-            while (notVisitedVertexIds.Count != 0)
-            {
-                int currentVertexId = notVisitedVertexIds[0];
-
-                List<int> connectedIndices = BreadthFirstTravel(currentVertexId);
-
-                connectedIndices.Sort();
-
-                allConnectedComponents.Add(connectedIndices);
-
-                notVisitedVertexIds.RemoveAll(vertexId => connectedIndices.Contains(vertexId));
-            }
-
-            return allConnectedComponents;
+            VertexIdToConnectedVertexIds.TryGetValue(vertexId, out List<int> connectedVertices);
+            return connectedVertices;
         }
 
-        public List<int> DepthFirstTravel(int startingIndex)
+        protected void ConnectSourceVertexToTheTargetVertex(int sourceVertex, int targetVertex)
         {
-            List<int> visitedVertexIndices = new List<int>();
-
-            Stack<int> vertexIdStack = new Stack<int>();
-
-            vertexIdStack.Push(startingIndex);
-
-            while (vertexIdStack.Count != 0)
+            if (VertexIdToConnectedVertexIds.TryGetValue(sourceVertex, out _) == false)
             {
-                int vertexIdBeingVisited = vertexIdStack.Pop();
-
-                if (visitedVertexIndices.Contains(vertexIdBeingVisited) == false)
-                {
-                    visitedVertexIndices.Add(vertexIdBeingVisited);
-
-                    foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIdBeingVisited])
-                    {
-                        vertexIdStack.Push(neighbourVertexId);
-                    }
-                }
+                VertexIdToConnectedVertexIds.Add(sourceVertex, new List<int>());
             }
 
-            return visitedVertexIndices;
-        }
+            VertexIdToConnectedVertexIds[sourceVertex].Add(targetVertex);
 
-        public List<int> DepthFirstRecursiveTravel(int vertexIndex)
-        {
-            List<int> visitedVertices = new List<int>();
-            DepthFirstRecursiveTravel(visitedVertices, vertexIndex);
-            return visitedVertices;
-        }
-
-        public void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
-        {
-            visitedVertices.Add(vertexIndex);
-
-            foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIndex])
-            {
-                if (visitedVertices.Contains(neighbourVertexId) == false)
-                {
-                    DepthFirstRecursiveTravel(visitedVertices, neighbourVertexId);
-                }
-            }
-
+            // To make sure that in search algorithms vertices with smaller indices
+            // come before the ones with larger indices
+            VertexIdToConnectedVertexIds[sourceVertex].Sort();
         }
     }
 }

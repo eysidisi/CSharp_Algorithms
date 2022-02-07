@@ -8,13 +8,13 @@ using Xunit;
 
 namespace Algorithms.Part2.Tests.GraphAlgorithms
 {
-    public class GraphTests
+    public class UnidirectedGraphTests
     {
         [Fact]
         public void AddVertex_AddsOneVertex()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
             int expectedVertexIndex = 0;
 
             // Act
@@ -28,7 +28,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void AddVertex_AddsTwoVertices()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
             int expectedSecondVertexIndex = 1;
 
             // Act
@@ -44,7 +44,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void AddEdge_AddsOneEdge()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
 
             // Act
             graph.AddVertex();
@@ -117,7 +117,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void BreadthFirstTravel_OneEdgeGraph()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
             graph.AddVertex();
             graph.AddVertex();
             graph.AddEdge(0, 1);
@@ -141,7 +141,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void BreadthFirstTravel_EightEdgesGraph()
         {
             // Arrange
-            Graph graph = Create8EdgesGraph();
+            UndirectedGraph graph = Create8EdgesGraph();
 
             List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 1, 3, 2, 4, 5 };
             List<int> expectedVisitedIndicesStartingFrom1 = new List<int> { 1, 0, 2, 3, 4, 5 };
@@ -163,7 +163,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void DepthFirstTravel_OneEdgeGraph()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
             graph.AddVertex();
             graph.AddVertex();
             graph.AddEdge(0, 1);
@@ -187,7 +187,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void DepthFirstTravel_EightEdgesGraph()
         {
             // Arrange
-            Graph graph = Create8EdgesGraph();
+            UndirectedGraph graph = Create8EdgesGraph();
 
             List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 3, 4, 2, 5, 1 };
             List<int> expectedVisitedIndicesStartingFrom4 = new List<int> { 4, 3, 2, 5, 1, 0 };
@@ -206,7 +206,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void DepthFirstRecursiveTravel_OneEdgeGraph()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
             graph.AddVertex();
             graph.AddVertex();
             graph.AddEdge(0, 1);
@@ -227,7 +227,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void DepthFirstRecursiveTravel_EightEdgesGraph()
         {
             // Arrange
-            Graph graph = Create8EdgesGraph();
+            UndirectedGraph graph = Create8EdgesGraph();
 
             List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 1, 2, 3, 4, 5 };
             List<int> expectedVisitedIndicesStartingFrom3 = new List<int> { 3, 0, 1, 2, 4, 5 };
@@ -246,7 +246,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void CalculateMinDistance_OneEdgeGraph()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
             graph.AddVertex();
             graph.AddVertex();
             graph.AddEdge(0, 1);
@@ -269,7 +269,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void CalculateMinDistance_EightEdgesGraph()
         {
             // Arrange
-            Graph graph = Create8EdgesGraph();
+            UndirectedGraph graph = Create8EdgesGraph();
 
             var expectedVertexIndexToDistanceIndex0 = new Dictionary<int, int>();
             expectedVertexIndexToDistanceIndex0.Add(0, 0);
@@ -295,7 +295,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void FindConnectedComponents_OneConnectedComponents()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
 
             graph.AddVertex();
             graph.AddVertex();
@@ -328,7 +328,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void FindConnectedComponents_ThreeConnectedComponents()
         {
             // Arrange
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
 
             graph.AddVertex();
             graph.AddVertex();
@@ -362,9 +362,9 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         // 0-1-2-5
         //  \  |\
         //   \-3-4
-        private Graph Create8EdgesGraph()
+        private UndirectedGraph Create8EdgesGraph()
         {
-            Graph graph = new Graph();
+            UndirectedGraph graph = new UndirectedGraph();
 
             int numOfVertices = 6;
 
