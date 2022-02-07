@@ -50,9 +50,12 @@
             return visitedVertices;
         }
 
-        public void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
+        protected void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
         {
-            visitedVertices.Add(vertexIndex);
+            if (visitedVertices.Contains(vertexIndex) == false)
+            {
+                visitedVertices.Add(vertexIndex);
+            }
 
             foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIndex])
             {
