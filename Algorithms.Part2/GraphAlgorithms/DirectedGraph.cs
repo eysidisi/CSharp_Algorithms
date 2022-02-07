@@ -19,53 +19,46 @@ namespace Algorithms.Part2.GraphAlgorithms
             ConnectSourceVertexToTheTargetVertex(vertex1Id, vertex2Id);
         }
 
+        bool[] isVertexVisited;
+        List<int> topologicalOrder;
+
         public List<int> FindTopologicalOrder()
         {
-            List<int> notVisitedVertices = new List<int>(VertexIds);
+            isVertexVisited = new bool[VertexIds.Count];
+            topologicalOrder = new List<int>();
 
-            List<int> topologicalOrder = new List<int>();
-
-            Stack<int> nodesToVisitStack = new Stack<int>();
-
-            int firstIndexToVisit = GetRandomVertexId(notVisitedVertices);
-
-            nodesToVisitStack.Push(firstIndexToVisit);
-
-            while (notVisitedVertices.Count() != 0)
+            for (int i = 0; i < isVertexVisited.Length; i++)
             {
-                int vertexIdToStart;
+                isVertexVisited[i] = false;
+            }
 
-                if (nodesToVisitStack.Count != 0)
+            foreach (var vertexId in VertexIds)
+            {
+                if (isVertexVisited[vertexId] == false)
                 {
-                    vertexIdToStart = nodesToVisitStack.Pop();
+                    DepthFirstTopo(vertexId);
                 }
-
-                else
-                {
-                    vertexIdToStart = GetRandomVertexId(notVisitedVertices);
-                }
-
-                List<int> depthFirstVisitedVertices = new List<int>(topologicalOrder);
-
-                DepthFirstRecursiveTravel(depthFirstVisitedVertices, vertexIdToStart);
-
-                int visitedVertexIndex = depthFirstVisitedVertices.Last();
-
-                topologicalOrder.Add(visitedVertexIndex);
-
-                notVisitedVertices.Remove(visitedVertexIndex);
             }
 
             return topologicalOrder;
         }
 
-        private int GetRandomVertexId(List<int> notVisitedVertices)
+        private void DepthFirstTopo(int vertexIndex)
         {
-            int nodeIndexToVisit;
-            Random random = new Random();
-            var index = random.Next(notVisitedVertices.Count);
-            nodeIndexToVisit = notVisitedVertices[index];
-            return nodeIndexToVisit;
+            var neighbourNodes = VertexIdToConnectedVertexIds[vertexIndex];
+
+            for (int i = 0; i < neighbourNodes.Count; i++)
+            {
+                int neighbourNodeIndex = neighbourNodes[i];
+
+                if (isVertexVisited[neighbourNodeIndex] == false)
+                {
+                    DepthFirstTopo(neighbourNodeIndex);
+                }
+            }
+
+            topologicalOrder.Add(vertexIndex);
+            isVertexVisited[vertexIndex] = true;
         }
     }
 }

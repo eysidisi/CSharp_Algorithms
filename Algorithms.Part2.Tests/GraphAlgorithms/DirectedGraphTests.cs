@@ -234,7 +234,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             DirectedGraph graph = Create8EdgesGraph();
 
             List<int> expectedVisitedIndicesStartingFrom0 = new List<int> { 0, 1, 2, 3, 4, 5 };
-            List<int> expectedVisitedIndicesStartingFrom3 = new List<int> { 3,4};
+            List<int> expectedVisitedIndicesStartingFrom3 = new List<int> { 3, 4 };
 
             // Act
             List<int> actualVisitedIndicesStartingFrom0 = graph.DepthFirstRecursiveTravel(0);
@@ -266,9 +266,10 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             Assert.Equal(expectedVertexIndexToDistanceIndex0, actualVertexIndexToDistance);
         }
 
-        // 0-1-2-5
-        //  \  |\
-        //   \-3-4
+        // 0->1-> 2 ->5
+        //  \    | \
+        //   \   ↓  ↓
+        //    -> 3->4
         [Fact]
         public void CalculateMinDistance_EightEdgesGraph()
         {
@@ -294,7 +295,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             }
         }
 
-        // 0-1-2-3 
+        // 0->1->2->3 
         [Fact]
         public void FindConnectedComponents_OneConnectedComponents()
         {
@@ -327,7 +328,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             }
         }
 
-        // 0-1  2-3 4
+        // 0->1  2->3 4
         [Fact]
         public void FindConnectedComponents_ThreeConnectedComponents()
         {
@@ -362,11 +363,121 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             }
         }
 
-        public void FindTopologicalOrder_()
+        // 0->1->2
+        [Theory]
+        [InlineData(0)]
+        [InlineData(10)]
+        [InlineData(20)]
+        [InlineData(30)]
+        public void FindTopologicalOrder_StarightGraph(int seedVal)
         {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
 
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+
+
+
+            List<int> expectedTopologicalOrder = new List<int>() { 2, 1, 0 };
+
+            // Act
+            var actualTopologicalOrder = graph.FindTopologicalOrder();
+
+            // Assert
+            Assert.Equal(expectedTopologicalOrder, actualTopologicalOrder);
         }
 
+        //    1
+        //   ↗ ↘
+        //  0   3
+        //   ↘ ↗
+        //    2 
+        [Theory]
+        [InlineData(0)]
+        [InlineData(10)]
+        [InlineData(20)]
+        [InlineData(30)]
+        public void FindTopologicalOrder_DiamondGraph(int seedVal)
+        {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(0, 2);
+            graph.AddEdge(1, 3);
+            graph.AddEdge(2, 3);
+
+            List<List<int>> expectedTopologicalOrders = new List<List<int>>()
+           {
+               new List<int>() { 3,1,2,0 },
+               new List<int>() { 3,2,1,0 }
+           };
+
+
+            // Act
+            List<int> actualTopologicalOrder = graph.FindTopologicalOrder();
+
+            // Assert
+            Assert.Contains(actualTopologicalOrder, expectedTopologicalOrders);
+        }
+
+
+        //    1 -> 4
+        //   ↗ ↘  ↗
+        //  0   3
+        //   ↘ ↗  ↘
+        //    2 -> 5 
+        [Theory]
+        [InlineData(0)]
+        [InlineData(10)]
+        [InlineData(20)]
+        [InlineData(30)]
+        public void FindTopologicalOrder_ComplexGraph(int seedVal)
+        {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(0, 2);
+            graph.AddEdge(1, 3);
+            graph.AddEdge(1, 4);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(2, 5);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(3, 5);
+
+            List<List<int>> expectedTopologicalOrders = new List<List<int>>()
+           {
+               new List<int>() {5,4,3,2,1,0 },
+               new List<int>() {4,5,3,2,1,0 },
+               new List<int>() {5,4,3,1,2,0},
+               new List<int>() {4,5,3,1,2,0 }
+           };
+
+
+            // Act
+            List<int> actualTopologicalOrder = graph.FindTopologicalOrder();
+
+            // Assert
+            Assert.Contains(actualTopologicalOrder, expectedTopologicalOrders);
+        }
 
 
         // 0->1-> 2 ->5
