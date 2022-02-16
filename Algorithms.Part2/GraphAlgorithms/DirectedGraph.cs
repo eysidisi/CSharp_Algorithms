@@ -60,5 +60,49 @@ namespace Algorithms.Part2.GraphAlgorithms
             topologicalOrder.Add(vertexIndex);
             isVertexVisited[vertexIndex] = true;
         }
+
+        SortedDictionary<int, int> vertexWeightToVertexID;
+        int vertexWeight;
+        public List<List<int>> FindStronglyConnectedComponents()
+        {
+            DirectedGraphHelperMethods helperMethods = new DirectedGraphHelperMethods();
+
+            Dictionary<int, List<int>> reversedVertexDirections = helperMethods.ReverseVertexToConnectedVertexIDs(VertexIdToConnectedVertexIds);
+
+            isVertexVisited = new bool[reversedVertexDirections.Count];
+            vertexWeightToVertexID = new SortedDictionary<int, int>();
+            vertexWeight = 0;
+
+            for (int vertexIndex = 0; vertexIndex < reversedVertexDirections.Count; vertexIndex++)
+            {
+                if (isVertexVisited[vertexIndex] == false)
+                {
+                    isVertexVisited[vertexIndex] = true;
+
+                    SCCDepthFirst(reversedVertexDirections, vertexIndex);
+                }
+            }
+
+            throw new NotImplementedException();
+        }
+
+        private void SCCDepthFirst(Dictionary<int, List<int>> vertexIDsToConnectedVertexIDs, int vertexIndex)
+        {
+            List<int> neighbourVertices = vertexIDsToConnectedVertexIDs[vertexIndex];
+
+            foreach (var vertexId in neighbourVertices)
+            {
+                if (isVertexVisited[vertexId] == false)
+                {
+                    isVertexVisited[vertexId] = true;
+                    SCCDepthFirst(vertexIDsToConnectedVertexIDs, vertexId);
+                }
+            }
+
+            vertexWeight++;
+
+            vertexWeightToVertexID.Add(vertexWeight, vertexIndex);
+        }
     }
+
 }
