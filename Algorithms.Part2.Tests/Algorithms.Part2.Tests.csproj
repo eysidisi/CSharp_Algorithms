@@ -24,4 +24,13 @@
     <ProjectReference Include="..\Algorithms.Part2\Algorithms.Part2.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="GraphAlgorithms\InputFiles\7EdgesGraph.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

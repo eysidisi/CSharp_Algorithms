@@ -165,7 +165,7 @@
 
             // To make sure that in search algorithms vertices with smaller indices
             // come before the ones with larger indices
-            VertexIdToConnectedVertexIds[sourceVertex].Sort();
+            //VertexIdToConnectedVertexIds[sourceVertex].Sort();
         }
     }
 }

@@ -1,15 +1,24 @@
 ﻿using Algorithms.Part2.GraphAlgorithms;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Algorithms.Part2.Tests.GraphAlgorithms
 {
     public class DirectedGraphTests
     {
+        private readonly ITestOutputHelper output;
+
+        public DirectedGraphTests(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+
         [Fact]
         public void AddVertex_AddsOneVertex()
         {
@@ -511,6 +520,8 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             {
                 Assert.Contains(scc, actualSCC);
             }
+
+            output.WriteLine("asda");
         }
 
         //0->1->2
@@ -547,6 +558,142 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
                 Assert.Contains(scc, actualSCC);
             }
         }
+
+        [Fact]
+        public void FindStronglyConnectedComponents_ComplexGraph_ReturnsSCC()
+        {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(1, 10);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(2, 4);
+            graph.AddEdge(3, 5);
+            graph.AddEdge(4, 3);
+            graph.AddEdge(5, 4);
+            graph.AddEdge(6, 4);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(6, 8);
+            graph.AddEdge(7, 8);
+            graph.AddEdge(8, 9);
+            graph.AddEdge(9, 6);
+            graph.AddEdge(10, 0);
+            graph.AddEdge(10, 6);
+            graph.AddEdge(10, 9);
+
+            List<List<int>> expectedSCC = new List<List<int>>()
+            {
+                new List<int>(){0,1,10},
+                new List<int>(){2},
+                new List<int>(){3,4,5},
+                new List<int>(){6,7,8,9}
+            };
+
+            // Act
+            List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
+            expectedSCC.ForEach(s => s.Sort());
+            actualSCC.ForEach(s => s.Sort());
+
+            // Assert
+            Assert.Equal(expectedSCC.Count, actualSCC.Count);
+            foreach (List<int> scc in expectedSCC)
+            {
+                Assert.Contains(scc, actualSCC);
+            }
+        }
+
+        [Fact]
+        public void FindStronglyConnectedComponents_ComplexGraphWithTwoWays_ReturnsSCC()
+        {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(0, 2);
+            graph.AddEdge(1, 0);
+            graph.AddEdge(1, 3);
+            graph.AddEdge(2, 0);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(3, 4);
+            graph.AddEdge(4, 3);
+            graph.AddEdge(5, 1);
+            graph.AddEdge(5, 4);
+            graph.AddEdge(5, 6);
+            graph.AddEdge(6, 4);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(7, 5);
+            graph.AddEdge(8, 6);
+            graph.AddEdge(8, 7);
+            graph.AddEdge(8, 8);
+
+
+            List<List<int>> expectedSCC = new List<List<int>>()
+            {
+                new List<int>(){0,1,2},
+                new List<int>(){3,4},
+                new List<int>(){5,6,7},
+                new List<int>(){8}
+            };
+
+            // Act
+            List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
+            expectedSCC.ForEach(s => s.Sort());
+            actualSCC.ForEach(s => s.Sort());
+
+            // Assert
+            Assert.Equal(expectedSCC.Count, actualSCC.Count);
+            foreach (List<int> scc in expectedSCC)
+            {
+                Assert.Contains(scc, actualSCC);
+            }
+        }
+
+        [Fact]
+        public void FindStronglyConnectedComponents_Coursera_ReturnsSCC()
+        {
+            // Arrange
+            DirectedGraphHelperMethods helper = new DirectedGraphHelperMethods();
+            string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt";
+
+            DirectedGraph graph = helper.ReadInputFile(inputfilePath);
+
+            // Act
+            List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
+
+            List<List<int>> a = actualSCC.OrderByDescending(l => l.Count).ToList();
+
+            for (int i = 0; i < 5; i++)
+            {
+                output.WriteLine(a[i].Count().ToString());
+            }
+        }
+
 
         // 0->1-> 2 ->5
         //  \    | \
