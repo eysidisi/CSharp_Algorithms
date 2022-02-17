@@ -61,7 +61,7 @@ namespace Algorithms.Part2.GraphAlgorithms
             isVertexVisited[vertexIndex] = true;
         }
 
-        SortedDictionary<int, int> vertexWeightToVertexID;
+        SortedDictionary<int, int> vertexWeightToVertexIDDic;
         int vertexWeight;
         public List<List<int>> FindStronglyConnectedComponents()
         {
@@ -69,11 +69,11 @@ namespace Algorithms.Part2.GraphAlgorithms
 
             Dictionary<int, List<int>> reversedVertexDirections = helperMethods.ReverseVertexToConnectedVertexIDs(VertexIdToConnectedVertexIds);
 
-            isVertexVisited = new bool[reversedVertexDirections.Count];
-            vertexWeightToVertexID = new SortedDictionary<int, int>();
+            isVertexVisited = new bool[VertexIds.Count];
+            vertexWeightToVertexIDDic = new SortedDictionary<int, int>();
             vertexWeight = 0;
 
-            for (int vertexIndex = 0; vertexIndex < reversedVertexDirections.Count; vertexIndex++)
+            for (int vertexIndex = 0; vertexIndex < VertexIds.Count; vertexIndex++)
             {
                 if (isVertexVisited[vertexIndex] == false)
                 {
@@ -83,25 +83,61 @@ namespace Algorithms.Part2.GraphAlgorithms
                 }
             }
 
-            throw new NotImplementedException();
+            List<List<int>> stronglyConnectedComponents = new List<List<int>>();
+
+            isVertexVisited = new bool[VertexIds.Count];
+            foreach (var vertexWeightToVertexID in vertexWeightToVertexIDDic.Reverse())
+            {
+                int vertexIndex = vertexWeightToVertexID.Value;
+
+                if (isVertexVisited[vertexIndex] == false)
+                {
+                    isVertexVisited[vertexIndex] = true;
+
+                    List<int> group = new List<int>();
+                    group.Add(vertexIndex);
+                    SCCDepthFirstInsertIndices(VertexIdToConnectedVertexIds, vertexIndex, group);
+                    stronglyConnectedComponents.Add(group);
+                }
+
+            }
+
+            return stronglyConnectedComponents;
         }
 
-        private void SCCDepthFirst(Dictionary<int, List<int>> vertexIDsToConnectedVertexIDs, int vertexIndex)
+        private void SCCDepthFirstInsertIndices(Dictionary<int, List<int>> vertexIDsToConnectedVertexIDs, int vertexIndex, List<int> group)
         {
             List<int> neighbourVertices = vertexIDsToConnectedVertexIDs[vertexIndex];
 
             foreach (var vertexId in neighbourVertices)
             {
+                int loopVertexID = vertexId;
                 if (isVertexVisited[vertexId] == false)
                 {
-                    isVertexVisited[vertexId] = true;
-                    SCCDepthFirst(vertexIDsToConnectedVertexIDs, vertexId);
+                    group.Add(loopVertexID);
+                    isVertexVisited[loopVertexID] = true;
+                    SCCDepthFirstInsertIndices(vertexIDsToConnectedVertexIDs, loopVertexID, group);
                 }
             }
+        }
+
+        private void SCCDepthFirst(Dictionary<int, List<int>> vertexIDsToConnectedVertexIDs, int vertexIndex)
+        {
+            vertexIDsToConnectedVertexIDs.TryGetValue(vertexIndex, out List<int> neighbourVertices);
+            
+            if (neighbourVertices != null)
+                foreach (var vertexId in neighbourVertices)
+                {
+                    if (isVertexVisited[vertexId] == false)
+                    {
+                        isVertexVisited[vertexId] = true;
+                        SCCDepthFirst(vertexIDsToConnectedVertexIDs, vertexId);
+                    }
+                }
 
             vertexWeight++;
 
-            vertexWeightToVertexID.Add(vertexWeight, vertexIndex);
+            vertexWeightToVertexIDDic.Add(vertexWeight, vertexIndex);
         }
     }
 

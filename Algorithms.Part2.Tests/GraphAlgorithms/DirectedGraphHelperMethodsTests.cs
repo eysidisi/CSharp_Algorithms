@@ -70,7 +70,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
 
             var expectedReversedVertexIDsToConnectedIDs = new Dictionary<int, List<int>>();
             expectedReversedVertexIDsToConnectedIDs.Add(5, new List<int>() { 2 });
-            expectedReversedVertexIDsToConnectedIDs.Add(4, new List<int>() { 3, 2 });
+            expectedReversedVertexIDsToConnectedIDs.Add(4, new List<int>() { 2, 3 });
             expectedReversedVertexIDsToConnectedIDs.Add(3, new List<int>() { 0, 2 });
             expectedReversedVertexIDsToConnectedIDs.Add(2, new List<int>() { 1 });
             expectedReversedVertexIDsToConnectedIDs.Add(1, new List<int>() { 0 });
@@ -79,8 +79,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             var actualReversedVertexIDsToConnectedIDs = helperMethods.ReverseVertexToConnectedVertexIDs(vertexIDsToConnectedIDs);
 
             // Assert
-            Assert.Equal(expectedReversedVertexIDsToConnectedIDs.Count, actualReversedVertexIDsToConnectedIDs.Count);
-            throw new NotImplementedException();
+            Assert.Equal(expectedReversedVertexIDsToConnectedIDs, actualReversedVertexIDsToConnectedIDs);
         }
 
         // 0->1-> 2 ->5

@@ -479,6 +479,74 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             Assert.Contains(actualTopologicalOrder, expectedTopologicalOrders);
         }
 
+        //0->1->2
+        [Fact]
+        public void FindStronglyConnectedComponents_StraightGraph_ReturnsSCC()
+        {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+
+            List<List<int>> expectedSCC = new List<List<int>>()
+            {
+                new List<int>(){0},
+                new List<int>(){1},
+                new List<int>(){2}
+            };
+
+            // Act
+            List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
+            expectedSCC.ForEach(s => s.Sort());
+            actualSCC.ForEach(s => s.Sort());
+
+            // Assert
+            Assert.Equal(expectedSCC.Count, actualSCC.Count);
+            foreach (List<int> scc in expectedSCC)
+            {
+                Assert.Contains(scc, actualSCC);
+            }
+        }
+
+        //0->1->2
+        //    <-
+        [Fact]
+        public void FindStronglyConnectedComponents_GraphWithTwoWay_ReturnsSCC()
+        {
+            // Arrange
+            DirectedGraph graph = new DirectedGraph();
+
+            graph.AddVertex();
+            graph.AddVertex();
+            graph.AddVertex();
+
+            graph.AddEdge(0, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 1);
+
+            List<List<int>> expectedSCC = new List<List<int>>()
+            {
+                new List<int>(){0},
+                new List<int>(){1,2}
+            };
+
+            // Act
+            List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
+            expectedSCC.ForEach(s => s.Sort());
+            actualSCC.ForEach(s => s.Sort());
+
+            // Assert
+            Assert.Equal(expectedSCC.Count, actualSCC.Count);
+            foreach (List<int> scc in expectedSCC)
+            {
+                Assert.Contains(scc, actualSCC);
+            }
+        }
 
         // 0->1-> 2 ->5
         //  \    | \
