@@ -83,46 +83,9 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             Assert.Equal(expectedReversedVertexIDsToConnectedIDs, actualReversedVertexIDsToConnectedIDs);
         }
 
-        [Fact]
-        public void ReadInputFile_Read7EdgeGraph()
-        {
-            // Arrange
-            DirectedGraphHelperMethods helperMethods = new DirectedGraphHelperMethods();
+        
 
-            DirectedGraph expectedGraph = Create7EdgesGraph();
-
-            string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\7EdgesGraph.txt";
-
-            // Act
-            var actualGraph = helperMethods.ReadInputFile(inputfilePath);
-
-            // Assert
-            for (int i = 0; i < actualGraph.VertexIds.Count; i++)
-            {
-                int vertexID = actualGraph.VertexIds[i];
-                expectedGraph.GetConnectedVertices(vertexID).Sort();
-                actualGraph.GetConnectedVertices(vertexID).Sort();
-
-                Assert.Equal(expectedGraph.GetConnectedVertices(vertexID), actualGraph.GetConnectedVertices(vertexID));
-            }
-
-        }
-
-        [Fact]
-        public void ReadInputFile_CourseraAssignment()
-        {
-            // Arrange
-            DirectedGraphHelperMethods helperMethods = new DirectedGraphHelperMethods();
-
-
-            string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt";
-
-            // Act
-            var actualGraph = helperMethods.ReadInputFile(inputfilePath);
-
-            // Assert
-            
-        }
+        
 
         // 0->1-> 2 ->5
         //  \    | \

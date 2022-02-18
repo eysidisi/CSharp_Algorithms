@@ -674,25 +674,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             }
         }
 
-        [Fact]
-        public void FindStronglyConnectedComponents_Coursera_ReturnsSCC()
-        {
-            // Arrange
-            DirectedGraphHelperMethods helper = new DirectedGraphHelperMethods();
-            string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt";
-
-            DirectedGraph graph = helper.ReadInputFile(inputfilePath);
-
-            // Act
-            List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
-
-            List<List<int>> a = actualSCC.OrderByDescending(l => l.Count).ToList();
-
-            for (int i = 0; i < 5; i++)
-            {
-                output.WriteLine(a[i].Count().ToString());
-            }
-        }
+        
 
 
         // 0->1-> 2 ->5
