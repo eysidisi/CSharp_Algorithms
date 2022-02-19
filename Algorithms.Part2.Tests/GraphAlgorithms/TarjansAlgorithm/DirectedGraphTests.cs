@@ -1,4 +1,4 @@
-﻿using Algorithms.Part2.GraphAlgorithms;
+﻿using Algorithms.Part2.GraphAlgorithms.TarjansAlgorithm;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,17 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Algorithms.Part2.Tests.GraphAlgorithms
+namespace Algorithms.Part2.Tests.GraphAlgorithms.TarjansAlgorithm
 {
-    public class SCCDirectedGraphTests
+    public class DirectedGraphTests
     {
-
         //0->1->2
         [Fact]
         public void ConnectVertex1ToVertex2_CreatesStraightGraph()
         {
             // Arrange
-            SCCDirectedGraph sCCDirectedGraph = new SCCDirectedGraph(3);
+            DirectedGraph sCCDirectedGraph = new DirectedGraph(3);
             List<List<int>> expectedVertices = new List<List<int>>();
             for (int i = 0; i < 3; i++)
             {
@@ -31,17 +30,18 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             sCCDirectedGraph.ConnectVertex1ToVertex2(1, 2);
 
             // Assert
-            Assert.Equal(expectedVertices, sCCDirectedGraph.indexIDsToIndexIDs);
+            Assert.Equal(expectedVertices, sCCDirectedGraph.vertexToVertexIDs);
         }
 
-        [Fact]
+        [Fact(Skip ="Takes too long")]
+        
         public void FindStronglyConnectedComponents_Coursera_ReturnsSCC()
         {
             // Arrange
-            SCCDirectedGraphHelperMethods helper = new SCCDirectedGraphHelperMethods();
+            HelperMethods helper = new HelperMethods();
             string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt";
 
-            SCCDirectedGraph graph = helper.ReadInputFile(inputfilePath);
+            DirectedGraph graph = helper.ReadInputFile(inputfilePath);
 
             // Act
             List<List<int>> actualSCC = graph.FindStronglyConnectedComponents();
@@ -56,7 +56,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void FindStronglyConnectedComponents_ReturnsSCC()
         {
             // Arrange
-            SCCDirectedGraph graph = new SCCDirectedGraph(3);
+            DirectedGraph graph = new DirectedGraph(3);
 
             graph.ConnectVertex1ToVertex2(0, 1);
             graph.ConnectVertex1ToVertex2(1, 2);
@@ -92,7 +92,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void FindStronglyConnectedComponents_TwoWay_ReturnsSCC()
         {
             // Arrange
-            SCCDirectedGraph graph = new SCCDirectedGraph(3);
+            DirectedGraph graph = new DirectedGraph(3);
 
             graph.ConnectVertex1ToVertex2(0, 1);
             graph.ConnectVertex1ToVertex2(1, 2);
@@ -122,7 +122,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void FindStronglyConnectedComponents_Complex_ReturnsSCC()
         {
             // Arrange
-            SCCDirectedGraph graph = new SCCDirectedGraph(11);
+            DirectedGraph graph = new DirectedGraph(11);
 
             graph.ConnectVertex1ToVertex2(0, 1);
             graph.ConnectVertex1ToVertex2(1, 10);
@@ -183,7 +183,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void FindStronglyConnectedComponents_Complex2_ReturnsSCC()
         {
             // Arrange
-            SCCDirectedGraph graph = new SCCDirectedGraph(9);
+            DirectedGraph graph = new DirectedGraph(9);
 
             graph.ConnectVertex1ToVertex2(0, 1);
             graph.ConnectVertex1ToVertex2(0, 2);

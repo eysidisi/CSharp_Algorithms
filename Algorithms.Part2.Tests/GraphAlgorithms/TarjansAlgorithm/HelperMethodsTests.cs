@@ -1,4 +1,4 @@
-﻿using Algorithms.Part2.GraphAlgorithms;
+﻿using Algorithms.Part2.GraphAlgorithms.TarjansAlgorithm;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,17 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Algorithms.Part2.Tests.GraphAlgorithms
+namespace Algorithms.Part2.Tests.GraphAlgorithms.TarjansAlgorithm
 {
-    public class SCCDirectedGraphHelperMethodsTests
+    public class HelperMethodsTests
     {
         [Fact]
         public void ReadInputFile_Read7EdgeGraph()
         {
             // Arrange
-            SCCDirectedGraphHelperMethods helperMethods = new SCCDirectedGraphHelperMethods();
+            HelperMethods helperMethods = new HelperMethods();
 
-            SCCDirectedGraph expectedGraph = new SCCDirectedGraph(6);
+            DirectedGraph expectedGraph = new DirectedGraph(6);
             expectedGraph.ConnectVertex1ToVertex2(0, 1);
             expectedGraph.ConnectVertex1ToVertex2(0, 3);
             expectedGraph.ConnectVertex1ToVertex2(1, 2);
@@ -32,10 +32,10 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
             var actualGraph = helperMethods.ReadInputFile(inputfilePath);
 
             // Assert
-            for (int i = 0; i < actualGraph.indexIDsToIndexIDs.Count; i++)
+            for (int i = 0; i < actualGraph.vertexToVertexIDs.Count; i++)
             {
-                var actualGraphVertexToVertices = actualGraph.indexIDsToIndexIDs[i];
-                var expectedGraphVertexToVertices = expectedGraph.indexIDsToIndexIDs[i];
+                var actualGraphVertexToVertices = actualGraph.vertexToVertexIDs[i];
+                var expectedGraphVertexToVertices = expectedGraph.vertexToVertexIDs[i];
                 Assert.Equal(expectedGraphVertexToVertices, actualGraphVertexToVertices);
             }
 
@@ -45,7 +45,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void ReadInputFile_CourseraAssignment()
         {
             // Arrange
-            SCCDirectedGraphHelperMethods helperMethods = new SCCDirectedGraphHelperMethods();
+            HelperMethods helperMethods = new HelperMethods();
 
 
             string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt";
@@ -62,23 +62,23 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms
         public void ReverseEdges_ReversesEdges()
         {
             // Arrange
-            SCCDirectedGraph graph = new SCCDirectedGraph(3);
+            DirectedGraph graph = new DirectedGraph(3);
             graph.ConnectVertex1ToVertex2(0, 1);
             graph.ConnectVertex1ToVertex2(1, 2);
 
-            SCCDirectedGraphHelperMethods helperMethods = new SCCDirectedGraphHelperMethods();
+            HelperMethods helperMethods = new HelperMethods();
 
-            SCCDirectedGraph expedtedReversedGraph = new SCCDirectedGraph(3);
+            DirectedGraph expedtedReversedGraph = new DirectedGraph(3);
             expedtedReversedGraph.ConnectVertex1ToVertex2(2, 1);
             expedtedReversedGraph.ConnectVertex1ToVertex2(1, 0);
 
             // Act
-            var actualReversedGraph = helperMethods.ReverseEdges(graph.indexIDsToIndexIDs);
+            var actualReversedGraph = helperMethods.ReverseEdges(graph.vertexToVertexIDs);
 
             // Assert
-            for (int vertexIndex = 0; vertexIndex < expedtedReversedGraph.indexIDsToIndexIDs.Count; vertexIndex++)
+            for (int vertexIndex = 0; vertexIndex < expedtedReversedGraph.vertexToVertexIDs.Count; vertexIndex++)
             {
-                var expectedConnedtedVertices = expedtedReversedGraph.indexIDsToIndexIDs[vertexIndex];
+                var expectedConnedtedVertices = expedtedReversedGraph.vertexToVertexIDs[vertexIndex];
                 var actulConnedtedVertices = actualReversedGraph[vertexIndex];
                 Assert.Equal(expectedConnedtedVertices, actulConnedtedVertices);
             }

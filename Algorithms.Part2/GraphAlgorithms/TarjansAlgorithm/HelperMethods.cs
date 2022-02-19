@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Part2.GraphAlgorithms
+namespace Algorithms.Part2.GraphAlgorithms.TarjansAlgorithm
 {
-    public class SCCDirectedGraphHelperMethods
+    public class HelperMethods
     {
-        public SCCDirectedGraph ReadInputFile(string filePath)
+        public DirectedGraph ReadInputFile(string filePath)
         {
             List<string> vertexLines = File.ReadAllLines(filePath).ToList();
 
@@ -32,7 +32,7 @@ namespace Algorithms.Part2.GraphAlgorithms
 
             int numberOfVertices = Math.Max(sourceIndices.Max(), targetIndices.Max());
 
-            SCCDirectedGraph graph = new SCCDirectedGraph(numberOfVertices + 1);
+            DirectedGraph graph = new DirectedGraph(numberOfVertices + 1);
 
             for (int i = 0; i < sourceIndices.Count; i++)
             {
