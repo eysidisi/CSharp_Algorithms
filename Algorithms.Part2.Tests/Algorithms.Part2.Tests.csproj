@@ -25,12 +25,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="GraphAlgorithms\DijkstrasAlgorithm\InputFiles\CourseraData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="GraphAlgorithms\InputFiles\7EdgesGraph.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt">
+    <None Update="GraphAlgorithms\InputFiles\CourseraTarjansAlgorithmAssignmentInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GraphAlgorithms\DijkstrasAlgorithm\InputFiles\" />
   </ItemGroup>
 
 </Project>
