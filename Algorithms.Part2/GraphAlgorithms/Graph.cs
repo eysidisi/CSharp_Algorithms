@@ -5,6 +5,7 @@
         public List<int> VertexIds { get; private set; } = new List<int>();
 
         protected int nextVertexIndex = 0;
+
         protected Dictionary<int, List<int>> VertexIdToConnectedVertexIds { get; set; } =
             new Dictionary<int, List<int>>();
 
@@ -48,23 +49,6 @@
             List<int> visitedVertices = new List<int>();
             DepthFirstRecursiveTravel(visitedVertices, vertexIndex);
             return visitedVertices;
-        }
-
-        protected void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
-        {
-            if (visitedVertices.Contains(vertexIndex) == false)
-            {
-                visitedVertices.Add(vertexIndex);
-            }
-
-            foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIndex])
-            {
-                if (visitedVertices.Contains(neighbourVertexId) == false)
-                {
-                    DepthFirstRecursiveTravel(visitedVertices, neighbourVertexId);
-                }
-            }
-
         }
 
         public List<int> DepthFirstTravel(int startingIndex)
@@ -167,5 +151,23 @@
             // come before the ones with larger indices
             VertexIdToConnectedVertexIds[sourceVertex].Sort();
         }
+
+        protected void DepthFirstRecursiveTravel(List<int> visitedVertices, int vertexIndex)
+        {
+            if (visitedVertices.Contains(vertexIndex) == false)
+            {
+                visitedVertices.Add(vertexIndex);
+            }
+
+            foreach (var neighbourVertexId in VertexIdToConnectedVertexIds[vertexIndex])
+            {
+                if (visitedVertices.Contains(neighbourVertexId) == false)
+                {
+                    DepthFirstRecursiveTravel(visitedVertices, neighbourVertexId);
+                }
+            }
+
+        }
+
     }
 }

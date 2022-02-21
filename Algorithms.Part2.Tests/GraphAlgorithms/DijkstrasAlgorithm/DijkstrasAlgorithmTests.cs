@@ -105,7 +105,7 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms.DijkstrasAlgorithm
             Assert.Equal(expectedDistancesTo4, actualDistancesTo4);
         }
 
-        [Fact]
+        [Fact(Skip ="Used for coursera assignment")]
         public void CalculateShortestDistanceFromVertex_CourseraAssignment_ReturnsShortestPath()
         {
             HelplerMethods helplerMethods = new HelplerMethods();

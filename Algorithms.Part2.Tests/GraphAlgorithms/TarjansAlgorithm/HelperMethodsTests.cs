@@ -41,14 +41,14 @@ namespace Algorithms.Part2.Tests.GraphAlgorithms.TarjansAlgorithm
 
         }
 
-        [Fact]
+        [Fact(Skip ="Used for coursera assignment")]
         public void ReadInputFile_CourseraAssignment()
         {
             // Arrange
             HelperMethods helperMethods = new HelperMethods();
 
 
-            string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraAssignmentInput.txt";
+            string inputfilePath = Directory.GetCurrentDirectory() + @"\GraphAlgorithms\InputFiles\CourseraData.txt";
 
             // Act
             var actualGraph = helperMethods.ReadInputFile(inputfilePath);

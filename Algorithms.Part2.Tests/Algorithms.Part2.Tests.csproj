@@ -31,7 +31,7 @@
     <None Update="GraphAlgorithms\InputFiles\7EdgesGraph.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="GraphAlgorithms\InputFiles\CourseraTarjansAlgorithmAssignmentInput.txt">
+    <None Update="GraphAlgorithms\InputFiles\CourseraData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
