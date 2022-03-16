@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Part2.GraphAlgorithms.DijkstrasAlgorithm
+﻿using Priority_Queue;
+
+namespace Algorithms.Part2.GraphAlgorithms.DijkstrasAlgorithm
 {
     public class Dijkstra
     {
@@ -11,7 +13,7 @@
         {
             List<int> accessibleVertices = FindAccessibleVertices(graph, sourceVertexIndex);
 
-            int[] distances = new int[graph.NumOfVertices ];
+            int[] distances = new int[graph.NumOfVertices];
 
             for (int i = 0; i < distances.Count(); i++)
             {
@@ -79,6 +81,54 @@
             }
 
             return accessibleVertices;
+        }
+
+        public int[] FindClosestDistancesUsingHeap(UndirectedGraph graph, int sourceVertexIndex)
+        {
+            List<int> accessibleVertices = FindAccessibleVertices(graph, sourceVertexIndex);
+
+            int[] distances = new int[graph.NumOfVertices];
+            bool[] isVertexVisited = new bool[graph.NumOfVertices];
+
+            for (int i = 0; i < distances.Count(); i++)
+            {
+                distances[i] = 10000;
+            }
+
+            distances[sourceVertexIndex] = 0;
+
+            int numOfVisitedVertices = 0;
+
+            SimplePriorityQueue<int> indexNDistance = new SimplePriorityQueue<int>();
+            indexNDistance.Enqueue(sourceVertexIndex, 0);
+
+            while (numOfVisitedVertices != accessibleVertices.Count)
+            {
+                // Remove one from priority queue
+                int currentVisitedIndex = indexNDistance.Dequeue();
+
+                // If it's not visited visit
+                if (isVertexVisited[currentVisitedIndex] == false)
+                {
+                    isVertexVisited[currentVisitedIndex] = true;
+                    numOfVisitedVertices++;
+
+                    List<Edge> edgesFromVertex = graph.Edges[currentVisitedIndex];
+
+                    foreach (var edge in edgesFromVertex)
+                    {
+                        int currentCalculatedDist = edge.weight + distances[currentVisitedIndex];
+
+                        if (distances[edge.destVertex] > currentCalculatedDist)
+                        {
+                            distances[edge.destVertex] = currentCalculatedDist;
+                            indexNDistance.Enqueue(edge.destVertex, currentCalculatedDist);
+                        }
+                    }
+                }
+            }
+
+            return distances;
         }
     }
 }
