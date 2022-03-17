@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="OptimizedPriorityQueue" Version="5.1.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -32,6 +33,273 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="GraphAlgorithms\InputFiles\CourseraData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\CourseraData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_10_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_11_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_12_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_13_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_14_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_15_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_16_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_17_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_18_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_19_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_1_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_20_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_21_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_22_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_23_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_24_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_25_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_26_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_27_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_28_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_29_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_2_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_30_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_31_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_32_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_33_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_34_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_35_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_36_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_37_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_38_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_39_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_3_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_40_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_41_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_42_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_43_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_44_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_4_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_5_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_6_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_7_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_8_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\input_random_9_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_10_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_11_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_12_40.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_13_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_14_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_15_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_16_80.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_17_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_18_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_19_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_1_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_20_160.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_21_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_22_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_23_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_24_320.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_25_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_26_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_27_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_28_640.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_29_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_2_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_30_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_31_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_32_1280.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_33_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_34_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_35_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_36_2560.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_37_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_38_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_39_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_3_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_40_5120.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_41_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_42_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_43_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_44_10000.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_4_10.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_5_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_6_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_7_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_8_20.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="HeapAlgorithms\InputFiles\output_random_9_40.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -18,7 +18,7 @@ namespace Algorithms.Part2.HeapAlgorithms
 
         public void Enqueu(int num)
         {
-            if (NumOfElements > arr.Length)
+            if (NumOfElements >= arr.Length)
             {
                 throw new Exception("Need a bigger heap!");
             }
