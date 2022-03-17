@@ -19,7 +19,7 @@ namespace Algorithms.Part2.HeapAlgorithms
             int secondChildNodeIndex = firstChildNodeIndex + 1;
 
             // Has two children
-            if (secondChildNodeIndex <= numOfElements - 1)
+            if (secondChildNodeIndex <= NumOfElements - 1)
             {
                 int firstChild = arr[firstChildNodeIndex];
                 int secondChild = arr[secondChildNodeIndex];
@@ -39,7 +39,7 @@ namespace Algorithms.Part2.HeapAlgorithms
             }
 
             // Has one child
-            else if (firstChildNodeIndex <= numOfElements - 1)
+            else if (firstChildNodeIndex <= NumOfElements - 1)
             {
                 int firstChild = arr[firstChildNodeIndex];
 

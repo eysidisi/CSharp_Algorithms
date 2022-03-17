@@ -12,14 +12,71 @@ namespace Algorithms.Part2.HeapAlgorithms
         {
         }
 
-        protected override void BubbleDownIfNecessary(int elementIndex)
+        protected override void BubbleDownIfNecessary(int parentNodeIndex)
         {
-            throw new NotImplementedException();
+            int parentNode = arr[parentNodeIndex];
+            int firstChildNodeIndex = parentNodeIndex * 2 + 1;
+            int secondChildNodeIndex = firstChildNodeIndex + 1;
+
+            // Has two children
+            if (secondChildNodeIndex <= NumOfElements - 1)
+            {
+                int firstChild = arr[firstChildNodeIndex];
+                int secondChild = arr[secondChildNodeIndex];
+
+                int childIndexToSwap = firstChild > secondChild ? firstChildNodeIndex : secondChildNodeIndex;
+
+                if (arr[childIndexToSwap] > parentNode)
+                {
+                    Swap(parentNodeIndex, childIndexToSwap);
+                    BubbleDownIfNecessary(childIndexToSwap);
+                }
+
+                else
+                {
+                    return;
+                }
+            }
+
+            // Has one child
+            else if (firstChildNodeIndex <= NumOfElements - 1)
+            {
+                int firstChild = arr[firstChildNodeIndex];
+
+                if (firstChild > parentNode)
+                {
+                    Swap(parentNodeIndex, firstChildNodeIndex);
+                }
+
+                else
+                {
+                    return;
+                }
+            }
+
+            // Has no children
+            else
+            {
+                return;
+            }
         }
 
-        protected override void BubbleUpIfNecessary(int elementIndex)
+        protected override void BubbleUpIfNecessary(int childNodeIndex)
         {
-            throw new NotImplementedException();
+            int parentNodeIndex = childNodeIndex / 2;
+            int parentNode = arr[parentNodeIndex];
+            int childNode = arr[childNodeIndex];
+
+            if (parentNode >= childNode)
+            {
+                return;
+            }
+
+            else
+            {
+                Swap(childNodeIndex, parentNodeIndex);
+                BubbleUpIfNecessary(parentNodeIndex);
+            }
         }
     }
 }

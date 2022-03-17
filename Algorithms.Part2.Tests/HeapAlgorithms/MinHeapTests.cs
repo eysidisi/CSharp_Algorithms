@@ -18,7 +18,8 @@ namespace Algorithms.Part2.Tests.HeapAlgorithms
         [InlineData(new int[] { 6, 5, 4, 3, 2, 1 }, new int[] { 1, 2, 3, 4, 5, 6 })]
         [InlineData(new int[] { 7, 6, 5, 4, 3, 2, 1 }, new int[] { 1, 2, 3, 4, 5, 6, 7 })]
         [InlineData(new int[] { 7, 5, 6, 3, 1, 4, 2 }, new int[] { 1, 2, 3, 4, 5, 6, 7 })]
-        public void Dequeu_IncreasingOrder_ReturnsItemsInOrder(int[] input, int[] expected)
+        [InlineData(new int[] { 7, 5, 6, 3, 1, 7, 4, 2 }, new int[] { 1, 2, 3, 4, 5, 6, 7, 7 })]
+        public void Dequeu_ReturnsItemsInOrder(int[] input, int[] expected)
         {
             // Arrange
             MinHeap heap = new MinHeap();

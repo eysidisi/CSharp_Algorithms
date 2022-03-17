@@ -9,41 +9,44 @@ namespace Algorithms.Part2.HeapAlgorithms
     public abstract class Heap
     {
         protected int[] arr;
-        protected int numOfElements;
-
+        public int NumOfElements { get; protected set; }
         public Heap(int size)
         {
-            numOfElements = 0;
+            NumOfElements = 0;
             arr = new int[size];
         }
 
         public void Enqueu(int num)
         {
-            if (numOfElements > arr.Length)
+            if (NumOfElements > arr.Length)
             {
                 throw new Exception("Need a bigger heap!");
             }
 
-            arr[numOfElements] = num;
-            numOfElements++;
+            arr[NumOfElements] = num;
+            NumOfElements++;
 
-            BubbleUpIfNecessary(numOfElements - 1);
+            BubbleUpIfNecessary(NumOfElements - 1);
         }
 
         public int Dequeu()
         {
-            if (numOfElements == 0)
+            if (NumOfElements == 0)
             {
                 throw new Exception("No element left in the heap!");
             }
 
             int numToReturn = arr[0];
-            arr[0] = arr[numOfElements - 1];
-            numOfElements--;
+            arr[0] = arr[NumOfElements - 1];
+            NumOfElements--;
 
             BubbleDownIfNecessary(0);
 
             return numToReturn;
+        }
+        public int Peek()
+        {
+            return arr[0];
         }
 
         protected void Swap(int childNodeIndex, int parentNodeIndex)
