@@ -8,7 +8,7 @@ namespace Algorithms.Part2.HeapAlgorithms
 {
     public class MaxHeap : Heap
     {
-        public MaxHeap(int size = 1000) : base(size)
+        public MaxHeap(int size = 5000) : base(size)
         {
         }
 
@@ -63,7 +63,16 @@ namespace Algorithms.Part2.HeapAlgorithms
 
         protected override void BubbleUpIfNecessary(int childNodeIndex)
         {
+            if (childNodeIndex == 0)
+                return;
+
             int parentNodeIndex = childNodeIndex / 2;
+
+            if (childNodeIndex % 2 == 0)
+            {
+                parentNodeIndex--;
+            }
+
             int parentNode = arr[parentNodeIndex];
             int childNode = arr[childNodeIndex];
 

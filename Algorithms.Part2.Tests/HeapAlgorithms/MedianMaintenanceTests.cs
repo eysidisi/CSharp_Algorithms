@@ -29,7 +29,9 @@ namespace Algorithms.Part2.Tests.HeapAlgorithms
         public void GetMedian_ReturnsMedian(int[] input, int[] expectedMedians)
         {
             // Arrange
-            MedianMaintenance medianMaintenance = new MedianMaintenance();
+            MinHeap minHeap = new MinHeap();
+            MaxHeap maxHeap = new MaxHeap();
+            MedianMaintenance medianMaintenance = new MedianMaintenance(minHeap, maxHeap);
 
             // Act
             List<int> actualMedians = new List<int>();
@@ -50,7 +52,9 @@ namespace Algorithms.Part2.Tests.HeapAlgorithms
         public void MedianSums(int[] input, int expectedSum)
         {
             // Arrange
-            MedianMaintenance medianMaintenance = new MedianMaintenance();
+            MinHeap minHeap = new MinHeap();
+            MaxHeap maxHeap = new MaxHeap();
+            MedianMaintenance medianMaintenance = new MedianMaintenance(minHeap, maxHeap);
 
             // Act
             List<int> medians = new List<int>();
@@ -78,7 +82,9 @@ namespace Algorithms.Part2.Tests.HeapAlgorithms
 
             for (int fileIndex = 1; fileIndex < 45; fileIndex++)
             {
-                MedianMaintenance medianMaintenance = new MedianMaintenance();
+                MinHeap minHeap = new MinHeap(10000);
+                MaxHeap maxHeap = new MaxHeap(10000);
+                MedianMaintenance medianMaintenance = new MedianMaintenance(minHeap, maxHeap);
 
                 string inputFileInitials = "input_random_" + fileIndex + "_";
 
@@ -115,12 +121,14 @@ namespace Algorithms.Part2.Tests.HeapAlgorithms
         {
             // Arrange
 
-            MedianMaintenance medianMaintenance = new MedianMaintenance();
+            MinHeap minHeap = new MinHeap();
+            MaxHeap maxHeap = new MaxHeap();
+            MedianMaintenance medianMaintenance = new MedianMaintenance(minHeap, maxHeap);
 
             string inputFilePath = Directory.GetCurrentDirectory() + @"\HeapAlgorithms\InputFiles\CourseraData.txt";
 
             var input = medianMaintenance.ReadInputFile(inputFilePath);
-            
+
             List<int> medians = new List<int>();
 
             for (int i = 0; i < input.Count; i++)

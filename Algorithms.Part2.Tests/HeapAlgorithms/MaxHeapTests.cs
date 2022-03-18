@@ -27,13 +27,13 @@ namespace Algorithms.Part2.Tests.HeapAlgorithms
             // Act
             foreach (var item in input)
             {
-                heap.Enqueu(item);
+                heap.Enqueue(item);
             }
 
             List<int> actual = new List<int>();
             for (int i = 0; i < input.Length; i++)
             {
-                actual.Add(heap.Dequeu());
+                actual.Add(heap.Dequeue());
             }
 
             // Assert

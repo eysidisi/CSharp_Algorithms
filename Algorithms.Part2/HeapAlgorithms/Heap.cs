@@ -16,7 +16,7 @@ namespace Algorithms.Part2.HeapAlgorithms
             arr = new int[size];
         }
 
-        public void Enqueu(int num)
+        public void Enqueue(int num)
         {
             if (NumOfElements >= arr.Length)
             {
@@ -29,7 +29,7 @@ namespace Algorithms.Part2.HeapAlgorithms
             BubbleUpIfNecessary(NumOfElements - 1);
         }
 
-        public int Dequeu()
+        public int Dequeue()
         {
             if (NumOfElements == 0)
             {

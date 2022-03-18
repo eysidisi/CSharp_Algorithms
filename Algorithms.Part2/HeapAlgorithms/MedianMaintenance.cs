@@ -9,49 +9,52 @@ namespace Algorithms.Part2.HeapAlgorithms
 {
     public class MedianMaintenance
     {
-        SimplePriorityQueue<int> maxHeap = new SimplePriorityQueue<int>();
-        SimplePriorityQueue<int> minHeap = new SimplePriorityQueue<int>();
+        Heap maxHeap;
+        Heap minHeap;
+
+        public MedianMaintenance(Heap minHeap, Heap maxHeap)
+        {
+            this.maxHeap = maxHeap;
+            this.minHeap = minHeap;
+        }
 
         public int GetMedian()
         {
-            if (maxHeap.Count >= minHeap.Count)
+            if (maxHeap.NumOfElements >= minHeap.NumOfElements)
             {
-                return maxHeap.First;
+                return maxHeap.Peek();
             }
 
             else
             {
-                return minHeap.First();
+                return minHeap.Peek();
             }
         }
         public void AddElement(int element)
         {
             // Heaps has no element
-            if (maxHeap.Count == 0 && minHeap.Count == 0)
+            if (maxHeap.NumOfElements == 0 && minHeap.NumOfElements == 0)
             {
-                int priority = -1 * element;
-                maxHeap.Enqueue(element, priority);
+                maxHeap.Enqueue(element);
             }
 
             else
             {
-                if (maxHeap.First() > element)
+                if (maxHeap.Peek() > element)
                 {
-                    int priority = -1 * element;
-                    maxHeap.Enqueue(element, priority);
+                    maxHeap.Enqueue(element);
                 }
                 else
                 {
-                    minHeap.Enqueue(element, element);
+                    minHeap.Enqueue(element);
                 }
             }
 
-            if (Math.Abs(maxHeap.Count - minHeap.Count) > 1)
+            if (Math.Abs(maxHeap.NumOfElements - minHeap.NumOfElements) > 1)
             {
                 BalanceHeaps();
             }
         }
-
         public List<int> ReadInputFile(string path)
         {
             List<int> input = new List<int>();
@@ -65,20 +68,18 @@ namespace Algorithms.Part2.HeapAlgorithms
 
             return input;
         }
-
         private void BalanceHeaps()
         {
-            if (maxHeap.Count > minHeap.Count)
+            if (maxHeap.NumOfElements > minHeap.NumOfElements)
             {
                 int numToAdd = maxHeap.Dequeue();
-                minHeap.Enqueue(numToAdd, numToAdd);
+                minHeap.Enqueue(numToAdd);
             }
 
             else
             {
                 int numToAdd = minHeap.Dequeue();
-                int priority = -1 * numToAdd;
-                maxHeap.Enqueue(numToAdd, priority);
+                maxHeap.Enqueue(numToAdd);
             }
         }
     }
