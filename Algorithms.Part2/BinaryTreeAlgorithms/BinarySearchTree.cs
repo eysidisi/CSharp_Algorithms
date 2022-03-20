@@ -51,8 +51,6 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
 
         public override int? FindPredecessorOfElement(int element)
         {
-            throw new NotImplementedException();
-
             Node nodeWithGivenElement = FindNodeWithGivenData(element);
 
             if (nodeWithGivenElement == null)
@@ -60,14 +58,57 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
                 return null;
             }
 
-            Node predecessorNode = FindNodeWithGivenRank(nodeWithGivenElement.NumOfTotalChildren - 1);
+            else if (nodeWithGivenElement.lChild != null)
+            {
+                return FindMaxNodeInSubTree(nodeWithGivenElement.lChild).data;
+            }
 
-            if (predecessorNode == null)
+            else
+            {
+                Node parent = nodeWithGivenElement.parent;
+
+                while (parent != null)
+                {
+                    if (parent.data < element)
+                    {
+                        return parent.data;
+                    }
+                    parent = parent.parent;
+                }
+
+                return null;
+            }
+        }
+
+        public override int? FindSuccessorOfElement(int element)
+        {
+            Node nodeWithGivenElement = FindNodeWithGivenData(element);
+
+            if (nodeWithGivenElement == null)
             {
                 return null;
             }
 
-            return predecessorNode.data;
+            else if (nodeWithGivenElement.rChild != null)
+            {
+                return FindMinNodeInSubTree(nodeWithGivenElement.rChild).data;
+            }
+
+            else
+            {
+                Node parent = nodeWithGivenElement.parent;
+
+                while (parent != null)
+                {
+                    if (parent.data > element)
+                    {
+                        return parent.data;
+                    }
+                    parent = parent.parent;
+                }
+
+                return null;
+            }
         }
 
         public override bool Search(int element)
@@ -84,6 +125,56 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
             }
         }
 
+        public override int? FindRankOfElement(int element)
+        {
+            int numberOfElementsSmallerThanGivenElement = 0;
+            Node node = FindNodeWithGivenData(element);
+
+            if (node.lChild != null)
+            {
+                numberOfElementsSmallerThanGivenElement += (node.lChild.size + 1);
+            }
+
+            Node parent = node.parent;
+
+            while (parent != null)
+            {
+                if (parent.rChild == node)
+                {
+                    int numberOfSmallerElements = parent.lChild != null ? parent.lChild.size + 2 : 1;
+                    numberOfElementsSmallerThanGivenElement += numberOfSmallerElements;
+                }
+                node = parent;
+                parent = parent.parent;
+            }
+
+            return numberOfElementsSmallerThanGivenElement + 1;
+        }
+
+        public override List<int> OutputSorted()
+        {
+            return GetOutputSorted(rootNode);
+        }
+
+        private List<int> GetOutputSorted(Node node)
+        {
+            List<int> sortedOutput = new List<int>();
+
+            if (node.lChild != null)
+            {
+                sortedOutput.AddRange(GetOutputSorted(node.lChild));
+            }
+
+            sortedOutput.Add(node.data);
+
+            if (node.rChild != null)
+            {
+                sortedOutput.AddRange(GetOutputSorted(node.rChild));
+            }
+
+            return sortedOutput;
+        }
+
         private Node FindNodeWithGivenData(int element)
         {
             Node temp = rootNode;
@@ -98,7 +189,7 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
                     return temp;
                 }
 
-                else if (element > rootNode.data)
+                else if (element > temp.data)
                 {
                     temp = temp.rChild;
                 }
@@ -138,31 +229,6 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
             return parent;
         }
 
-        private Node FindNodeWithGivenRank(int rank)
-        {
-            Node currentNode = rootNode;
-
-            while (currentNode != null)
-            {
-                if (rank == currentNode.NumOfTotalChildren)
-                {
-                    return currentNode;
-                }
-
-                else if (rank > currentNode.NumOfTotalChildren)
-                {
-                    currentNode = currentNode.rChild;
-                }
-
-                else
-                {
-                    currentNode = currentNode.lChild;
-                }
-            }
-
-            return currentNode;
-        }
-
         private Node AddChildNodeToParent(int element, Node parent)
         {
             Node newNode = new Node();
@@ -193,7 +259,7 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
 
             while (currentNode != node)
             {
-                currentNode.NumOfTotalChildren++;
+                currentNode.size++;
 
                 if (node.data > currentNode.data)
                 {
@@ -205,6 +271,26 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
                     currentNode = currentNode.lChild;
                 }
             }
+        }
+
+        private Node FindMaxNodeInSubTree(Node node)
+        {
+            while (node.rChild != null)
+            {
+                node = node.rChild;
+            }
+
+            return node;
+        }
+
+        private Node FindMinNodeInSubTree(Node node)
+        {
+            while (node.lChild != null)
+            {
+                node = node.lChild;
+            }
+
+            return node;
         }
     }
 }

@@ -15,5 +15,8 @@ namespace Algorithms.Part2.BinaryTreeAlgorithms
         public abstract int Min();
         public abstract int Max();
         public abstract int? FindPredecessorOfElement(int element);
+        public abstract int? FindSuccessorOfElement(int element);
+        public abstract int? FindRankOfElement(int element);
+        public abstract List<int> OutputSorted();
     }
 }

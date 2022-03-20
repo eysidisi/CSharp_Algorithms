@@ -7,6 +7,6 @@
         public Node parent;
 
         public int data;
-        public int NumOfTotalChildren;
+        public int size;
     }
 }

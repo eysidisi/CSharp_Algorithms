@@ -56,14 +56,12 @@ namespace Algorithms.Part2.Tests.BinaryTreeAlgorithms
             }
         }
 
-        [Fact]
-        public void Predecessor_GetsPredecessors()
+        [Theory]
+        [MemberData(nameof(FindPredecessorOfElement))]
+        public void FindPredecessorOfElement_GetsPredecessors(int[] elementsToAdd, int[] precedessorsToFind, int?[] precedessors)
         {
             // Arrange
             BinarySearchTree searchTree = new BinarySearchTree();
-            int[] elementsToAdd = new int[] { 1, 2, 3, 4, 5, 6, -1, -2, -3 };
-            int[] precedessorsToFind = new int[] { -1, -2, -3, 1, 2, 3, 4, 5, 6 };
-            int?[] precedessors = new int?[] { -2, -3, null, -1, 1, 2, 3, 4, 5 };
 
             // Act 
             foreach (var item in elementsToAdd)
@@ -80,5 +78,93 @@ namespace Algorithms.Part2.Tests.BinaryTreeAlgorithms
                 Assert.Equal(precedessor, searchTree.FindPredecessorOfElement(precedessorToFind));
             }
         }
+        public static IEnumerable<object[]> FindPredecessorOfElement =>
+            new List<object[]>
+            {
+                    new object[] { new int[] { 7,1, 2, 3, 4, 5, 6, -1, -2, -3 }, new int[] { -1, -2, -3, 1, 2, 3, 4, 5, 6,7 }, new int?[] { -2, -3, null, -1, 1, 2, 3, 4, 5,6 }},
+                    new object[] { new int[] { 4,2,6,3,5,1,7,-3,-2,-1 }, new int[] { -1, -2, -3, 1, 2, 3, 4, 5, 6 }, new int?[] { -2, -3, null, -1, 1, 2, 3, 4, 5 }}
+            };
+
+        [Theory]
+        [MemberData(nameof(FindSuccessorOfElementData))]
+        public void FindSuccessorOfElement_GetsPredecessors(int[] elementsToAdd, int[] successorsToFind, int?[] successors)
+        {
+            // Arrange
+            BinarySearchTree searchTree = new BinarySearchTree();
+
+            // Act 
+            foreach (var item in elementsToAdd)
+            {
+                searchTree.Insert(item);
+            }
+
+            // Assert
+            for (int i = 0; i < successorsToFind.Length; i++)
+            {
+                int successorToFind = successorsToFind[i];
+                int? successor = successors[i];
+
+                Assert.Equal(successor, searchTree.FindSuccessorOfElement(successorToFind));
+            }
+        }
+        public static IEnumerable<object[]> FindSuccessorOfElementData =>
+        new List<object[]>
+        {
+            new object[] { new int[] { 7,1, 2, 3, 4, 5, 6, -1, -2, -3 }, new int[] { -1, -2, -3, 1, 2, 3, 4, 5, 6,7 }, new int?[] { 1, -1, -2, 2, 3, 4, 5, 6, 7,null }},
+            new object[] { new int[] { 4,2,6,3,5,1,7,-3,-2,-1 }, new int[] { -1, -2, -3, 1, 2, 3, 4, 5, 6 }, new int?[] { 1, -1, -2, 2, 3, 4, 5, 6, 7, null } }
+        };
+
+        [Theory]
+        [MemberData(nameof(FindRankOfElementData))]
+        public void FindRankOfElement_ReturnsRanks(int[] elementsToAdd, int[] elementsToFindRanks, int?[] ranks)
+        {
+            // Arrange
+            BinarySearchTree searchTree = new BinarySearchTree();
+
+            // Act 
+            foreach (var item in elementsToAdd)
+            {
+                searchTree.Insert(item);
+            }
+
+            // Assert
+            for (int i = 0; i < elementsToFindRanks.Length; i++)
+            {
+                int elementToFindRank = elementsToFindRanks[i];
+                int? expectedRanks = ranks[i];
+
+                Assert.Equal(expectedRanks, searchTree.FindRankOfElement(elementToFindRank));
+            }
+        }
+        public static IEnumerable<object[]> FindRankOfElementData =>
+        new List<object[]>
+        {
+            new object[] { new int[] { 7,1, 2, 3, 4, 5, 6, -1, -2, -3 }, new int[] { -3,-2,-1,1,2,3,4,5,6,7 }, new int?[] {1,2,3,4,5,6,7,8,9,10  }},
+            new object[] { new int[] { 4,2,6,3,5,1,7,-3,-2,-1 }, new int[] { -3, -2, -1, 1, 2, 3, 4, 5, 6, 7 }, new int?[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } }
+        };
+
+        [Theory]
+        [MemberData(nameof(OutputSortedData))]
+        public void OutputSorted_ReturnsSortedOutput(int[] elementsToAdd, List<int> expectedSortedElements)
+        {
+            // Arrange
+            BinarySearchTree searchTree = new BinarySearchTree();
+
+            // Act 
+            foreach (var item in elementsToAdd)
+            {
+                searchTree.Insert(item);
+            }
+            var actualSortedElements = searchTree.OutputSorted();
+
+            // Assert
+            Assert.Equal(expectedSortedElements, actualSortedElements);
+        }
+        public static IEnumerable<object[]> OutputSortedData =>
+        new List<object[]>
+        {
+            new object[] { new int[] { 7,1, 2, 3, 4, 5, 6, -1, -2, -3 }, new List<int>() { -3,-2,-1,1,2,3,4,5,6,7 }},
+            new object[] { new int[] { 4,2,6,3,5,1,7,-3,-2,-1 }, new List<int>() { -3, -2, -1, 1, 2, 3, 4, 5, 6, 7 }}
+        };
     }
 }
