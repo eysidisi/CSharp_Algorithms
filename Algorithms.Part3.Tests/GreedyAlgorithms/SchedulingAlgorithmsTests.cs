@@ -32,9 +32,8 @@ namespace Algorithms.Part3.Tests.GreedyAlgorithms
             Assert.Equal(expectedOutput, actualOutput);
         }
 
-
         [Theory]
-        [MemberData(nameof(TwoJobsData))]
+        [MemberData(nameof(CalculateWeightedSumUsingDifference_TwoJobsData))]
         public void CalculateWeightedSumUsingDifference_TwoJobs_ReturnsWeightedCompletion(Job job1, Job job2, int expectedOutput)
         {
             // Arrange
@@ -47,15 +46,17 @@ namespace Algorithms.Part3.Tests.GreedyAlgorithms
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
         }
-        public static IEnumerable<object[]> TwoJobsData =>
+
+        public static IEnumerable<object[]> CalculateWeightedSumUsingDifference_TwoJobsData =>
     new List<object[]>
     {
             new object[] { new Job(2,5), new Job(3,4), 30},
-            new object[] { new Job(3,5), new Job(2,3), 31},
+            new object[] { new Job(3,5), new Job(2,3), 30},
             new object[] { new Job(3,1), new Job(4,2), 17}
     };
+
         [Fact]
-        public void CourseraAssignment()
+        public void CalculateWeightedSumUsingDifference_CourseraAssignment()
         {
             string filePath=Directory.GetCurrentDirectory()+ @"\GreedyAlgorithms\InputFiles\courseraAssignment.txt";
             
@@ -64,6 +65,37 @@ namespace Algorithms.Part3.Tests.GreedyAlgorithms
             Job[] jobs = schedulingAlgorithms.ReadFile(filePath);
 
             var weightedSum = schedulingAlgorithms.CalculateWeightedSumUsingDifference(jobs);
+
+            output.WriteLine(weightedSum.ToString());
+        }
+
+        [Fact]
+        public void CalculateWeightedSumUsingRatio_OneJob_ReturnsWeightedCompletion()
+        {
+            // Arrange
+            SchedulingAlgorithms schedulingAlgorithms = new SchedulingAlgorithms();
+
+            Job job = new Job(weight: 2, length: 3);
+            var jobs = new Job[] { job };
+            int expectedOutput = 6;
+
+            // Act
+            var actualOutput = schedulingAlgorithms.CalculateWeightedSumUsingRatio(jobs);
+
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Fact]
+        public void CalculateWeightedSumUsingRatio_CourseraAssignment()
+        {
+            string filePath = Directory.GetCurrentDirectory() + @"\GreedyAlgorithms\InputFiles\courseraAssignment.txt";
+
+            SchedulingAlgorithms schedulingAlgorithms = new SchedulingAlgorithms();
+
+            Job[] jobs = schedulingAlgorithms.ReadFile(filePath);
+
+            var weightedSum = schedulingAlgorithms.CalculateWeightedSumUsingRatio(jobs);
 
             output.WriteLine(weightedSum.ToString());
         }

@@ -24,6 +24,22 @@ namespace Algorithms.Part3.GreedyAlgorithms
             }
             return weightedSum;
         }
+        public long CalculateWeightedSumUsingRatio(Job[] jobs)
+        {
+
+            Job[] sortedJobs = jobs.OrderByDescending(j => ((double)j.Weight) / j.Length).ToArray();
+
+            long weightedSum = 0;
+
+            long totalTimePassed = 0;
+            for (int i = 0; i < sortedJobs.Length; i++)
+            {
+                Job currentJob = sortedJobs[i];
+                totalTimePassed += currentJob.Length;
+                weightedSum += currentJob.Weight * totalTimePassed;
+            }
+            return weightedSum;
+        }
 
         public Job[] ReadFile(string filePath)
         {
