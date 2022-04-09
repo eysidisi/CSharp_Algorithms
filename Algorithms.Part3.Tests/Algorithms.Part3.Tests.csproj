@@ -26,10 +26,14 @@
 
   <ItemGroup>
     <Folder Include="GreedyAlgorithms\InputFiles\" />
+    <Folder Include="GreedyAlgorithms\MinimumSpanningTree\InputFiles\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="GreedyAlgorithms\InputFiles\courseraAssignment.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="GreedyAlgorithms\MinimumSpanningTree\InputFiles\MST.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
