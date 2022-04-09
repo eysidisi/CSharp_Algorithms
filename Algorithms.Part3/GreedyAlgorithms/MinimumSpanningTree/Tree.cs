@@ -73,7 +73,7 @@ namespace Algorithms.Part3.GreedyAlgorithms.MinimumSpanningTree
             return FindMinimumSpanningTreeTotalCost();
         }
 
-        SimplePriorityQueue<Node, int> heapNodes;
+        SimplePriorityQueue<Node, int> nodesHeap;
         Dictionary<int, Edge> nodeIDToSelectedShortestEdge;
         int[] nodeDistances;
         List<Edge> minimumSpanTreeEdges;
@@ -85,34 +85,24 @@ namespace Algorithms.Part3.GreedyAlgorithms.MinimumSpanningTree
             SetStartingNode();
 
             InitializeGlobalVariables();
-            
+
             InitializeNodeDistancesHeap();
 
-            ProcessStartingNode();
+            VisitStartingNode();
 
-            while (heapNodes.Count() != 0)
+            while (nodesHeap.Count() != 0)
             {
-                Node closestNode = heapNodes.Dequeue();
+                Node closestNode = nodesHeap.Dequeue();
                 VisitNode(closestNode);
-
-                var closestNodeEdges = closestNode.Edges;
-
-                foreach (var edge in closestNodeEdges)
-                {
-                    if (CheckIfEdgeIsFrontier(edge))
-                    {
-                        Node notVisitedNode = edge.Nodes.ToList().Find(n => n != closestNode);
-
-                        if (DoesNewEdgeGetsNotVisitedNodeCloser(edge, notVisitedNode))
-                        {
-                            UpdateNodeDistance(notVisitedNode, edge);
-                        }
-                    }
-                }
             }
 
             long result = CalculateSumOfLengths();
             return result;
+        }
+
+        private Node FindNotVisitedNode(Edge edge)
+        {
+            return edge.Nodes.ToList().Find(n => isNodeVisited[n.ID] == false);
         }
 
         private void SetStartingNode()
@@ -138,27 +128,46 @@ namespace Algorithms.Part3.GreedyAlgorithms.MinimumSpanningTree
         {
             nodeDistances[node.ID] = edge.Length;
             nodeIDToSelectedShortestEdge[node.ID] = edge;
-            heapNodes.UpdatePriority(node, edge.Length);
+            nodesHeap.UpdatePriority(node, edge.Length);
         }
 
         private void VisitNode(Node node)
         {
             isNodeVisited[node.ID] = true;
-            Edge edge = nodeIDToSelectedShortestEdge[node.ID];
-            minimumSpanTreeEdges.Add(edge);
+            Edge shortestEdgeToTheNode = nodeIDToSelectedShortestEdge[node.ID];
+            minimumSpanTreeEdges.Add(shortestEdgeToTheNode);
+            UpdateConnectedNodeDistancesToTheGivenNode(node);
         }
 
-        private void ProcessStartingNode()
+        private void UpdateConnectedNodeDistancesToTheGivenNode(Node node)
         {
-            isNodeVisited[startingNode.ID] = true;
-
-            var closestNodeEdges = startingNode.Edges;
+            var closestNodeEdges = node.Edges;
 
             foreach (var edge in closestNodeEdges)
             {
+                if (CheckIfEdgeIsFrontier(edge))
+                {
+                    Node notVisitedNode = FindNotVisitedNode(edge);
+
+                    if (DoesNewEdgeGetsNotVisitedNodeCloser(edge, notVisitedNode))
+                    {
+                        UpdateNodeDistance(notVisitedNode, edge);
+                    }
+                }
+            }
+        }
+
+        private void VisitStartingNode()
+        {
+            isNodeVisited[startingNode.ID] = true;
+
+            var edgesFromStartingNode = startingNode.Edges;
+
+            foreach (var edge in edgesFromStartingNode)
+            {
                 Node notVisitedNode = edge.Nodes.ToList().Find(n => n != startingNode);
 
-                heapNodes.UpdatePriority(notVisitedNode, edge.Length);
+                nodesHeap.UpdatePriority(notVisitedNode, edge.Length);
 
                 nodeDistances[notVisitedNode.ID] = edge.Length;
 
@@ -172,7 +181,7 @@ namespace Algorithms.Part3.GreedyAlgorithms.MinimumSpanningTree
             {
                 if (node != startingNode)
                 {
-                    heapNodes.Enqueue(node, int.MaxValue);
+                    nodesHeap.Enqueue(node, int.MaxValue);
                 }
             }
 
@@ -184,7 +193,7 @@ namespace Algorithms.Part3.GreedyAlgorithms.MinimumSpanningTree
 
         private void InitializeGlobalVariables()
         {
-            heapNodes = new SimplePriorityQueue<Node, int>();
+            nodesHeap = new SimplePriorityQueue<Node, int>();
             nodeIDToSelectedShortestEdge = new Dictionary<int, Edge>();
             isNodeVisited = new bool[nodes.Count];
             minimumSpanTreeEdges = new List<Edge>();
