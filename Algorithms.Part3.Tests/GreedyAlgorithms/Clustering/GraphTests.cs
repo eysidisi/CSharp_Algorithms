@@ -110,7 +110,7 @@ namespace Algorithms.Part3.Tests.GreedyAlgorithms.Clustering
             Assert.Equal(expectedMaxSpacing, actualMaxSpacing);
         }
 
-        [Fact]
+        [Fact(Skip ="Takes too long!")]
         public void CalculateMaxSpacing_CourseraAssignment()
         {
             string path = Directory.GetCurrentDirectory() + @"\GreedyAlgorithms\Clustering\InputFiles\clustering.txt";
