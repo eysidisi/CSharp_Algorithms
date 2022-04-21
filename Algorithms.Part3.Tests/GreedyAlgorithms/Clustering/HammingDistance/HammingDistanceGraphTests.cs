@@ -11,7 +11,7 @@ namespace Algorithms.Part3.Tests.GreedyAlgorithms.Clustering.HammingDistance
 {
     public class HammingDistanceGraphTests
     {
-        [Fact]
+        [Fact(Skip ="Takes forever")]
         public void CourseraAssignment()
         {
             HammingDistanceGraph hammingDistanceGraph = new HammingDistanceGraph();
