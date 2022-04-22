@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DynamicProgramming\InputFiles\" />
     <Folder Include="GreedyAlgorithms\Clustering\HammingDistance\InputFiles\" />
     <Folder Include="GreedyAlgorithms\Clustering\InputFiles\" />
     <Folder Include="GreedyAlgorithms\Huffman\InputFiles\" />
@@ -33,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="DynamicProgramming\InputFiles\mwis.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="GreedyAlgorithms\Clustering\HammingDistance\InputFiles\hammingDistances.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
