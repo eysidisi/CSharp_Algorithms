@@ -25,7 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DynamicProgramming\InputFiles\" />
+    <Folder Include="DynamicProgramming\Knapsack\InputFiles\" />
+    <Folder Include="DynamicProgramming\MaximumWeightedIndependentSet\InputFiles\" />
     <Folder Include="GreedyAlgorithms\Clustering\HammingDistance\InputFiles\" />
     <Folder Include="GreedyAlgorithms\Clustering\InputFiles\" />
     <Folder Include="GreedyAlgorithms\Huffman\InputFiles\" />
@@ -34,7 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DynamicProgramming\InputFiles\mwis.txt">
+    <None Update="DynamicProgramming\Knapsack\InputFiles\knapsack.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DynamicProgramming\Knapsack\InputFiles\knapsack_big.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DynamicProgramming\MaximumWeightedIndependentSet\InputFiles\mwis.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="GreedyAlgorithms\Clustering\HammingDistance\InputFiles\hammingDistances.txt">
