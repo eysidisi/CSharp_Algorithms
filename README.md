@@ -1,5 +1,17 @@
 # Algorithms
-This project is for implementing the algorithms that are taught in this [Algorithms Illuminated: Part 1](https://www.amazon.com/dp/0999282905) book and [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer) course. Here is a list of the algorithms and data structures that are implemented in each chapter:
+This project is for implementing the algorithms that are taught in these books:
+
+
+- [Algorithms Illuminated: Part 1: The Basics](https://www.amazon.com/dp/0999282905) 
+- [Algorithms Illuminated Part 2: Graph Algorithms and Data Structures](https://www.amazon.com.tr/Algorithms-Illuminated-Part-Structures-Roughgarden/dp/0999282921) 
+- [Algorithms Illuminated Part 3: Greedy Algorithms and Dynamic Programming](https://www.amazon.com/Algorithms-Illuminated-Part-Dynamic-Programming/dp/0999282948) 
+
+and in these courses:
+- [Divide and Conquer, Sorting and Searching, and Randomized Algorithms](https://www.coursera.org/learn/algorithms-divide-conquer)
+- [Graph Search, Shortest Paths, and Data Structures](https://www.coursera.org/learn/algorithms-graphs-data-structures)
+- [Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming](https://www.coursera.org/learn/algorithms-greedy)
+
+Here is a list of the algorithms and data structures that are implemented in each chapter:
 ## Part 1
 - Karatsuba Multiplication
 - Merge Sort
