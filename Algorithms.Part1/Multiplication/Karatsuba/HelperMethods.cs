@@ -1,10 +1,11 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 
 namespace Algorithms.Part1.Multiplication.Karatsuba
 {
-    public class HelperMethods
+    public static class HelperMethods
     {
-        public long FirstPartOfNum(long num, int lastPartLength)
+        public static BigInteger FirstPartOfNum(BigInteger num, int firstPartLength)
         {
             int length = GetNumOfDigits(num);
 
@@ -12,7 +13,7 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
 
             StringBuilder firstPartOfNum = new();
 
-            for (int strIndex = 0; strIndex < length - lastPartLength; strIndex++)
+            for (int strIndex = 0; strIndex < length - firstPartLength; strIndex++)
             {
                 firstPartOfNum.Append(numberInStr[strIndex]);
             }
@@ -23,10 +24,10 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
                 return 0;
             }
 
-            return long.Parse(firstPartOfNum.ToString());
+            return BigInteger.Parse(firstPartOfNum.ToString());
         }
 
-        public long LastPartOfNum(long num, int lastPartLength)
+        public static BigInteger LastPartOfNum(BigInteger num, int lastPartLength)
         {
             int length = GetNumOfDigits(num);
 
@@ -39,12 +40,12 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
                 lastPartOfNum.Append(numberInStr[strIndex]);
             }
 
-            return long.Parse(lastPartOfNum.ToString());
+            return BigInteger.Parse(lastPartOfNum.ToString());
         }
 
-        public int GetNumOfDigits(long num1)
+        public static int GetNumOfDigits(BigInteger num1)
         {
-            num1 = Math.Abs(num1);
+            num1 = BigInteger.Abs(num1);
 
             int numOfDigits = 1;
 
@@ -57,13 +58,13 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
             return numOfDigits;
         }
 
-        public long AddZeros(int numberOfZerosToAdd, long inputNumber)
+        public static BigInteger AddZeros(int numberOfZerosToAdd, BigInteger inputNumber)
         {
             string zeros = new(Enumerable.Repeat('0', numberOfZerosToAdd).ToArray());
 
             string numberWithZeros = inputNumber.ToString() + zeros;
 
-            return long.Parse(numberWithZeros);
+            return BigInteger.Parse(numberWithZeros);
         }
     }
 }

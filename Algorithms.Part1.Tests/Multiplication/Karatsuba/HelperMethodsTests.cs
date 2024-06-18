@@ -1,5 +1,6 @@
 ﻿using Xunit;
 using Algorithms.Part1.Multiplication.Karatsuba;
+using System.Numerics;
 
 namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
 {
@@ -9,13 +10,11 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void GetNumOfDigits_FiveDigitNumber()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long num = 12345;
-            long expectedResult = 5;
+            BigInteger num = 12345;
+            BigInteger expectedResult = 5;
 
             // Act
-            long actualResult = helperMethods.GetNumOfDigits(num);
+            var actualResult = HelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -23,13 +22,11 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void GetNumOfDigits_FiveDigitNegativeNumber()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long num = -12345;
-            long expectedResult = 5;
+            BigInteger num = -12345;
+            BigInteger expectedResult = 5;
 
             // Act
-            long actualResult = helperMethods.GetNumOfDigits(num);
+            var actualResult = HelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -37,13 +34,11 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void GetNumOfDigits_OneDigitNumber()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long num = 9;
-            long expectedResult = 1;
+            BigInteger num = 9;
+            BigInteger expectedResult = 1;
 
             // Act
-            long actualResult = helperMethods.GetNumOfDigits(num);
+            var actualResult = HelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -51,13 +46,11 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void GetNumOfDigits_NumberZero()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long num = 0;
-            long expectedResult = 1;
+            BigInteger num = 0;
+            BigInteger expectedResult = 1;
 
             // Act
-            long actualResult = helperMethods.GetNumOfDigits(num);
+            var actualResult = HelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -65,14 +58,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void FirstPartOfNumber_NumberWith2DigitsLastPartLength1()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 12;
-            long expectedResult = 1;
+            BigInteger number = 12;
+            BigInteger expectedResult = 1;
             int lastPartLength = 1;
 
             // Act
-            long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -80,14 +71,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void FirstPartOfNumber_NumberWith2DigitsLastPartLength2()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 12;
-            long expectedResult = 0;
+            BigInteger number = 12;
+            BigInteger expectedResult = 0;
             int lastPartLength = 2;
 
             // Act
-            long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -95,14 +84,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void FirstPartOfNumber_NumberWith3DigitsLastPartLength1()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 123;
-            long expectedResult = 12;
+            BigInteger number = 123;
+            BigInteger expectedResult = 12;
             int lastPartLength = 1;
 
             // Act
-            long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -110,14 +97,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void FirstPartOfNumber_NumberWith3DigitsLastPartLength2()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 123;
-            long expectedResult = 1;
+            BigInteger number = 123;
+            BigInteger expectedResult = 1;
             int lastPartLength = 2;
 
             // Act
-            long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -125,14 +110,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void FirstPartOfNum_NumberWith1DigitLastPartLength1()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 1;
-            long expectedResult = 0;
+            BigInteger number = 1;
+            BigInteger expectedResult = 0;
             int lastPartLength = 1;
 
             // Act
-            long actualResult = helperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -140,14 +123,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void LastPartOfNum_NumberWith1DigitLastPartLength1()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 1;
-            long expectedResult = 1;
+            BigInteger number = 1;
+            BigInteger expectedResult = 1;
             int lastPartLength = 1;
 
             // Act
-            long actualResult = helperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -155,14 +136,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void LastPartOfNum_NumberWith2DigitsLastPartLength1()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 12;
-            long expectedResult = 2;
+            BigInteger number = 12;
+            BigInteger expectedResult = 2;
             int lastPartLength = 1;
 
             // Act
-            long actualResult = helperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -170,28 +149,24 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void LastPartOfNum_NumberWith3DigitsLastParthLength2()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 123;
-            long expectedResult = 23;
+            BigInteger number = 123;
+            BigInteger expectedResult = 23;
             int lastPartLength = 2;
 
             // Act
-            long actualResult = helperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
         public void LastPartOfNum_NumberWith3DigitsLastParthLength1()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 123;
-            long expectedResult = 3;
+            BigInteger number = 123;
+            BigInteger expectedResult = 3;
             int lastPartLength = 1;
 
             // Act
-            long actualResult = helperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -199,14 +174,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void AddZeros_AddTwoZeros()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 1;
+            BigInteger number = 1;
             int numberOfZerosToAdd = 2;
-            long expectedResult = 100;
+            BigInteger expectedResult = 100;
 
             // Act
-            long actualResult = helperMethods.AddZeros(numberOfZerosToAdd, number);
+            var actualResult = HelperMethods.AddZeros(numberOfZerosToAdd, number);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -214,14 +187,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void AddZeros_AddZeroZeros()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 1;
+            BigInteger number = 1;
             int numberOfZerosToAdd = 0;
-            long expectedResult = 1;
+            BigInteger expectedResult = 1;
 
             // Act
-            long actualResult = helperMethods.AddZeros(numberOfZerosToAdd, number);
+            var actualResult = HelperMethods.AddZeros(numberOfZerosToAdd, number);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -229,14 +200,12 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
         public void AddZeros_AddZerosToZero()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
-            long number = 0;
+            BigInteger number = 0;
             int numberOfZerosToAdd = 2;
-            long expectedResult = 0;
+            BigInteger expectedResult = 0;
 
             // Act
-            long actualResult = helperMethods.AddZeros(numberOfZerosToAdd, number);
+            var actualResult = HelperMethods.AddZeros(numberOfZerosToAdd, number);
             Assert.Equal(expectedResult, actualResult);
         }
     }
