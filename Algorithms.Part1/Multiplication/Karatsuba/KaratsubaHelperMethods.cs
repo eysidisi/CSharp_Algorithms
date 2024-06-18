@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Algorithms.Part1.Multiplication.Karatsuba
 {
-    public static class HelperMethods
+    public static class KaratsubaHelperMethods
     {
         public static BigInteger FirstPartOfNum(BigInteger num, int firstPartLength)
         {

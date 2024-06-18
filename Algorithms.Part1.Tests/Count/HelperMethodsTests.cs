@@ -14,7 +14,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArrayWithOneElement_FirstPartHasZeroElements()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 1 };
             int[] firstPart = new int[] { };
@@ -23,7 +23,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -34,7 +34,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArrayWithOneElement_SecondPartHasZeroElements()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 1 };
             int[] firstPart = new int[] { 1 };
@@ -43,7 +43,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -54,7 +54,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArrayWithTwoElement_InOrderArray()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 1, 2 };
             int[] firstPart = new int[] { 1 };
@@ -63,7 +63,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1, 2 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -74,7 +74,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArraysWithTwoElement_OutOfOrderArray()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 2, 1 };
             int[] firstPart = new int[] { 2 };
@@ -83,7 +83,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1, 2 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -94,7 +94,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArrayWithNoInversion()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 1, 2, 3, 4, 5 };
             int[] firstPart = new int[] { 1, 2, 3 };
@@ -103,7 +103,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1, 2, 3, 4, 5 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -114,7 +114,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArrayWithMaxNumberOfInversions()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 6, 5, 4, 3, 2, 1 };
             int[] firstPart = new int[] { 4, 5, 6 };
@@ -123,7 +123,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1, 2, 3, 4, 5, 6 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -134,7 +134,7 @@ namespace Algorithms.Part1.Tests.Count
         public void MergeAndCountNumberOfInversions_ArrayWithSomeNumberOfInversions()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[] arr = new int[] { 1, 5, 2, 3, 6, 4 };
             int[] firstPart = new int[] { 1, 2, 5 };
@@ -143,7 +143,7 @@ namespace Algorithms.Part1.Tests.Count
             int[] expectedArr = new int[] { 1, 2, 3, 4, 5, 6 };
 
             // Act
-            int actualOutput = helperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, ref arr);
+            int actualOutput = HelperMethods.MergeAndCountNumberOfInversions(firstPart, secondPart, arr);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);

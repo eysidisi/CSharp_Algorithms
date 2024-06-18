@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Algorithms.Part1.FileIO;
 using Algorithms.Part1.Sort;
+using Algorithms.Part1.Sort.MergeSortAlgorithm;
 namespace Algorithms.Part1.Count
 {
     public class CountInversions
@@ -29,14 +30,6 @@ namespace Algorithms.Part1.Count
 
         public long DivideAndConquerApproach(int[] arr)
         {
-            return DivideAndConquerApproach(ref arr);
-        }
-
-        private long DivideAndConquerApproach(ref int[] arr)
-        {
-            var sortHelperMethods = new Sort.MergeSortAlgorithm.HelperMethods();
-            HelperMethods helperMethods = new HelperMethods();
-
             int arrLength = arr.Count();
 
             if (arrLength == 0 || arrLength == 1)
@@ -44,13 +37,13 @@ namespace Algorithms.Part1.Count
                 return 0;
             }
 
-            int[] firstPartOfTheArr = sortHelperMethods.GetArrFirstPart(arr);
-            long numberOfFirstPartInversions = DivideAndConquerApproach(ref firstPartOfTheArr);
+            int[] firstPartOfTheArr = MergeSortHelperMethods.GetArrFirstPart(arr);
+            long numberOfFirstPartInversions = DivideAndConquerApproach(firstPartOfTheArr);
 
-            int[] secondPartOfTheArr = sortHelperMethods.GetSecondPart(arr);
-            long secondPartNumberOfInversions = DivideAndConquerApproach(ref secondPartOfTheArr);
+            int[] secondPartOfTheArr = MergeSortHelperMethods.GetSecondPart(arr);
+            long secondPartNumberOfInversions = DivideAndConquerApproach(secondPartOfTheArr);
 
-            int numberOfSplittedInversions = helperMethods.MergeAndCountNumberOfInversions(firstPartOfTheArr, secondPartOfTheArr, ref arr);
+            int numberOfSplittedInversions = HelperMethods.MergeAndCountNumberOfInversions(firstPartOfTheArr, secondPartOfTheArr, arr);
 
             return numberOfFirstPartInversions + secondPartNumberOfInversions + numberOfSplittedInversions;
         }

@@ -23,20 +23,19 @@ namespace Algorithms.Part1.Sort.MergeSortAlgorithm
         /// <returns></returns>
         public int[] Sort(int[] unsortedArr)
         {
-            HelperMethods helperMethods = new HelperMethods();
 
             if (unsortedArr.Length <= 1)
             {
                 return unsortedArr;
             }
 
-            int[] firstPartOfArr = helperMethods.GetArrFirstPart(unsortedArr);
+            int[] firstPartOfArr = MergeSortHelperMethods.GetArrFirstPart(unsortedArr);
             firstPartOfArr = Sort(firstPartOfArr);
 
-            int[] secondPartOfArr = helperMethods.GetSecondPart(unsortedArr);
+            int[] secondPartOfArr = MergeSortHelperMethods.GetSecondPart(unsortedArr);
             secondPartOfArr = Sort(secondPartOfArr);
 
-            int[] mergedArr = helperMethods.MergeSortedArrays(firstPartOfArr, secondPartOfArr);
+            int[] mergedArr = MergeSortHelperMethods.MergeSortedArrays(firstPartOfArr, secondPartOfArr);
 
             return mergedArr;
         }

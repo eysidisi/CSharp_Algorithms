@@ -14,8 +14,6 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
         public void OneElement()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
-
             var mat1 = new int[,]
             {
                 { 1}
@@ -32,7 +30,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualResult = helperMethods.SubtractMatrices(mat1, mat2);
+            var actualResult = MatrixMultiplicationHelperMethods.SubtractMatrices(mat1, mat2);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -42,7 +40,6 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
         public void SquareMatrices()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
 
             var mat1 = new int[,]
             {
@@ -66,7 +63,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualResult = helperMethods.SubtractMatrices(mat1, mat2);
+            var actualResult = MatrixMultiplicationHelperMethods.SubtractMatrices(mat1, mat2);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -77,8 +74,6 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
         public void NotSquareMatrices()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
-
             var mat1 = new int[,]
             {
                 { 1, 2, 3,4 },
@@ -101,7 +96,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualResult = helperMethods.SubtractMatrices(mat1, mat2);
+            var actualResult = MatrixMultiplicationHelperMethods.SubtractMatrices(mat1, mat2);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);

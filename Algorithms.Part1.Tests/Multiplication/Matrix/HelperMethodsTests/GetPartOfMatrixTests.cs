@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 using Algorithms.Part1.Multiplication.Matrix;
 
-namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
+namespace Algorithms.Part1.Tests.Multiplication.Matrix.MatrixMultiplicationHelperMethodsTests
 {
     public class GetPartOfMatrixTests
     {
@@ -14,7 +9,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
         public void MatrixWithPowerOfTwoDimension()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[,] input = new int[,]
             {
@@ -49,10 +44,10 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualFirstPart = helperMethods.FirstQuadrantOfMatrix(input);
-            var actualSecondPart = helperMethods.SecondQuadrantOfMatrix(input);
-            var actualThirdPart = helperMethods.ThirdQuadrantOfMatrix(input);
-            var actualFourthPart = helperMethods.FourthQuadrantOfMatrix(input);
+            var actualFirstPart = MatrixMultiplicationHelperMethods.FirstQuadrantOfMatrix(input);
+            var actualSecondPart = MatrixMultiplicationHelperMethods.SecondQuadrantOfMatrix(input);
+            var actualThirdPart = MatrixMultiplicationHelperMethods.ThirdQuadrantOfMatrix(input);
+            var actualFourthPart = MatrixMultiplicationHelperMethods.FourthQuadrantOfMatrix(input);
 
             // Assert
 
@@ -66,7 +61,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
         public void MatrixNonPowerOfTwoDimension()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+            
 
             int[,] input = new int[,]
             {
@@ -107,10 +102,10 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualFirstPart = helperMethods.FirstQuadrantOfMatrix(input);
-            var actualSecondPart = helperMethods.SecondQuadrantOfMatrix(input);
-            var actualThirdPart = helperMethods.ThirdQuadrantOfMatrix(input);
-            var actualFourthPart = helperMethods.FourthQuadrantOfMatrix(input);
+            var actualFirstPart = MatrixMultiplicationHelperMethods.FirstQuadrantOfMatrix(input);
+            var actualSecondPart = MatrixMultiplicationHelperMethods.SecondQuadrantOfMatrix(input);
+            var actualThirdPart = MatrixMultiplicationHelperMethods.ThirdQuadrantOfMatrix(input);
+            var actualFourthPart = MatrixMultiplicationHelperMethods.FourthQuadrantOfMatrix(input);
 
             // Assert
 

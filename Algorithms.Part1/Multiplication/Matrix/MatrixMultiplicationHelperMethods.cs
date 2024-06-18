@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Part1.Multiplication.Matrix
 {
-    public class HelperMethods
+    public static class MatrixMultiplicationHelperMethods
     {
-        public int CalculateValueAtPosition(int rowIndex, int colIndex, int[,] matA, int[,] matB)
+        public static int CalculateValueAtPosition(int rowIndex, int colIndex, int[,] matA, int[,] matB)
         {
             int numOfCols = matA.GetLength(1);
 
@@ -21,7 +21,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return result;
         }
-        public int[,] FirstQuadrantOfMatrix(int[,] matA)
+        public static int[,] FirstQuadrantOfMatrix(int[,] matA)
         {
             int resultMatLength = matA.GetLength(0) / 2;
 
@@ -35,7 +35,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return firstPartOfMatrix;
         }
-        public int[,] SecondQuadrantOfMatrix(int[,] matA)
+        public static int[,] SecondQuadrantOfMatrix(int[,] matA)
         {
             int resultMatLength = matA.GetLength(0) / 2;
 
@@ -50,7 +50,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
             return secondPartOfMatrix;
 
         }
-        public int[,] ThirdQuadrantOfMatrix(int[,] matA)
+        public static int[,] ThirdQuadrantOfMatrix(int[,] matA)
         {
             int resultMatLength = matA.GetLength(0) / 2;
 
@@ -64,7 +64,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return thirdPartOfMatrix;
         }
-        public int[,] FourthQuadrantOfMatrix(int[,] matA)
+        public static int[,] FourthQuadrantOfMatrix(int[,] matA)
         {
             int resultMatLength = matA.GetLength(0) / 2;
 
@@ -78,7 +78,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return fourthPartOfMatrix;
         }
-        public int[,] SubtractMatrices(int[,] matA, int[,] matB)
+        public static int[,] SubtractMatrices(int[,] matA, int[,] matB)
         {
             int[,] resultMatrix = new int[matA.GetLength(0), matA.GetLength(1)];
 
@@ -92,7 +92,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return resultMatrix;
         }
-        public int[,] SumMatrices(int[,] matA, int[,] matB)
+        public static int[,] SumMatrices(int[,] matA, int[,] matB)
         {
             int[,] resultMatrix = new int[matA.GetLength(0), matA.GetLength(1)];
 
@@ -106,7 +106,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return resultMatrix;
         }
-        private int[,] GetPartOfMatrix(int[,] matA, int startingRowIndex, int endingRowIndex, int startingColIndex, int endingColIndex)
+        private static int[,] GetPartOfMatrix(int[,] matA, int startingRowIndex, int endingRowIndex, int startingColIndex, int endingColIndex)
         {
             int[,] firstPart = new int[endingRowIndex - startingRowIndex + 1, endingColIndex - startingColIndex + 1];
 
@@ -125,7 +125,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return firstPart;
         }
-        public int[,] FormResultantMatrix(int[,] firstQuadrant, int[,] secondQuadrant, int[,] thirdQuadrant, int[,] fourthQuadrant)
+        public static int[,] FormResultantMatrix(int[,] firstQuadrant, int[,] secondQuadrant, int[,] thirdQuadrant, int[,] fourthQuadrant)
         {
             int numOfRows = firstQuadrant.GetLength(0) + thirdQuadrant.GetLength(0);
             int numOfCols = firstQuadrant.GetLength(1) + secondQuadrant.GetLength(1);
@@ -139,7 +139,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return resultantMatrix;
         }
-        private int[,] FillFirstQuadrant(int[,] inputMatrix, int[,] firstQuadrant)
+        private static int[,] FillFirstQuadrant(int[,] inputMatrix, int[,] firstQuadrant)
         {
             int startingRowIndex = 0;
             int endingRowIndex = inputMatrix.GetLength(0) / 2;
@@ -161,7 +161,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return inputMatrix;
         }
-        private int[,] FillSecondQuadrant(int[,] inputMatrix, int[,] secondQuadrant)
+        private static int[,] FillSecondQuadrant(int[,] inputMatrix, int[,] secondQuadrant)
         {
             int startingRowIndex = 0;
             int endingRowIndex = inputMatrix.GetLength(0) / 2;
@@ -183,7 +183,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return inputMatrix;
         }
-        private int[,] FillThirdQuadrant(int[,] inputMatrix, int[,] thirdQuadrant)
+        private static int[,] FillThirdQuadrant(int[,] inputMatrix, int[,] thirdQuadrant)
         {
             int startingRowIndex = inputMatrix.GetLength(0) / 2;
             int endingRowIndex = inputMatrix.GetLength(0);
@@ -205,7 +205,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
 
             return inputMatrix;
         }
-        private int[,] FillFourthQuadrant(int[,] inputMatrix, int[,] fourthQuadrant)
+        private static int[,] FillFourthQuadrant(int[,] inputMatrix, int[,] fourthQuadrant)
         {
             int startingRowIndex = inputMatrix.GetLength(0) / 2;
             int endingRowIndex = inputMatrix.GetLength(0);

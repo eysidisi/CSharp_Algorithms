@@ -14,8 +14,6 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
         public void OneDimensinalMatrices()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
-
             var firstQuadrant = new int[,]
             {
                 { 1 }
@@ -43,7 +41,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualOutput = helperMethods.FormResultantMatrix(firstQuadrant, secondQuadrant, thirdQuadrant, fourthQuadrant);
+            var actualOutput = MatrixMultiplicationHelperMethods.FormResultantMatrix(firstQuadrant, secondQuadrant, thirdQuadrant, fourthQuadrant);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -58,7 +56,6 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             // 5,6,7,8
             // 9, 10, 11, 12
             // 13, 14, 15, 16
-            HelperMethods helperMethods = new HelperMethods();
 
             var firstQuadrant = new int[,]
             {
@@ -93,7 +90,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodsTests
             };
 
             // Act
-            var actualOutput = helperMethods.FormResultantMatrix(firstQuadrant, secondQuadrant, thirdQuadrant, fourthQuadrant);
+            var actualOutput = MatrixMultiplicationHelperMethods.FormResultantMatrix(firstQuadrant, secondQuadrant, thirdQuadrant, fourthQuadrant);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);

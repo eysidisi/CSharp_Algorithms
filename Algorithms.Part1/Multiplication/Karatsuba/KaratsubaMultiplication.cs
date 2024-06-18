@@ -30,8 +30,8 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
             num1 = BigInteger.Abs(num1);
             num2 = BigInteger.Abs(num2);
 
-            int n1 = HelperMethods.GetNumOfDigits(num1);
-            int n2 = HelperMethods.GetNumOfDigits(num2);
+            int n1 = KaratsubaHelperMethods.GetNumOfDigits(num1);
+            int n2 = KaratsubaHelperMethods.GetNumOfDigits(num2);
 
             if (n1 == 1 && n2 == 1)
             {
@@ -41,10 +41,10 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
             int n = Math.Min(n1, n2);
             int halfLength = (int)Math.Ceiling(n / 2.0);
 
-            BigInteger a = HelperMethods.FirstPartOfNum(num1, halfLength);
-            BigInteger b = HelperMethods.LastPartOfNum(num1, halfLength);
-            BigInteger c = HelperMethods.FirstPartOfNum(num2, halfLength);
-            BigInteger d = HelperMethods.LastPartOfNum(num2, halfLength);
+            BigInteger a = KaratsubaHelperMethods.FirstPartOfNum(num1, halfLength);
+            BigInteger b = KaratsubaHelperMethods.LastPartOfNum(num1, halfLength);
+            BigInteger c = KaratsubaHelperMethods.FirstPartOfNum(num2, halfLength);
+            BigInteger d = KaratsubaHelperMethods.LastPartOfNum(num2, halfLength);
 
             BigInteger p = a + b;
             BigInteger q = c + d;
@@ -55,8 +55,8 @@ namespace Algorithms.Part1.Multiplication.Karatsuba
 
             BigInteger adbc = pq - ac - bd;
 
-            BigInteger acZerosAdded = HelperMethods.AddZeros(halfLength * 2, ac);
-            BigInteger adbcZerosAdded = HelperMethods.AddZeros(halfLength, adbc);
+            BigInteger acZerosAdded = KaratsubaHelperMethods.AddZeros(halfLength * 2, ac);
+            BigInteger adbcZerosAdded = KaratsubaHelperMethods.AddZeros(halfLength, adbc);
 
             BigInteger result = acZerosAdded + adbcZerosAdded + bd;
 

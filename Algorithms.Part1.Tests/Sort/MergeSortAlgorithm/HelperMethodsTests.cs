@@ -8,19 +8,19 @@ using Xunit;
 
 namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
 {
-    public class HelperMethodsTests
+    public class MergeSortHelperMethodsTests
     {
         [Fact]
         public void GetArrFirstPart_ArrWithEvenNumberOfElements()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { 1, 2, 3, 4 };
             int[] expectedResult = new int[] { 1, 2 };
 
             // Act
-            int[] actualResult = helperMethods.GetArrFirstPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -30,13 +30,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrFirstPart_ArrWithOddNumberOfElements()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { 1, 2, 3 };
             int[] expectedResult = new int[] { 1 };
 
             // Act
-            int[] actualResult = helperMethods.GetArrFirstPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -46,13 +46,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrFirstPart_ArrWithOneElement()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { 1 };
             int[] expectedResult = new int[] { };
 
             // Act
-            int[] actualResult = helperMethods.GetArrFirstPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -62,13 +62,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrFirstPart_ArrWithNoElement()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { };
             int[] expectedResult = new int[] { };
 
             // Act
-            int[] actualResult = helperMethods.GetArrFirstPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetArrFirstPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -78,13 +78,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrSecondPart_ArrWithEvenNumberOfElements()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { 1, 2, 3, 4 };
             int[] expectedResult = new int[] { 3, 4 };
 
             // Act
-            int[] actualResult = helperMethods.GetSecondPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -94,13 +94,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrSecondPart_ArrWithOddNumberOfElements()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { 1, 2, 3 };
             int[] expectedResult = new int[] { 2, 3 };
 
             // Act
-            int[] actualResult = helperMethods.GetSecondPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -110,13 +110,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrSecondPart_ArrWithOneElement()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { 1 };
             int[] expectedResult = new int[] { 1 };
 
             // Act
-            int[] actualResult = helperMethods.GetSecondPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -126,13 +126,13 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void GetArrSecondPart_ArrWithNoElement()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr = new int[] { };
             int[] expectedResult = new int[] { };
 
             // Act
-            int[] actualResult = helperMethods.GetSecondPart(arr);
+            int[] actualResult = MergeSortHelperMethods.GetSecondPart(arr);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -142,15 +142,14 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void MergeSortedArrays_ArrsWithNoElement()
         {
             // Arrange
-            HelperMethods helperMethods = new();
-
+            
             int[] arr1 = new int[0];
             int[] arr2 = new int[0];
 
             int[] expectedResult = new int[] { };
 
             // Act
-            var actualResult = helperMethods.MergeSortedArrays(arr1, arr2);
+            var actualResult = MergeSortHelperMethods.MergeSortedArrays(arr1, arr2);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -160,7 +159,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void MergeSortedArrays_ArrWithNoElementArrWithTwoElements()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr1 = new int[0];
             int[] arr2 = new int[2] { 1, 2 };
@@ -168,7 +167,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
             int[] expectedResult = new int[] { 1, 2 };
 
             // Act
-            var actualResult = helperMethods.MergeSortedArrays(arr1, arr2);
+            var actualResult = MergeSortHelperMethods.MergeSortedArrays(arr1, arr2);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);
@@ -178,7 +177,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
         public void MergeSortedArrays_ArrsWithEvenNumberOfElements()
         {
             // Arrange
-            HelperMethods helperMethods = new();
+            
 
             int[] arr1 = new int[2] { 1, 2 };
             int[] arr2 = new int[4] { -50, -1, 0, 1 };
@@ -186,7 +185,7 @@ namespace Algorithms.Part1.Tests.Sort.MergeSortAlgorithm
             int[] expectedResult = new int[] { -50, -1, 0, 1, 1, 2 };
 
             // Act
-            var actualResult = helperMethods.MergeSortedArrays(arr1, arr2);
+            var actualResult = MergeSortHelperMethods.MergeSortedArrays(arr1, arr2);
 
             // Assert
             Assert.Equal(expectedResult, actualResult);

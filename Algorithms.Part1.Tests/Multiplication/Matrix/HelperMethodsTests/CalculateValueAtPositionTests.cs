@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 using Algorithms.Part1.Multiplication.Matrix;
 
 namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodTests
@@ -14,7 +9,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodTests
         public void SquareMatrices()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+
 
             var mat1 = new int[,]
             {
@@ -40,7 +35,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodTests
             int expectedOutput = 96;
 
             // Act
-            int actualOutput = helperMethods.CalculateValueAtPosition(rowIndex, colIndex, mat1, mat2);
+            int actualOutput = MatrixMultiplicationHelperMethods.CalculateValueAtPosition(rowIndex, colIndex, mat1, mat2);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);
@@ -50,7 +45,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodTests
         public void MatricesWithDifferentDimension()
         {
             // Arrange
-            HelperMethods helperMethods = new HelperMethods();
+
 
             var mat1 = new int[,]
             {
@@ -74,7 +69,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Matrix.HelperMethodTests
             int expectedOutput = 28;
 
             // Act
-            int actualOutput = helperMethods.CalculateValueAtPosition(rowIndex, colIndex, mat1, mat2);
+            int actualOutput = MatrixMultiplicationHelperMethods.CalculateValueAtPosition(rowIndex, colIndex, mat1, mat2);
 
             // Assert
             Assert.Equal(expectedOutput, actualOutput);

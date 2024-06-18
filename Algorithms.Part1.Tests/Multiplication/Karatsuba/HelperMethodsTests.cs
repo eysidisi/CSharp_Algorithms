@@ -14,7 +14,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 5;
 
             // Act
-            var actualResult = HelperMethods.GetNumOfDigits(num);
+            var actualResult = KaratsubaHelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -26,7 +26,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 5;
 
             // Act
-            var actualResult = HelperMethods.GetNumOfDigits(num);
+            var actualResult = KaratsubaHelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -38,7 +38,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 1;
 
             // Act
-            var actualResult = HelperMethods.GetNumOfDigits(num);
+            var actualResult = KaratsubaHelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -50,7 +50,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 1;
 
             // Act
-            var actualResult = HelperMethods.GetNumOfDigits(num);
+            var actualResult = KaratsubaHelperMethods.GetNumOfDigits(num);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -63,7 +63,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 1;
 
             // Act
-            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -76,7 +76,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 2;
 
             // Act
-            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -89,7 +89,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 1;
 
             // Act
-            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -102,7 +102,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 2;
 
             // Act
-            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -115,7 +115,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 1;
 
             // Act
-            var actualResult = HelperMethods.FirstPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.FirstPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -128,7 +128,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 1;
 
             // Act
-            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -141,7 +141,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 1;
 
             // Act
-            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -154,7 +154,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 2;
 
             // Act
-            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
         [Fact]
@@ -166,7 +166,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             int lastPartLength = 1;
 
             // Act
-            var actualResult = HelperMethods.LastPartOfNum(number, lastPartLength);
+            var actualResult = KaratsubaHelperMethods.LastPartOfNum(number, lastPartLength);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -179,7 +179,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 100;
 
             // Act
-            var actualResult = HelperMethods.AddZeros(numberOfZerosToAdd, number);
+            var actualResult = KaratsubaHelperMethods.AddZeros(numberOfZerosToAdd, number);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -192,7 +192,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 1;
 
             // Act
-            var actualResult = HelperMethods.AddZeros(numberOfZerosToAdd, number);
+            var actualResult = KaratsubaHelperMethods.AddZeros(numberOfZerosToAdd, number);
             Assert.Equal(expectedResult, actualResult);
         }
 
@@ -205,7 +205,7 @@ namespace Algorithms.Part1.Tests.Multiplication.Karatsuba
             BigInteger expectedResult = 0;
 
             // Act
-            var actualResult = HelperMethods.AddZeros(numberOfZerosToAdd, number);
+            var actualResult = KaratsubaHelperMethods.AddZeros(numberOfZerosToAdd, number);
             Assert.Equal(expectedResult, actualResult);
         }
     }

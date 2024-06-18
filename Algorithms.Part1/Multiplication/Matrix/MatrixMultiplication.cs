@@ -8,7 +8,6 @@ namespace Algorithms.Part1.Multiplication.Matrix
 {
     public class MatrixMultiplication
     {
-        HelperMethods helperMethods = new HelperMethods();
         public int[,] BruteForce(int[,] matA, int[,] matB)
         {
             int numOfRows = matA.GetLength(0);
@@ -20,7 +19,7 @@ namespace Algorithms.Part1.Multiplication.Matrix
             {
                 for (int colIndex = 0; colIndex < numOfCols; colIndex++)
                 {
-                    result[rowIndex, colIndex] = helperMethods.CalculateValueAtPosition(rowIndex, colIndex, matA, matB);
+                    result[rowIndex, colIndex] = MatrixMultiplicationHelperMethods.CalculateValueAtPosition(rowIndex, colIndex, matA, matB);
                 }
             }
 
@@ -62,57 +61,57 @@ namespace Algorithms.Part1.Multiplication.Matrix
                 return new int[,] { { matA[0, 0] * matB[0, 0] } };
             }
 
-            int[,] A = helperMethods.FirstQuadrantOfMatrix(matA);
-            int[,] B = helperMethods.SecondQuadrantOfMatrix(matA);
-            int[,] C = helperMethods.ThirdQuadrantOfMatrix(matA);
-            int[,] D = helperMethods.FourthQuadrantOfMatrix(matA);
+            int[,] A = MatrixMultiplicationHelperMethods.FirstQuadrantOfMatrix(matA);
+            int[,] B = MatrixMultiplicationHelperMethods.SecondQuadrantOfMatrix(matA);
+            int[,] C = MatrixMultiplicationHelperMethods.ThirdQuadrantOfMatrix(matA);
+            int[,] D = MatrixMultiplicationHelperMethods.FourthQuadrantOfMatrix(matA);
 
-            int[,] E = helperMethods.FirstQuadrantOfMatrix(matB);
-            int[,] F = helperMethods.SecondQuadrantOfMatrix(matB);
-            int[,] G = helperMethods.ThirdQuadrantOfMatrix(matB);
-            int[,] H = helperMethods.FourthQuadrantOfMatrix(matB);
+            int[,] E = MatrixMultiplicationHelperMethods.FirstQuadrantOfMatrix(matB);
+            int[,] F = MatrixMultiplicationHelperMethods.SecondQuadrantOfMatrix(matB);
+            int[,] G = MatrixMultiplicationHelperMethods.ThirdQuadrantOfMatrix(matB);
+            int[,] H = MatrixMultiplicationHelperMethods.FourthQuadrantOfMatrix(matB);
 
-            var FMinusH = helperMethods.SubtractMatrices(F, H);
+            var FMinusH = MatrixMultiplicationHelperMethods.SubtractMatrices(F, H);
             var P1 = StrassenAlgorithm(A, FMinusH);
 
-            var APlusB = helperMethods.SumMatrices(A, B);
+            var APlusB = MatrixMultiplicationHelperMethods.SumMatrices(A, B);
             var P2 = StrassenAlgorithm(APlusB, H);
 
-            var CPlusD = helperMethods.SumMatrices(C, D);
+            var CPlusD = MatrixMultiplicationHelperMethods.SumMatrices(C, D);
             var P3 = StrassenAlgorithm(CPlusD, E);
 
-            var GMinusE = helperMethods.SubtractMatrices(G, E);
+            var GMinusE = MatrixMultiplicationHelperMethods.SubtractMatrices(G, E);
             var P4 = StrassenAlgorithm(D, GMinusE);
 
-            var APlusD = helperMethods.SumMatrices(A, D);
-            var EPlusH = helperMethods.SumMatrices(E, H);
+            var APlusD = MatrixMultiplicationHelperMethods.SumMatrices(A, D);
+            var EPlusH = MatrixMultiplicationHelperMethods.SumMatrices(E, H);
             var P5 = StrassenAlgorithm(APlusD, EPlusH);
 
-            var BMinusD = helperMethods.SubtractMatrices(B, D);
-            var GPlusH = helperMethods.SumMatrices(G, H);
+            var BMinusD = MatrixMultiplicationHelperMethods.SubtractMatrices(B, D);
+            var GPlusH = MatrixMultiplicationHelperMethods.SumMatrices(G, H);
             var P6 = StrassenAlgorithm(BMinusD, GPlusH);
 
-            var AMinusC = helperMethods.SubtractMatrices(A, C);
-            var EPlusF = helperMethods.SumMatrices(E, F);
+            var AMinusC = MatrixMultiplicationHelperMethods.SubtractMatrices(A, C);
+            var EPlusF = MatrixMultiplicationHelperMethods.SumMatrices(E, F);
             var P7 = StrassenAlgorithm(AMinusC, EPlusF);
 
             // First quadrant P5 + P4 + P6 − P2 
-            var P5PlusP4 = helperMethods.SumMatrices(P5, P4);
-            var P6MinusP2 = helperMethods.SubtractMatrices(P6, P2);
-            var resultMatrixFirstQuadrant = helperMethods.SumMatrices(P5PlusP4, P6MinusP2);
+            var P5PlusP4 = MatrixMultiplicationHelperMethods.SumMatrices(P5, P4);
+            var P6MinusP2 = MatrixMultiplicationHelperMethods.SubtractMatrices(P6, P2);
+            var resultMatrixFirstQuadrant = MatrixMultiplicationHelperMethods.SumMatrices(P5PlusP4, P6MinusP2);
 
             // Second quadrant P1 + P2
-            var resultMatrixSecondQuadrant = helperMethods.SumMatrices(P1, P2);
+            var resultMatrixSecondQuadrant = MatrixMultiplicationHelperMethods.SumMatrices(P1, P2);
 
             // Third quadrant P3 + P4
-            var resultMatrixThirdQuadrant = helperMethods.SumMatrices(P3, P4);
+            var resultMatrixThirdQuadrant = MatrixMultiplicationHelperMethods.SumMatrices(P3, P4);
 
             // Fourth quadrant P1 + P5 − P3 − P7
-            var P1PlusP5 = helperMethods.SumMatrices(P1, P5);
-            var P3PlusP7 = helperMethods.SumMatrices(P3, P7);
-            var reslutMatrixFourthQuadrant = helperMethods.SubtractMatrices(P1PlusP5, P3PlusP7);
+            var P1PlusP5 = MatrixMultiplicationHelperMethods.SumMatrices(P1, P5);
+            var P3PlusP7 = MatrixMultiplicationHelperMethods.SumMatrices(P3, P7);
+            var reslutMatrixFourthQuadrant = MatrixMultiplicationHelperMethods.SubtractMatrices(P1PlusP5, P3PlusP7);
 
-            int[,] resultMatrix = helperMethods.FormResultantMatrix(resultMatrixFirstQuadrant, resultMatrixSecondQuadrant, resultMatrixThirdQuadrant, reslutMatrixFourthQuadrant);
+            int[,] resultMatrix = MatrixMultiplicationHelperMethods.FormResultantMatrix(resultMatrixFirstQuadrant, resultMatrixSecondQuadrant, resultMatrixThirdQuadrant, reslutMatrixFourthQuadrant);
 
             return resultMatrix;
         }
