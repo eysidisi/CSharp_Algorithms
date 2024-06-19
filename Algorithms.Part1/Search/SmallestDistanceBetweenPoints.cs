@@ -1,25 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithms.Part1.Search
+﻿namespace Algorithms.Part1.Search
 {
-    public class SmallestDistanceBetweenPoints
+    public partial class SmallestDistanceBetweenPoints
     {
-        public class Point
-        {
-            public int xCoordinate;
-            public int yCoordinate;
-
-            public Point(int xCoordinate, int yCoordinate)
-            {
-                this.xCoordinate = xCoordinate;
-                this.yCoordinate = yCoordinate;
-            }
-        }
-
         // It's assumed that no two points have the same x or y coordinate
         public int FindSmallestDistanceBetweenPoints(Point[] points)
         {
