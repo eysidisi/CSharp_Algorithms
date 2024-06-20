@@ -79,7 +79,6 @@
         //  A of n distinct integers which can be positive, negative, or zero.
         //  You want to decide whether or not there is an index i such that A[i] = i.
         //  Design the fastest algorithm you can for solving this problem.
-
         public static bool CheckIndexEqualsToTheValue(int[] arr)
         {
             int startingIndex = 0;
@@ -105,6 +104,45 @@
                 }
             }
             return false;
+        }
+
+        public static bool CheckIndexEqualsToTheValueRecursive(int[] arr)
+        {
+            if (arr == null || arr.Length == 0)
+            {
+                return false;
+            }
+
+            // Start recursive check
+            return CheckIndexEqualsToTheValueRecursive(arr, 0, arr.Length - 1);
+        }
+
+        private static bool CheckIndexEqualsToTheValueRecursive(int[] arr, int left, int right)
+        {
+            // Base case: if the array is fully traversed
+            if (left > right)
+            {
+                return false;
+            }
+
+            // Calculate the mid index
+            int mid = left + (right - left) / 2;
+
+            // Check if the mid index is equal to its value
+            if (arr[mid] == mid)
+            {
+                return true;
+            }
+            else if (arr[mid] > mid)
+            {
+                // Recur on the left subarray
+                return CheckIndexEqualsToTheValueRecursive(arr, left, mid - 1);
+            }
+            else
+            {
+                // Recur on the right subarray
+                return CheckIndexEqualsToTheValueRecursive(arr, mid + 1, right);
+            }
         }
     }
 }
