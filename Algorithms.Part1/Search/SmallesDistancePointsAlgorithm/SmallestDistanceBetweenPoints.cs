@@ -1,4 +1,4 @@
-﻿namespace Algorithms.Part1.Search
+﻿namespace Algorithms.Part1.Search.SmallesDistancePointsAlgorithm
 {
     public partial class SmallestDistanceBetweenPoints
     {

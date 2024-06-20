@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using Algorithms.Part1.Search;
-using static Algorithms.Part1.Search.SmallestDistanceBetweenPoints;
+﻿using Xunit;
+using Algorithms.Part1.Search.SmallesDistancePointsAlgorithm;
 
 namespace Algorithms.Part1.Tests.Search
 {
